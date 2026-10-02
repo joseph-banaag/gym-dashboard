@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className=" tracking-wide">
@@ -10,6 +12,7 @@ export default function Home() {
         This text is set to font weight: 200.
       </p>
       <p className="text-xs font-thin">This text is set to font weight: 100.</p>
+      <Link href="/dashboard">Dashboard</Link>
     </main>
   );
 }
