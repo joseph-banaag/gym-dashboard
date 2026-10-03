@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="basis-[10vw] ">
         <SideNav />
       </div>
-      <div className="basis-[90vw] p-5 border">{children}</div>
+      <div className="basis-[90vw] p-5 ">{children}</div>
     </div>
   );
 }

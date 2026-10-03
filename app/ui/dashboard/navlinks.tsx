@@ -45,13 +45,18 @@ export default function Navlinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              `h-11 text-xs font-medium flex gap-2 rounded-xl justify-center items-center p-3  hover:bg-(--deep-crimson) hover:text-(--off-white)`,
+              `h-11 text-xs font-medium flex gap-2 rounded-xl justify-center items-center p-3 shadow-xl/20 hover:shadow-xl/80 text-shadow-lg/20 transition delay-75 duration-200 ease-in-out  hover:bg-radial-[at_75%_90%] from-(--crimson-red)/50 via-(--crimson-red)/75 to-(--primary-scarlet) to-95% hover:text-(--off-white)  hover:border hover:border-(--primary-scarlet)`,
               pathname === link.href
-                ? "bg-(--deep-crimson) text-(--off-white)"
-                : "bg-(--deep-crimson)/50 text-(--off-white)/50",
+                ? "bg-(--deep-crimson) text-(--azure-mist) border border-(--primary-scarlet)/80 shadow-xl/80 bg-radial-[at_75%_90%] from-(--crimson-red)/75 via-(--crimson-red)/50 to-(--primary-scarlet) to-95%"
+                : "bg-(--deep-crimson) text-(--off-white)/60",
             )}
           >
-            <LinkIcon className="w-5" />
+            {/*
+      
+            
+hover:bg-(--deep-crimson)
+            */}
+            <LinkIcon className="w-5 shadow-xl/30" />
             {link.name}
           </Link>
         );

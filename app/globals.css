@@ -4,10 +4,15 @@
   --background: #faf9f6;
   --foreground: #292a2e;
   --deep-crimson: #96031a;
+  --primary-scarlet: #dc0425;
   --carbon-black: #1b1b1e;
   --dim-grey: #6d676e;
   --off-white: #faf9f6;
+  --dark-goldenrod: #b47604;
+  --harvest-gold: #dc9104;
   --orange: #faa916;
+  --sunflower-gold: #fcc55f;
+  --azure-mist: #ebfffa;
 }
 
 @theme inline {
@@ -21,10 +26,10 @@
   --font-sans: var(--font-adwaita), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --background: #faf9f6;
-    --foreground: #292a2e;
+    --background: #292a2e;
+    --foreground: #faf9f6;
   }
 }
 /* html {
