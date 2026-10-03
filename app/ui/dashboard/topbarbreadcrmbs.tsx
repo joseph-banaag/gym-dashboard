@@ -20,7 +20,7 @@ export default function TopBarBreadcrumbs() {
         const isLast = index === segments.length - 1;
 
         return (
-          <span key={href} className="flex gap-2">
+          <span key={href} className="flex gap-1 sm:gap-2">
             <span>/</span>
             <Link
               href={href}

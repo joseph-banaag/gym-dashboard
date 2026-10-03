@@ -51,8 +51,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${adwaitaSans.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">{children}</body>
+    <html lang="en" className={`${adwaitaSans.variable} antialiased`}>
+      <body className="m-0 min-h-dvh">{children}</body>
     </html>
   );
 }

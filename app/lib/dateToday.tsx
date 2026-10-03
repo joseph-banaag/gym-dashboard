@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 
 const getFormattedDate = () => {
   const today = new Date();
@@ -24,10 +24,20 @@ const getFormattedDate = () => {
 
 export default function DateToday() {
   const formattedDate = useMemo(() => getFormattedDate(), []);
+  const [time, setTime] = useState<string>("");
+
+  useEffect(() => {
+    const update = () => setTime(new Date().toLocaleTimeString());
+    update();
+    const id = setInterval(update, 1000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
-    <span className="text-xs font-light text-shadow-lg/20">
-      {formattedDate}
+    <span className="flex gap-2 text-xs font-light">
+      <span className="text-nowrap hidden sm:block">{formattedDate}</span>
+      <span className="hidden sm:block">|</span>
+      <span className="text-nowrap hidden md:block">{time}</span>
     </span>
   );
 }
