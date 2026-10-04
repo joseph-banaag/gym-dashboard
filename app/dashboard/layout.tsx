@@ -4,7 +4,7 @@ import "@/app/globals.css";
 import DateToday from "@/app/lib/dateToday";
 import TopBarBreadcrumbs from "../ui/dashboard/topbarbreadcrmbs";
 import Notification from "@/app/ui/dashboard/notif";
-import BurgerMenu from "../ui/dashboard/burgerMenu";
+import BurgerMenu from "../ui/dashboard/burger-menu";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

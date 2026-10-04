@@ -5,7 +5,7 @@
   --foreground: #292a2e;
   --deep-crimson: #96031a;
   --primary-scarlet: #dc0425;
-  --carbon-black: #1b1b1e;
+  --carbon-black: rgb(27, 27, 30);
   --dim-grey: #6d676e;
   --off-white: #faf9f6;
   --dark-goldenrod: #b47604;
@@ -24,6 +24,9 @@
 
 @theme {
   --font-sans: var(--font-adwaita), ui-sans-serif, system-ui, sans-serif;
+  --shadow-ua1: 0 50px 50px rgba(180, 118, 4, 0.15);
+  --shadow-ua2: 0 5px 5px rgb(41, 42, 46);
+  --shadow-ua3: 0 10px 5px rgb(27, 27, 30);
 }
 
 @media (prefers-color-scheme: dark) {

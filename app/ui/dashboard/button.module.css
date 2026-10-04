@@ -2,13 +2,22 @@
   --bar-width: 20px;
   --bar-height: 2px;
   --hamburger-gap: 3px;
-  --foreground-light: #e2e4e8;
-  --foreground: #bdc2c9;
+  --background: #faf9f6;
+  --foreground: #292a2e;
   --animation-timing: 200ms ease-in-out;
+  --primary-scarlet: #dc0425;
+  --harvest-gold: #dc9104;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #292a2e;
+    --foreground: #faf9f6;
+  }
 }
 
 #hamburgerMenu:focus-visible {
-  outline: 1px solid var(--foreground) ;
+  outline: 1px solid var(--foreground);
   outline-offset: 1px;
 }
 
@@ -29,14 +38,18 @@
   border-radius: 999px;
   background-color: var(--foreground);
   transform-origin: left center;
-  transition: opacity var(--animation-timing), width var(--animation-timing),
-    rotate var(--animation-timing), translate var(--animation-timing), background var(--animation-timing);
+  transition:
+    opacity var(--animation-timing),
+    width var(--animation-timing),
+    rotate var(--animation-timing),
+    translate var(--animation-timing),
+    background var(--animation-timing);
 }
 
 #hamburgerMenu:hover::before,
 #hamburgerMenu:hover::after,
 #hamburgerMenu input:hover {
-  background-color: var(--foreground-light);
+  background-color: var(--foreground);
 }
 
 #hamburgerMenu input {
@@ -57,4 +70,3 @@
   opacity: 0;
   width: 0;
 }
-
