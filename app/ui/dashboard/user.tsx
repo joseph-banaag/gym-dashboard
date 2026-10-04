@@ -22,7 +22,7 @@ export default function UserLoggedIn() {
       <div className="relative flex flex-col gap-2 p-1 pb-2  w-full">
         <div className={clsx(clicked ? "block" : "hidden")}>
           <span
-            className="absolute z-2 border bg-(--carbon-black) border-(--dim-grey)/40 rounded-2xl p-1 flex justify-center items-center bottom-3 left-3 shadow-ua1 cursor-pointer"
+            className="absolute z-2 border bg-(--dim-grey)/30 border-(--dim-grey)/20 rounded-2xl p-1 flex justify-center items-center bottom-3 left-3 shadow-ua1 cursor-pointer hover:border-(--dim-grey)/70"
             onClick={changeClicked}
           >
             <span className="w-6 h-6">
@@ -31,9 +31,9 @@ export default function UserLoggedIn() {
           </span>
           <UserProfile />
         </div>
-        <hr className="border rounded-2xl  border-(--orange) dark:border-(--dark-goldenrod) w-full" />
+        <hr className="border rounded-2xl  border-(--orange) dark:border-(--dark-goldenrod) w-full mb-1" />
         <div
-          className="flex justify-start items-center gap-2 p-3 text-foreground inset-shadow-sm/20 dark:text-(--off-white) rounded-xl inset-shadow-slate-500 transition delay-75 duration-150 ease-in-out shadow-xl/40 hover:shadow-xl/50 hover:shadow-ua2 cursor-pointer"
+          className="flex justify-start items-center gap-2 p-3 text-foreground inset-shadow-sm/20 dark:text-(--off-white) rounded-xl inset-shadow-slate-500 shadow-xl/40 cursor-pointer border border-(--dim-grey)/30 hover:border hover:border-(--dim-grey)/50"
           onClick={changeClicked}
         >
           <span>

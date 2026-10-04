@@ -11,9 +11,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="flex flex-row">
       {/* side navbar */}
       <SideNav />
-      <div className="w-screen">
+      <div className="w-full px-3 pt-1">
         {/* top bar with notif and time */}
-        <div className="h-12 w-full  p-2 shadow-lg flex items-center justify-between">
+        <div className="h-12 w-full  p-2 flex items-center justify-between  bg-(--carbon-black)/10 dark:bg-(--carbon-black)/40 rounded-xl inset-shadow-slate-500 shadow-xl/40">
           <div className="flex justify-center items-center gap-2 md:gap-3">
             <div className="w-5 flex md:hidden justify-center items-center">
               <BurgerMenu />

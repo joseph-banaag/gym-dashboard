@@ -20,3 +20,6 @@ offline:
 
 testing
 {}
+inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/40
+
+bg-(--carbon-black)/10

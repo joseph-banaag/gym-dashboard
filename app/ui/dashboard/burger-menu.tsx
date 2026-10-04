@@ -17,7 +17,7 @@ export default function BurgerMenu() {
     <>
       <span
         className={clsx(
-          `top-12 bottom-0 right-0 left-0 backdrop-blur-[2px] z-1`,
+          `top-15 bottom-0 right-0 left-0 backdrop-blur-[2px] z-1`,
           checked ? " absolute " : "hidden",
         )}
         onClick={handleChecked}
@@ -33,12 +33,12 @@ export default function BurgerMenu() {
       </label>
       <nav
         className={clsx(
-          `left-0 top-12 bottom-0 w-45 sm:w-50 z-2 inset-shadow-sm/20 shadow-lg/20 bg-(--carbon-black) p-3 gap-2`,
+          `left-0 top-12 bottom-0 w-45 sm:w-50 z-3 p-3 gap-2 my-2 ms-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/40 bg-(--carbon-black)/10 dark:bg-(--carbon-black)/40`,
           checked ? "absolute" : "hidden",
         )}
       >
         <div className="flex flex-col justify-between h-full">
-          <div className="h-full">
+          <div className="h-full flex flex-col gap-2 p-2">
             <NavlinksMobile />
           </div>
           <div className="flex  flex-col justify-center items-center gap-2">

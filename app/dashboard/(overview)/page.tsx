@@ -1,7 +1,9 @@
-import React from 'react'
+import React from "react";
 
 export default function Overview() {
   return (
-    <main>OverviewPage</main>
-  )
+    <main className="w-full  p-7 flex justify-center items-center">
+      <div>overview page</div>
+    </main>
+  );
 }
