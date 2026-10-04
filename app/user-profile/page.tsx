@@ -1,8 +1,10 @@
+import Link from "next/link";
 
 export default function Page() {
   return (
-    <div>
-      <span>this is the user page. madafaka!</span>
+    <div className="flex flex-col">
+      <span>this is the user&apos;s page. madafaka!</span>
+      <Link href="/dashboard">Dash-bored</Link>
     </div>
   );
 }

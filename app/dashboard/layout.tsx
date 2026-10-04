@@ -1,7 +1,7 @@
 import React from "react";
 import SideNav from "@/app/ui/dashboard/sidenav";
 import "@/app/globals.css";
-import DateToday from "@/app/lib/dateToday";
+import DateToday from "@/app/lib/date-today";
 import TopBarBreadcrumbs from "../ui/dashboard/topbarbreadcrmbs";
 import Notification from "@/app/ui/dashboard/notif";
 import BurgerMenu from "../ui/dashboard/burger-menu";

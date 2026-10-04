@@ -4,3 +4,19 @@
 • 16x16 Solid (Micro): @heroicons/react/16/solid
 
 todo: responsiveness
+create a database with the following details:
+id:
+name:
+email:
+address:
+date-hired:
+date-ended:
+statuses: {
+available:
+away:
+busy:
+offline:
+}
+
+testing
+{}
