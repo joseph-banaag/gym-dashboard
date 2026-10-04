@@ -45,10 +45,10 @@ export default function Navlinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              `h-11 text-[13px] font-medium flex gap-2 justify-center items-center p-3 hover:shadow-xl/40 text-shadow-lg/20 transition delay-75 duration-200 ease-in-out  hover:bg-radial-[at_75%_90%] from-(--crimson-red)/50 via-(--crimson-red)/75 to-(--primary-scarlet) to-95% hover:text-(--off-white)  hover:border hover:border-(--dim-grey) inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/40`,
+              `h-11 text-[13px] text-(--off-white) font-medium flex gap-2 justify-center items-center p-3 hover:shadow-xl/40 transition delay-75 duration-200 ease-in-out  hover:bg-radial-[at_75%_90%] from-(--crimson-red)/50 via-(--crimson-red)/75 to-(--primary-scarlet) to-95% hover:text-(--off-white)  hover:border hover:border-(--dim-grey) inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/40`,
               pathname === link.href
-                ? "bg-(--deep-crimson) text-(--azure-mist) border border-(--primary-scarlet)/80 shadow-xl/80 bg-radial-[at_75%_90%] from-(--crimson-red)/75 via-(--crimson-red)/50 to-(--primary-scarlet) to-95%"
-                : "bg-(--deep-crimson) text-(--off-white)/60",
+                ? "bg-(--deep-crimson) border border-(--primary-scarlet)/80 shadow-xl/80 bg-radial-[at_75%_90%] from-(--crimson-red)/75 via-(--crimson-red)/50 to-(--primary-scarlet) to-95%"
+                : "bg-(--deep-crimson) text-gray-800",
             )}
           >
             <LinkIcon className="w-5 shadow-xl/30" />
@@ -72,10 +72,10 @@ export const NavlinksMobile = () => {
             key={link.name}
             href={link.href}
             className={clsx(
-              `h-11 text-[13px] font-medium flex gap-2 justify-center items-center p-3 hover:shadow-xl/40 text-shadow-lg/20 transition delay-75 duration-200 ease-in-out  hover:bg-radial-[at_75%_90%] from-(--crimson-red)/50 via-(--crimson-red)/75 to-(--primary-scarlet) to-95% hover:text-(--off-white)  hover:border hover:border-(--dim-grey) inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/40 `,
+              `h-11 text-[13px] text-(--off-white) font-medium flex gap-2 justify-center items-center p-3 hover:shadow-xl/40 transition delay-75 duration-200 ease-in-out  hover:bg-radial-[at_75%_90%] from-(--crimson-red)/50 via-(--crimson-red)/75 to-(--primary-scarlet) to-95% hover:text-(--off-white)  hover:border hover:border-(--dim-grey) inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/40 `,
               pathname === link.href
-                ? "bg-(--deep-crimson) text-(--azure-mist) border border-(--primary-scarlet)/80 shadow-xl/80 bg-radial-[at_75%_90%] from-(--crimson-red)/75 via-(--crimson-red)/50 to-(--primary-scarlet) to-95%"
-                : "bg-(--deep-crimson) text-(--off-white)/60",
+                ? "bg-(--deep-crimson) border border-(--primary-scarlet)/80 shadow-xl/80 bg-radial-[at_75%_90%] from-(--crimson-red)/75 via-(--crimson-red)/50 to-(--primary-scarlet) to-95%"
+                : "bg-(--deep-crimson) text-gray-800",
             )}
           >
             {/*
