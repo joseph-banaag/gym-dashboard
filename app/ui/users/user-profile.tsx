@@ -1,7 +1,7 @@
 import {
-  Cog8ToothIcon,
   ArrowLeftStartOnRectangleIcon,
   BellAlertIcon,
+  Cog8ToothIcon,
   NumberedListIcon,
 } from "@heroicons/react/24/solid";
 import Link from "next/link";
@@ -31,19 +31,22 @@ const profileSettings = [
 
 export default function UserProfile() {
   return (
-    <div className="absolute bottom-1 left-1 h-74 w-55 border border-(--dim-grey)/20 rounded-2xl flex  flex-col items-start backdrop-blur-sm px-3 py-6 gap-2">
+    <div
+      className="absolute bottom-1 left-1 w-55 flex flex-col  border border-t-(--dim-grey) border-b-(--dim-grey) border-r-0 border-l-0 rounded-2xl px-3 pt-6 pb-15 gap-2 bg-(--carbon-black)/40 backdrop-blur-xs"
+    >
+
       {profileSettings.map((link) => {
         const LinkIcon = link.icon;
         return (
           <Link
             key={link.name}
             href={link.route}
-            className="border  p-3 flex items-center gap-2 border-(--dim-grey)/30 rounded-lg w-full"
+            className="border p-3 flex items-center gap-2 border-(--dim-grey)/60 rounded-lg w-full hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out text-(--azure-mist)/80 inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 text-[13px] font-light hover:font-medium"
           >
             <span className="w-5 h-5">
-              <LinkIcon />
+              <LinkIcon/>
             </span>
-            <span className="text-[13px] font-light">{link.name}</span>
+            {link.name}
           </Link>
         );
       })}

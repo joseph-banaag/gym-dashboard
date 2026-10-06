@@ -1,45 +1,44 @@
 :root {
-  --bar-width: 20px;
-  --bar-height: 2px;
-  --hamburger-gap: 3px;
-  --background: #faf9f6;
-  --foreground: #292a2e;
-  --animation-timing: 200ms ease-in-out;
-  --primary-scarlet: #dc0425;
-  --harvest-gold: #dc9104;
+    --bar-width: 20px;
+    --bar-height: 2px;
+    --hamburger-gap: 3px;
+    --background: #faf9f6;
+    --foreground: #292a2e;
+    --animation-timing: 200ms ease-in-out;
+    --primary-scarlet: #dc0425;
+    --harvest-gold: #dc9104;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #292a2e;
-    --foreground: #faf9f6;
-  }
+    :root {
+        --background: #292a2e;
+        --foreground: #faf9f6;
+    }
 }
 
 #hamburgerMenu:focus-visible {
-  outline: 1px solid var(--foreground);
-  outline-offset: 1px;
+    outline: 1px solid var(--foreground);
+    outline-offset: 1px;
 }
 
 #hamburgerMenu {
-  display: flex;
-  flex-direction: column;
-  gap: var(--hamburger-gap);
-  width: max-content;
-  cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    width: max-content;
+    cursor: pointer;
 }
 
 #hamburgerMenu::before,
 #hamburgerMenu::after,
 #hamburgerMenu input {
-  content: "";
-  width: var(--bar-width);
-  height: var(--bar-height);
-  border-radius: 999px;
-  background-color: var(--foreground);
-  transform-origin: left center;
-  transition:
-    opacity var(--animation-timing),
+    content: "";
+    width: var(--bar-width);
+    height: var(--bar-height);
+    border-radius: 999px;
+    background-color: var(--foreground);
+    transform-origin: left center;
+    transition: opacity var(--animation-timing),
     width var(--animation-timing),
     rotate var(--animation-timing),
     translate var(--animation-timing),
@@ -49,24 +48,27 @@
 #hamburgerMenu:hover::before,
 #hamburgerMenu:hover::after,
 #hamburgerMenu input:hover {
-  background-color: var(--foreground);
+    background-color: var(--foreground);
 }
 
 #hamburgerMenu input {
-  appearance: none;
-  outline: none;
-  pointer-events: none;
+    appearance: none;
+    outline: none;
+    pointer-events: none;
 }
+
 #hamburgerMenu:has(input:checked)::before {
-  rotate: 45deg;
-  translate: 2px -2px;
+    rotate: 45deg;
+    translate: 2px -2px;
 }
+
 #hamburgerMenu:has(input:checked)::after {
-  rotate: -45deg;
-  translate: 2px 2px;
+    rotate: -45deg;
+    translate: 2px 2px;
+    background-color: var(--harvest-gold);
 }
 
 #hamburgerMenu input:checked {
-  opacity: 0;
-  width: 0;
+    opacity: 0;
+    width: 0;
 }

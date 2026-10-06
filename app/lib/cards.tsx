@@ -16,7 +16,7 @@ export interface Card {
   trajectory: ComponentType<SVGProps<SVGSVGElement>>;
 }
 
-export const cards: Card[] = [
+export const cardContent: Card[] = [
   {
     name: "Active members",
     icon: UserGroupIcon,
@@ -34,7 +34,7 @@ export const cards: Card[] = [
   {
     name: "Monthly revenue",
     icon: ChartBarIcon,
-    value: "123,000",
+    value: "169,000",
     performance: "current vs. last month",
     trajectory: ArrowUpIcon,
   },

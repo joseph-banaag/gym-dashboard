@@ -8,7 +8,7 @@ import BurgerMenu from "../ui/dashboard/burger-menu";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-row min-w-99.25">
+    <div className="flex flex-row min-w-[320px]">
       {/* side navbar */}
       <SideNav />
       <div className="w-full px-3 pt-1">

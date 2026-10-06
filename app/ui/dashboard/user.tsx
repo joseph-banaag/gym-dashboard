@@ -1,15 +1,29 @@
 "use client";
 import UserProfile from "../users/user-profile";
 import clsx from "clsx";
-import { useState } from "react";
-import { XMarkIcon } from "@heroicons/react/24/solid";
-import UserStats from "../users/user-status";
-import { UserImage, UserName, UserDesignation } from "@/app/lib/current-user";
+import {useEffect, useState} from "react";
+import {XMarkIcon} from "@heroicons/react/24/solid";
+import {UserDesignation, UserImage, UserName} from "@/app/lib/current-user";
+import Hover from "../users/hover";
 
 export default function UserLoggedIn() {
   const [clicked, setClicked] = useState<boolean>(false);
 
   const changeClicked = () => setClicked(!clicked);
+
+  useEffect(() => {
+    if (!clicked) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setClicked(false);
+      }
+
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+
+  }, [clicked]);
 
   return (
     <>
@@ -19,34 +33,35 @@ export default function UserLoggedIn() {
         )}
         onClick={changeClicked}
       />
+
       <div className="relative flex flex-col gap-2 p-1 pb-2  w-full">
         <div className={clsx(clicked ? "block" : "hidden")}>
-          <span
-            className="absolute z-2 border bg-(--dim-grey)/30 border-(--dim-grey)/20 rounded-2xl p-1 flex justify-center items-center bottom-3 left-3 shadow-ua1 cursor-pointer hover:border-(--dim-grey)/70"
+          <button
+            className="absolute z-2 rounded-full p-1 flex justify-center items-center bottom-3 left-3 cursor-pointer border border-t-0 border-r-0 border-l-0 border-b-(--dim-grey) bg-(--carbon-black)/70"
             onClick={changeClicked}
           >
             <span className="w-6 h-6">
-              <XMarkIcon />
+              <XMarkIcon className="text-(--sunflower-gold)"/>
             </span>
-          </span>
-          <UserProfile />
+          </button>
+          <UserProfile/>
         </div>
-        <hr className="border rounded-2xl  border-(--orange) dark:border-(--dark-goldenrod) w-full mb-1" />
-        <div
-          className="flex justify-start items-center gap-2 p-3 text-foreground inset-shadow-sm/20 dark:text-(--off-white) rounded-xl inset-shadow-slate-500 shadow-xl/40 cursor-pointer border border-(--dim-grey)/30 hover:border hover:border-(--dim-grey)/50"
+        <hr className="border rounded-2xl  border-(--orange) dark:border-(--dark-goldenrod) w-full mb-1"/>
+        <button
+          className="flex justify-start items-center gap-2 p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/20 cursor-pointer border border-(--dim-grey)/30 hover:border hover:border-(--dim-grey)/50"
           onClick={changeClicked}
         >
-          <span>
-            <UserStats />
+          <span className="cursor-pointer">
+            <Hover/>
           </span>
           <div className="w-8 h-8 rounded-2xl flex justify-center items-center overflow-hidden border-foreground">
-            <UserImage />
+            <UserImage/>
           </div>
           <div className="flex flex-col justify-start items-start">
-            <UserName />
-            <UserDesignation />
+            <UserName/>
+            <UserDesignation/>
           </div>
-        </div>
+        </button>
       </div>
     </>
   );

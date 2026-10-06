@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import {usePathname} from "next/navigation";
 import clsx from "clsx";
 
 export default function TopBarBreadcrumbs() {
@@ -10,9 +10,9 @@ export default function TopBarBreadcrumbs() {
 
   return (
     <nav className="flex gap-2">
-      <Link 
-      href="/"
-      className="text-foreground/70"
+      <Link
+        href="/"
+        className="text-foreground/70"
       >home</Link>
 
       {segments.map((segment, index) => {
