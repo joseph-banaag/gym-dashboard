@@ -25,3 +25,37 @@ inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/40
 bg-(--carbon-black)/10
 TODO:
   create a round object that will display random emojis on tooltip
+
+FORM FOR THEME SELECTION:
+// app/page.tsx
+import { handleFormSubmit } from './actions'
+
+export default function ThemeForm() {
+  return (
+    <form action={handleFormSubmit} className="max-w-xs p-4 space-y-4">
+      <label htmlFor="theme" className="block text-sm font-medium text-gray-700">
+        Choose a Theme:
+      </label>
+
+      <select
+        id="theme"
+        name="theme" // This identifier is used by formData.get('theme')
+        defaultValue="system"
+        className="block w-full rounded-md border-gray-300 p-2 border"
+      >
+        <option value="light">Light Mode</option>
+        <option value="dark">Dark Mode</option>
+        <option value="system">System Preference</option>
+      </select>
+
+      <button
+        type="submit"
+        className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700"
+      >
+        Submit Choice
+      </button>
+    </form>
+  )
+}
+
+// source: https://share.google/aimode/ekssnFEONp3XjnFn4

@@ -28,6 +28,7 @@ export default function BurgerMenu() {
 
   return (
     <>
+      {/* overlay */}
       <span
         className={clsx(
           `top-15 bottom-0 right-0 left-0 backdrop-blur-[2px] z-1`,
@@ -35,6 +36,8 @@ export default function BurgerMenu() {
         )}
         onClick={handleChecked}
       />
+
+      {/* button */}
       <label
         htmlFor="hamburger-menu"
         id={styles.hamburgerMenu}
@@ -47,9 +50,11 @@ export default function BurgerMenu() {
           className="shadow-xl/20 border border-(--harvest-gold)"
         />
       </label>
+
+      {/* nav menu */}
       <nav
         className={clsx(
-          `left-0 top-12 bottom-0 w-45 sm:w-50 z-3 p-3 gap-2 my-2 ms-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/40 bg-(--carbon-black)/10 dark:bg-(--carbon-black)/40 backdrop-blur-[3px] border border-b-white  dark:border-b-(--dim-grey) border-s-0 dark:border-t-(--dim-grey) border-t-white border-r-0`,
+          `left-0 top-12 bottom-0 w-45 sm:w-50 z-3 p-3 gap-2 my-2 ms-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/40 bg-(--carbon-black)/10 dark:bg-(--carbon-black)/40 backdrop-blur-[3px] border border-b-white  dark:border-b-(--dim-grey) border-s-0 dark:border-t-(--dim-grey) border-t-white border-r-0 transition-all duration-500 ease-in-out`,
           checked ? "absolute" : "hidden",
         )}
       >

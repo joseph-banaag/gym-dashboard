@@ -5,36 +5,47 @@ import {useState} from "react";
 
 export default function Dropdown() {
   const [clicked, setClicked] = useState<boolean>(false);
-
-  // const attendanceCheck: string[] = ["This week", "Last week", "This month"];
+  const [sortGraph, setSortGraph] = useState<string>("This week");
 
   const handleClick = () => setClicked(!clicked);
+  const sortList = ["This week", "Last week", "This month"];
+  console.log("You are sorting the graph for: ", sortGraph);
 
   return (
-    <div
-      className="relative border flex justify-between items-center gap-2 py-1 px-2 rounded-lg border-(--dim-grey) cursor-pointer"
-      onClick={handleClick}
-    >
-      <span
-        className={clsx(
-          `${clicked ? "absolute top-0 bottom-0 right-0 left-0 z-1" : "hidden"}`,
-        )}
-      />
-      <span className="text-[11px] font-light">This week</span>
-      <ChevronDoubleDownIcon
-        className={clsx(
-          `${clicked ? " animate-bounce" : "animate-none"} w-4 h-4 z-5`,
-        )}
-      />
+    <div>
+      <span className={`${clicked ? "absolute top-0 right-0 bottom-0 left-0" : "hidden"}`}
+            onClick={() => setClicked(!clicked)}/>
       <div
-        className={clsx(`
-        ${clicked ? "absolute" : "hidden"}  border top-6 left-0 w-20 h-20 text-[11px] p-1`)}
+        className="relative border flex justify-between items-center gap-2 py-1 px-2 rounded-lg border-(--dim-grey) cursor-pointer"
+        onClick={handleClick}
       >
-        dropdown content
+
+        <span className="text-[11px] font-light">{sortGraph}</span>
+        <ChevronDoubleDownIcon
+          className={clsx(
+            `${clicked ? " animate-bounce" : "animate-none"} w-4 h-4 z-5`,
+          )}
+        />
+        <div
+          className={clsx(`
+        ${clicked ? "absolute" : "hidden"}  border top-7 left-0 text-[11px] px-1 border-(--dim-grey)/30 bg-(--carbon-black)/40 backdrop-blur-xs rounded-md flex flex-col justify-center items-center gap-1 py-2`)}
+        >
+          {sortList.map((item) => (
+            <button
+              key={item}
+              onClick={() => setSortGraph(item)}
+              className="py-1 px-2 border border-(--off-white)/30 dark:border-(--dim-grey)/30 rounded-md text-[11px] text-(--off-white)/90 bg-(--carbon-black)/30 shadow-lg/20"
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+
       </div>
     </div>
   );
 }
-
-// todo: import the server component here and accept the props that will be using to get data from the database to
-//  display the selected graph from the drop down button
+// create a list of options for the dropdown menu and then set the value of the option using useState
+// todo: import the server const here and accept the props that will be using to get data from the database that
+//  will be called by a server component containing the graph. the server const will be exported by the main graph
+//  component via exported const.

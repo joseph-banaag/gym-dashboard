@@ -1,6 +1,7 @@
 import Dropdown from "./dropdown";
 
 export default function Graphs() {
+
   return (
     <section className="mt-12 py-3 px-12 grid grid-cols-5 gap-5 dark:text-foreground text-(--carbon-black)/90">
       {/* right side */}
@@ -16,7 +17,12 @@ export default function Graphs() {
           <Dropdown/>
         </div>
         <div className="p-4">
-          <div className="">graph here...</div>
+          <div className="w-full h-full flex justify-center items-center border border-(--dim-grey)/40 rounded-lg">
+            <div className="px-5 h-30 flex justify-center items-center">
+              {/* change width and height of this section to follow the parent component dimension*/}
+              graph here...
+            </div>
+          </div>
         </div>
       </div>
       {/* left side */}

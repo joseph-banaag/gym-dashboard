@@ -3,7 +3,7 @@ import { useState } from "react";
 import clsx from "clsx";
 import UserStats from "./user-status";
 
-export default function Hover() {
+export default function HoverStatus() {
   const [isHovered, setIsHovered] = useState<boolean>(false);
 
   //todo: create a switch case to display status on tooltip

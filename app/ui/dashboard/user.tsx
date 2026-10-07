@@ -1,10 +1,10 @@
 "use client";
-import UserProfile from "../users/user-profile";
+import UserProfileMenu from "../users/user-profile-menu";
 import clsx from "clsx";
 import {useEffect, useState} from "react";
 import {XMarkIcon} from "@heroicons/react/24/solid";
 import {UserDesignation, UserImage, UserName} from "@/app/lib/current-user";
-import Hover from "../users/hover";
+import HoverStatus from "../users/hover-status";
 
 export default function UserLoggedIn() {
   const [clicked, setClicked] = useState<boolean>(false);
@@ -27,13 +27,14 @@ export default function UserLoggedIn() {
 
   return (
     <>
+      {/* overlay */}
       <span
         className={clsx(
           `${clicked ? "absolute w-screen h-full top-0 bottom-3 left-0 right-0" : "hidden"}`,
         )}
         onClick={changeClicked}
       />
-
+      {/* user-profile-menu */}
       <div className="relative flex flex-col gap-2 p-1 pb-2  w-full">
         <div className={clsx(clicked ? "block" : "hidden")}>
           <button
@@ -44,15 +45,18 @@ export default function UserLoggedIn() {
               <XMarkIcon className="text-(--sunflower-gold)"/>
             </span>
           </button>
-          <UserProfile/>
+          <UserProfileMenu/>
         </div>
+
         <hr className="border rounded-2xl  border-(--orange) dark:border-(--dark-goldenrod) w-full mb-1"/>
+
+        {/* logged-in user on the nav bar */}
         <button
           className="flex justify-start items-center gap-2 p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/20 cursor-pointer border border-(--dim-grey)/30 hover:border hover:border-(--dim-grey)/50"
           onClick={changeClicked}
         >
           <span className="cursor-pointer">
-            <Hover/>
+            <HoverStatus/>
           </span>
           <div className="w-8 h-8 rounded-2xl flex justify-center items-center overflow-hidden border-foreground">
             <UserImage/>
