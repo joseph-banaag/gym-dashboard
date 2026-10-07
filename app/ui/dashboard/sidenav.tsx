@@ -6,7 +6,7 @@ import UserLoggedIn from "@/app/ui/dashboard/user";
 export default function SideNav() {
   return (
     <nav
-      className="w-full p-1 hidden lg:flex flex-col  justify-between  rounded-r-xl inset-shadow-sm/20  inset-shadow-slate-500 shadow-xl/20 bg-(--carbon-black)/10 dark:bg-(--carbon-black)/40">
+      className="w-60 h-screen p-1 hidden lg:flex flex-col  justify-between  rounded-r-xl inset-shadow-sm/20  inset-shadow-slate-500 shadow-xl/20 bg-(--carbon-black)/10 dark:bg-(--carbon-black)/40">
       <Link href="/">
         <BusinessLogo/>
       </Link>

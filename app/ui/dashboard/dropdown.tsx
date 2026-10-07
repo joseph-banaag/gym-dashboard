@@ -8,22 +8,22 @@ export default function Dropdown() {
   const [sortGraph, setSortGraph] = useState<string>("This week");
 
   const handleClick = () => setClicked(!clicked);
-  const sortList = ["This week", "Last week", "This month"];
-  console.log("You are sorting the graph for: ", sortGraph);
+  const sortList: string[] = ["This week", "Last week", "This month"];
 
   return (
-    <div>
-      <span className={`${clicked ? "absolute top-0 right-0 bottom-0 left-0" : "hidden"}`}
+    <>
+      {/* overlay */}
+      <span className={`${clicked ? "absolute top-0 right-0 bottom-0 left-0 w-full h-full" : "hidden"}`}
             onClick={() => setClicked(!clicked)}/>
+
       <div
         className="relative border flex justify-between items-center gap-2 py-1 px-2 rounded-lg border-(--dim-grey) cursor-pointer"
-        onClick={handleClick}
-      >
+        onClick={handleClick}>
 
         <span className="text-[11px] font-light">{sortGraph}</span>
         <ChevronDoubleDownIcon
           className={clsx(
-            `${clicked ? " animate-bounce" : "animate-none"} w-4 h-4 z-5`,
+            `${clicked ? " animate-bounce" : "animate-none"} w-4 h-4`,
           )}
         />
         <div
@@ -42,7 +42,7 @@ export default function Dropdown() {
         </div>
 
       </div>
-    </div>
+    </>
   );
 }
 // create a list of options for the dropdown menu and then set the value of the option using useState

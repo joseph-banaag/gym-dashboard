@@ -1,4 +1,4 @@
-import Dropdown from "./dropdown";
+import Dropdown from "@/app/ui/dashboard/dropdown";
 
 export default function Graphs() {
 

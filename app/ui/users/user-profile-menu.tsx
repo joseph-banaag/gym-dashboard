@@ -32,7 +32,7 @@ const profileSettings = [
 export default function UserProfileMenu() {
   return (
     <div
-      className="absolute bottom-1 left-1 w-55 flex flex-col  border border-t-(--dim-grey) border-b-(--dim-grey) border-r-0 border-l-0 rounded-2xl px-3 pt-6 pb-15 gap-2 bg-(--carbon-black)/40 backdrop-blur-xs"
+      className="absolute bottom-1 left-1 w-60 flex flex-col  border border-t-(--dim-grey) border-b-(--dim-grey) border-r-0 border-l-0 rounded-2xl px-3 pt-6 pb-15 gap-2 bg-(--carbon-black)/40 backdrop-blur-xs"
     >
 
       {profileSettings.map((link) => {

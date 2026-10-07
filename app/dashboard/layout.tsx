@@ -10,13 +10,14 @@ export default function Layout({children}: { children: React.ReactNode }) {
   return (
     <main className="flex flex-row min-w-[320px]">
       {/* side navbar */}
-      <aside>
+      <aside className="sticky top-0 left-0 h-screen min-h-120">
         <SideNav/>
       </aside>
       <section className="w-screen px-3 pt-1">
+
         {/* top bar with notif and time */}
         <div
-          className="h-12 w-full  p-2 flex items-center justify-between  bg-(--carbon-black)/10 dark:bg-(--carbon-black)/40 rounded-xl inset-shadow-slate-500 shadow-xl/40">
+          className="sticky top-1 h-12 w-full p-2 flex items-center justify-between  bg-(--carbon-black)/10 dark:bg-(--carbon-black)/40 rounded-xl inset-shadow-slate-500 shadow-xl/40">
           <div className="flex justify-center items-center gap-2 md:gap-3">
             <div className="w-5 flex lg:hidden justify-center items-center">
               <BurgerMenu/>

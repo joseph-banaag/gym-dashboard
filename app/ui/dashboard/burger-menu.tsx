@@ -22,16 +22,17 @@ export default function BurgerMenu() {
     }
 
     document.addEventListener("keydown", handleKeyDown);
+
     return () => document.removeEventListener("keydown", handleKeyDown);
 
   }, [checked])
 
   return (
-    <>
+    <div>
       {/* overlay */}
       <span
         className={clsx(
-          `top-15 bottom-0 right-0 left-0 backdrop-blur-[2px] z-1`,
+          `top-12 bottom-0 right-0 left-0 backdrop-blur-xs z-1 w-screen h-screen`,
           checked ? " absolute " : "hidden",
         )}
         onClick={handleChecked}
@@ -54,7 +55,7 @@ export default function BurgerMenu() {
       {/* nav menu */}
       <nav
         className={clsx(
-          `left-0 top-12 bottom-0 w-45 sm:w-50 z-3 p-3 gap-2 my-2 ms-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/40 bg-(--carbon-black)/10 dark:bg-(--carbon-black)/40 backdrop-blur-[3px] border border-b-white  dark:border-b-(--dim-grey) border-s-0 dark:border-t-(--dim-grey) border-t-white border-r-0 transition-all duration-500 ease-in-out`,
+          `left-0 top-12 bottom-0 w-45 h-[calc(100vh-70px)] sm:w-50 z-5 p-3 gap-2 my-2 ms-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/40 bg-(--carbon-black)/10 dark:bg-(--carbon-black)/40 backdrop-blur-[3px] border border-b-white  dark:border-b-(--dim-grey) border-s-0 dark:border-t-(--dim-grey) border-t-white border-r-0 transition-all duration-500 ease-in-out`,
           checked ? "absolute" : "hidden",
         )}
       >
@@ -72,6 +73,6 @@ export default function BurgerMenu() {
           </div>
         </div>
       </nav>
-    </>
+    </div>
   );
 }

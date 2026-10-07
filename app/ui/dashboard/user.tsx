@@ -48,7 +48,7 @@ export default function UserLoggedIn() {
           <UserProfileMenu/>
         </div>
 
-        <hr className="border rounded-2xl  border-(--orange) dark:border-(--dark-goldenrod) w-full mb-1"/>
+        <hr className="border rounded-2xl  border-(--orange) dark:border-(--dark-goldenrod) w-full my-2"/>
 
         {/* logged-in user on the nav bar */}
         <button
