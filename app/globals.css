@@ -13,6 +13,10 @@
     --orange: #faa916;
     --sunflower-gold: #fcc55f;
     --azure-mist: #ebfffa;
+    --bar-low: #eae2b7;
+    --bar-mid: #fcbf49;
+    --bar-above-mid: #f77f00;
+    --bar-full: #ff0054;
 }
 
 @theme inline {

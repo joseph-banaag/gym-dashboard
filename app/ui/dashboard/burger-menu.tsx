@@ -1,7 +1,7 @@
 "use client";
 import {useEffect, useState} from "react";
 import styles from "./button.module.css";
-import Navlinks from "./navlinks";
+import NavRoutes from "./nav-routes";
 import "@/app/globals.css";
 import UserLoggedIn from "./user";
 import {BusinessLogoMobile} from "./biz-logo";
@@ -61,7 +61,7 @@ export default function BurgerMenu() {
       >
         <div className="flex flex-col justify-between h-full">
           <div className="h-full flex flex-col gap-2 p-2">
-            <Navlinks/>
+            <NavRoutes/>
           </div>
           <div className="flex  flex-col justify-center items-center gap-2">
             <Link href="/">

@@ -1,39 +1,12 @@
 "use client";
 
-import {
-  ArrowTrendingUpIcon,
-  CalendarDaysIcon,
-  PresentationChartBarIcon,
-  UserGroupIcon,
-} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import clsx from "clsx";
 import {usePathname} from "next/navigation";
+import {links} from "@/app/lib/nav-links";
 
-const links = [
-  {
-    name: "Overview",
-    href: "/dashboard",
-    icon: ArrowTrendingUpIcon,
-  },
-  {
-    name: "Classes",
-    href: "/dashboard/classes",
-    icon: CalendarDaysIcon,
-  },
-  {
-    name: "Members",
-    href: "/dashboard/members",
-    icon: UserGroupIcon,
-  },
-  {
-    name: "Revenue",
-    href: "/dashboard/revenue",
-    icon: PresentationChartBarIcon,
-  },
-];
 
-export default function Navlinks() {
+export default function NavRoutes() {
   const pathname = usePathname();
 
   return (

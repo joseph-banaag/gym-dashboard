@@ -1,12 +1,12 @@
 import {
-  UserGroupIcon,
+  ArrowDownIcon,
+  ArrowUpIcon,
   CalendarDaysIcon,
   ChartBarIcon,
   ExclamationCircleIcon,
-  ArrowUpIcon,
-  ArrowDownIcon,
+  UserGroupIcon,
 } from "@heroicons/react/24/solid";
-import type { ComponentType, SVGProps } from "react";
+import type {ComponentType, SVGProps} from "react";
 
 export interface Card {
   name: string;

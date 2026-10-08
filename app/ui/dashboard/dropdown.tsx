@@ -34,7 +34,7 @@ export default function Dropdown() {
             <button
               key={item}
               onClick={() => setSortGraph(item)}
-              className="py-1 px-2 border border-(--off-white)/30 dark:border-(--dim-grey)/30 rounded-md text-[11px] text-(--off-white)/90 bg-(--carbon-black)/30 shadow-lg/20"
+              className="py-1 px-2 border border-(--off-white)/30 dark:border-(--dim-grey)/30 rounded-md text-[11px] sm:font-extralight text-(--off-white)/90 bg-(--carbon-black)/30 shadow-lg/20"
             >
               {item}
             </button>

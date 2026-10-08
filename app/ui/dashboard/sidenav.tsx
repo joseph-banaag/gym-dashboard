@@ -1,6 +1,6 @@
 import Link from "next/link";
 import BusinessLogo from "./biz-logo";
-import Navlinks from "./navlinks";
+import NavRoutes from "./nav-routes";
 import UserLoggedIn from "@/app/ui/dashboard/user";
 
 export default function SideNav() {
@@ -11,7 +11,7 @@ export default function SideNav() {
         <BusinessLogo/>
       </Link>
       <div className="basis-[80vh]  flex  flex-col gap-2 pt-5 px-3">
-        <Navlinks/>
+        <NavRoutes/>
       </div>
       <UserLoggedIn/>
     </nav>

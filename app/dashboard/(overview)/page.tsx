@@ -1,6 +1,6 @@
 import "@/app/globals.css";
 import Cards from "@/app/ui/dashboard/cards";
-import Graphs from "@/app/ui/dashboard/graphs";
+import GraphsSection from "@/app/ui/dashboard/graphs-section";
 import MembersStatus from "@/app/ui/dashboard/member-status";
 
 export default function Overview() {
@@ -18,13 +18,11 @@ export default function Overview() {
         </p>
       </div>
       {/* cards  */}
-      <Cards/>
+      <Cards />
       {/* graphs */}
-      <Graphs/>
+      <GraphsSection />
       {/* member's status */}
-      <MembersStatus/>
-
-
+      <MembersStatus />
     </main>
   );
 }

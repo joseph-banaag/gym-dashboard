@@ -1,38 +1,18 @@
 import React from "react";
 import SideNav from "@/app/ui/dashboard/sidenav";
 import "@/app/globals.css";
-import DateToday from "@/app/lib/date-today";
-import TopBarBreadcrumbs from "../ui/dashboard/topbarbreadcrmbs";
-import Notification from "@/app/ui/dashboard/notif";
-import BurgerMenu from "../ui/dashboard/burger-menu";
+import Topbar from "@/app/ui/dashboard/topbar";
 
-export default function Layout({children}: { children: React.ReactNode }) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <main className="flex flex-row min-w-[320px]">
+    <main className="flex flex-row">
       {/* side navbar */}
       <aside className="sticky top-0 left-0 h-screen min-h-120">
-        <SideNav/>
+        <SideNav />
       </aside>
       <section className="w-screen px-3 pt-1">
+        <Topbar />
 
-        {/* top bar with notif and time */}
-        <div
-          className="sticky top-1 h-12 w-full p-2 flex items-center justify-between  bg-(--carbon-black)/10 dark:bg-(--carbon-black)/40 rounded-xl inset-shadow-slate-500 shadow-xl/40">
-          <div className="flex justify-center items-center gap-2 md:gap-3">
-            <div className="w-5 flex lg:hidden justify-center items-center">
-              <BurgerMenu/>
-            </div>
-            <div className="text-xs font-light flex">
-              <TopBarBreadcrumbs/>
-            </div>
-          </div>
-          <div className="flex gap-2 items-center ">
-            <DateToday/>
-            <Notification/>
-          </div>
-        </div>
-
-        {/* children */}
         {children}
       </section>
     </main>

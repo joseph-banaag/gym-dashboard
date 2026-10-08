@@ -59,3 +59,45 @@ export default function ThemeForm() {
 }
 
 // source: https://share.google/aimode/ekssnFEONp3XjnFn4
+
+adwaita cdn. font size can be change by changing the number and style. these have 400, 500 and type normal
+https://cdn.jsdelivr.net/fontsource/fonts/adwaita-sans@latest/latin-400-normal.woff2
+https://cdn.jsdelivr.net/fontsource/fonts/adwaita-sans@latest/latin-500-normal.woff2
+https://cdn.jsdelivr.net/fontsource/fonts/adwaita-sans@latest/latin-400-italic.woff2
+https://cdn.jsdelivr.net/fontsource/fonts/adwaita-sans@latest/latin-500-italic.woff2
+
+
+this downloads font
+
+node_modules/@fontsource/adwaita-sans/files/
+
+
+NOTE:
+to use the value of the jsx props, create a function outside the main function and then get the props using this
+extraction method:
+
+function getProgress(attnd?: string | number, total?:string | number){
+return;
+}
+
+export default function SeatStatus({ attnd, total }: SeatStatusProps) {
+  const { percentage, barClass } = getProgress(attnd, total);
+
+
+  // THIS IS HOW TO GET THE SCROLLY QUANTITY:
+
+    const [scrollY, setScrollY] = useState(0);
+
+    useEffect(() => {
+      const handleScroll = () => {
+        setScrollY(window.scrollY);
+      };
+
+      window.addEventListener("scroll", handleScroll, { passive: true });
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }, []);
+
+    console.log(scrollY);

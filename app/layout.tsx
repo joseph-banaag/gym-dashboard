@@ -5,25 +5,41 @@ import localFont from "next/font/local";
 const adwaitaSans = localFont({
   src: [
     {
-      path: "../fonts/adwaita-sans-latin-100-normal.woff",
+      path: "../public/fonts/adwaita-sans-latin-100-normal.woff2",
       weight: "100",
-      style: "normal",
+      style: "normal"
     },
     {
-      path: "../fonts/adwaita-sans-latin-200-normal.woff",
+      path: "../public/fonts/adwaita-sans-latin-200-normal.woff2",
       weight: "200",
-      style: "normal",
+      style: "normal"
     },
     {
-      path: "../fonts/adwaita-sans-latin-300-normal.woff",
+      path: "../public/fonts/adwaita-sans-latin-300-normal.woff2",
       weight: "300",
-      style: "normal",
+      style: "normal"
     },
     {
-      path: "../fonts/adwaita-sans-latin-400-normal.woff",
+      path: "../public/fonts/adwaita-sans-latin-400-normal.woff2",
       weight: "400",
-      style: "normal",
+      style: "normal"
+    },
+    {
+      path: "../public/fonts/adwaita-sans-latin-500-normal.woff2",
+      weight: "500",
+      style: "normal"
+    },
+    {
+      path: "../public/fonts/adwaita-sans-latin-600-normal.woff2",
+      weight: "600",
+      style: "normal"
+    },
+    {
+      path: "../public/fonts/adwaita-sans-latin-700-normal.woff2",
+      weight: "700",
+      style: "normal"
     }
+
   ],
   variable: "--font-adwaita",
   display: "swap",
