@@ -1,7 +1,7 @@
 "use client";
-import {ChevronDoubleDownIcon} from "@heroicons/react/24/solid";
-import {clsx} from "clsx";
-import {useState} from "react";
+import { clsx } from "clsx";
+import { useState } from "react";
+import { ChevronDoubleDownIcon } from "@heroicons/react/16/solid";
 
 export default function Dropdown() {
   const [clicked, setClicked] = useState<boolean>(false);
@@ -13,13 +13,15 @@ export default function Dropdown() {
   return (
     <>
       {/* overlay */}
-      <span className={`${clicked ? "absolute top-0 right-0 bottom-0 left-0 w-full h-full" : "hidden"}`}
-            onClick={() => setClicked(!clicked)}/>
+      <span
+        className={`${clicked ? "absolute inset-0 w-full h-full" : "hidden"}`}
+        onClick={() => setClicked(!clicked)}
+      />
 
       <div
         className="relative border flex justify-between items-center gap-2 py-1 px-2 rounded-lg border-(--dim-grey) cursor-pointer"
-        onClick={handleClick}>
-
+        onClick={handleClick}
+      >
         <span className="text-[11px] font-light">{sortGraph}</span>
         <ChevronDoubleDownIcon
           className={clsx(
@@ -40,7 +42,6 @@ export default function Dropdown() {
             </button>
           ))}
         </div>
-
       </div>
     </>
   );
