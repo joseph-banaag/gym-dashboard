@@ -3,7 +3,7 @@ import ExerciseToday from "@/app/ui/dashboard/exercise-today";
 
 export default function GraphsSection() {
   return (
-    <section className="mt-12 py-3 p-5 sm:px-12 grid grid-col-3 xl:grid-cols-5 gap-5 dark:text-foreground text-(--carbon-black)/90">
+    <section className="mt-12 py-3 px-5 sm:px-12 grid grid-col-3 xl:grid-cols-5 gap-5 dark:text-foreground text-(--carbon-black)/90">
       {/* right side */}
       <div className="col-span-3 p-3 rounded-lg bg-(--carbon-black)/10 dark:bg-(--carbon-black)/40">
         <div className="flex justify-between items-start">

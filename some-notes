@@ -1,3 +1,7 @@
+    ?! CREATE A GRAINY TEXTURE ON ALL COMPONENT.
+
+
+
 • 24x24 Solid: @heroicons/react/24/solid
 • 24x24 Outline: @heroicons/react/24/outline
 • 20x20 Solid (Mini): @heroicons/react/20/solid
@@ -101,3 +105,12 @@ export default function SeatStatus({ attnd, total }: SeatStatusProps) {
     }, []);
 
     console.log(scrollY);
+
+    // SAMPLE TRANSLATE EFFECT:
+
+    <div
+       className={`${clicked ? "-translate-y-120" : "translate-y-0"} w-32 h-12 transition duration-700 ease-in-out flex justify-center items-center rounded-lg bg-(--carbon-black)/20 flex-col`}
+       onClick={() => setClicked(!clicked)}
+    >
+          sample effect
+    </div>

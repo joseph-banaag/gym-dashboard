@@ -36,6 +36,7 @@ export default function UserLoggedIn() {
       />
       {/* user-profile-menu */}
       <div className="relative flex flex-col gap-2 p-1 pb-2  w-full">
+
         <div className={clsx(clicked ? "block" : "hidden")}>
           <button
             className="absolute z-2 rounded-full p-1 flex justify-center items-center bottom-3 left-3 cursor-pointer border border-t-0 border-r-0 border-l-0 border-b-(--dim-grey) bg-(--carbon-black)/70"
