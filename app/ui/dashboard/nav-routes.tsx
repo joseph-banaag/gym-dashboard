@@ -3,7 +3,7 @@
 import Link from "next/link";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
-import { links } from "@/app/lib/nav-links";
+import { links } from "@/app/lib/dashboard/nav-links";
 
 export default function NavRoutes() {
   const pathname = usePathname();

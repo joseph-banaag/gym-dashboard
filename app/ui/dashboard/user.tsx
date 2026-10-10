@@ -3,7 +3,11 @@ import UserProfileMenu from "../users/user-profile-menu";
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import { UserDesignation, UserImage, UserName } from "@/app/lib/current-user";
+import {
+  UserDesignation,
+  UserImage,
+  UserName,
+} from "@/app/lib/dashboard/current-user";
 import HoverStatus from "../users/hover-status";
 
 export default function UserLoggedIn() {
@@ -35,25 +39,23 @@ export default function UserLoggedIn() {
   }, [clicked]);
 
   return (
-    <div ref={ref} className="relative">
-      <div className="relative flex flex-col gap-2 p-1 pb-2  w-full">
-        <div className={clsx(clicked ? "block" : "hidden")}>
-          <button
-            className="absolute z-2 rounded-full p-1 flex justify-center items-center bottom-3 left-3 cursor-pointer border border-t-0 border-r-0 border-l-0 border-b-(--dim-grey) bg-(--carbon-black)/70"
-            onClick={changeClicked}
-          >
-            <span className="w-6 h-6">
-              <XMarkIcon className="text-(--sunflower-gold)" />
-            </span>
-          </button>
+    <div ref={ref} className="relative w-full">
+      <div className="flex flex-col gap-2 p-1 pb-2 w-full">
+        <button
+          className={clsx(clicked ? "block" : "hidden")}
+          onClick={changeClicked}
+        >
+          <span className="w-8 h-8 z-5 absolute rounded-full p-1 flex justify-center items-center bottom-3 left-3 cursor-pointer shadow-xl/20 inset-shadow-sm/20  bg-(--off-white)/30 dark:bg-(--dim-grey)/70">
+            <XMarkIcon className="dark:text-(--sunflower-gold) text-(--orange)" />
+          </span>
           <UserProfileMenu />
-        </div>
+        </button>
 
         <hr className="border rounded-2xl  border-(--orange) dark:border-(--dark-goldenrod) w-full my-2" />
 
         {/* logged-in user on the nav bar */}
         <button
-          className="flex justify-start items-center gap-2 p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/20 cursor-pointer border border-(--dim-grey)/30 hover:border hover:border-(--dim-grey)/50"
+          className="flex justify-start items-center gap-2 p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/20 cursor-pointer border border-(--dim-grey)/30 hover:border hover:border-(--dim-grey)/50 w-full"
           onClick={changeClicked}
         >
           <span className="cursor-pointer">

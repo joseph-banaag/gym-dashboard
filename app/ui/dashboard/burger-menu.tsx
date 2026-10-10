@@ -52,16 +52,17 @@ export default function BurgerMenu() {
       {/* nav menu */}
       <nav
         className={clsx(
-          "top-8 left-0 bottom-0 w-45 h-[calc(100vh-70px)] sm:w-50 p-3 gap-20 bg-(--off-white)/90" +
-            " dark:bg-(--carbon-black)/80 backdrop-blur-3xl inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-xl border-2 border-r-0 border-l-0 dark:border-(--dim-grey)/50 border-white transition-all delay-150 duration-500 ease-in-out -translate-x-8",
           checked ? "absolute" : "hidden",
+          "top-8 left-0 bottom-0 w-45 h-[calc(100vh-70px)] sm:w-50 gap-20 bg-(--off-white)/90" +
+            " dark:bg-(--carbon-black)/90 backdrop-blur-3xl inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20" +
+            " rounded-xl border-2 border-r-0 border-l-0 dark:border-(--dim-grey)/50 border-white transition-all delay-150 duration-500 ease-in-out -translate-x-8",
         )}
       >
         <div className="flex flex-col justify-between h-full">
-          <div className="h-full flex flex-col gap-2 p-2">
+          <div className="h-full flex flex-col gap-2 p-5">
             <NavRoutes />
           </div>
-          <div className="flex  flex-col justify-center items-center gap-2">
+          <div className="flex flex-col justify-center items-center gap-2">
             <Link href="/">
               <BusinessLogoMobile />
             </Link>

@@ -1,6 +1,6 @@
 import BurgerMenu from "@/app/ui/dashboard/burger-menu";
 import TopBarBreadcrumbs from "@/app/ui/dashboard/topbarbreadcrmbs";
-import DateToday from "@/app/lib/date-today";
+import DateToday from "@/app/lib/dashboard/date-today";
 import Notification from "@/app/ui/dashboard/notif";
 
 export default function Topbar() {

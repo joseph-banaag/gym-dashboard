@@ -1,6 +1,6 @@
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import { programSchedule } from "@/app/lib/programs-today";
+import { programSchedule } from "@/app/lib/dashboard/programs-today";
 import SeatStatus from "@/app/ui/dashboard/seat-status";
 
 export default function ExerciseToday() {
