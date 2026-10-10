@@ -12,7 +12,7 @@ export default function Notification() {
       className="w-5 relative cursor-pointer"
     >
       <BellIcon />
-      <span className={clsx(`${hasNotif ? "block" : "hidden"}`)}>
+      <span className={clsx(hasNotif ? "block" : "hidden")}>
         <span className="absolute  border-4 border-(--sunflower-gold) rounded-full top-0  right-0 animate-ping" />
         <span className="absolute  border-4 border-(--harvest-gold) rounded-full top-0  right-0" />
       </span>

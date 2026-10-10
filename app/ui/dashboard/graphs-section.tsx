@@ -1,5 +1,6 @@
 import Dropdown from "@/app/ui/dashboard/dropdown";
 import ExerciseToday from "@/app/ui/dashboard/exercise-today";
+import ThisWeekChart from "@/app/lib/week-chart";
 
 export default function GraphsSection() {
   return (
@@ -18,7 +19,7 @@ export default function GraphsSection() {
           <div className="w-full h-full flex justify-center items-center border border-(--dim-grey)/40 rounded-lg">
             <div className="px-5 h-30 flex justify-center items-center">
               {/* change width and height of this section to follow the parent component dimension*/}
-              graph here...
+              <ThisWeekChart />
             </div>
           </div>
         </div>

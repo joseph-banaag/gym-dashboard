@@ -1,19 +1,19 @@
 "use client";
-import {useState} from "react";
+import { useState } from "react";
 import clsx from "clsx";
 import UserStats from "./user-status";
-import {status} from "@/app/ui/users/user-status"
+import { status } from "@/app/ui/users/user-status";
 
 let userStatus: string;
 
 if (status === "available") {
-  userStatus = "Available"
+  userStatus = "Available";
 } else if (status === "busy") {
-  userStatus = "Busy"
+  userStatus = "Busy";
 } else if (status === "away") {
-  userStatus = "Away (AFK)"
+  userStatus = "Away (AFK)";
 } else {
-  userStatus = "Offline"
+  userStatus = "Offline";
 }
 
 export default function HoverStatus() {
@@ -29,10 +29,14 @@ export default function HoverStatus() {
       }}
       className="cursor-pointer"
     >
-      <UserStats/>
+      <UserStats />
       <span
         className={clsx(
-          `${isHovered ? "border h-3 border-(--dim-grey)/30 absolute top-3 flex justify-center items-center text-[12px] p-3 rounded-full backdrop-blur-xs" : "hidden"} flex `,
+          isHovered
+            ? "border h-3 border-(--dim-grey)/30 absolute top-3 flex justify-center items-center text-[12px]" +
+                " p-3 rounded-full backdrop-blur-xs"
+            : "hidden",
+          "flex",
         )}
       >
         {userStatus}

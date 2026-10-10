@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./button.module.css";
 import "@/app/globals.css";
 import clsx from "clsx";
@@ -10,10 +10,16 @@ import UserLoggedIn from "@/app/ui/dashboard/user";
 
 export default function BurgerMenu() {
   const [checked, setChecked] = useState<boolean>(false);
+  const ref = useRef<HTMLDivElement>(null);
+
   const handleChecked = () => setChecked(!checked);
 
   useEffect(() => {
     if (!checked) return;
+
+    const handleMouseDown = (e: MouseEvent) => {
+      if (!ref.current?.contains(e.target as Node)) setChecked(false);
+    };
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -21,19 +27,17 @@ export default function BurgerMenu() {
       }
     };
 
+    document.addEventListener("mousedown", handleMouseDown);
     document.addEventListener("keydown", handleKeyDown);
 
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("mousedown", handleMouseDown);
+    };
   }, [checked]);
 
   return (
-    <div>
-      {/* overlay */}
-      <div
-        className={`${checked ? "absolute" : "hidden"} top-13 left-0 right-0 bottom-0 w-screen h-screen -translate-x-11 z-5`}
-        onClick={handleChecked}
-      />
-
+    <div ref={ref} className="relative">
       {/* button */}
       <label htmlFor="hamburger-menu" id={styles.hamburgerMenu}>
         <input
@@ -48,7 +52,8 @@ export default function BurgerMenu() {
       {/* nav menu */}
       <nav
         className={clsx(
-          `z-99 top-13 left-0 bottom-0 w-45 h-[calc(100vh-70px)] sm:w-50 p-3 gap-20 bg-(--off-white)/90 dark:bg-(--carbon-black)/80 backdrop-blur-3xl inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-xl border-2 border-r-0 border-l-0 dark:border-(--dim-grey)/50 border-white transition-all delay-150 duration-500 ease-in-out -translate-x-8`,
+          "top-8 left-0 bottom-0 w-45 h-[calc(100vh-70px)] sm:w-50 p-3 gap-20 bg-(--off-white)/90" +
+            " dark:bg-(--carbon-black)/80 backdrop-blur-3xl inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-xl border-2 border-r-0 border-l-0 dark:border-(--dim-grey)/50 border-white transition-all delay-150 duration-500 ease-in-out -translate-x-8",
           checked ? "absolute" : "hidden",
         )}
       >
@@ -69,5 +74,3 @@ export default function BurgerMenu() {
     </div>
   );
 }
-
-// inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/40 border border-b-white  dark:border-b-(--dim-grey) border-l-0 dark:border-t-(--dim-grey) border-t-white border-r-0 transition-all duration-500 ease-in-out backdrop-blur-2xl

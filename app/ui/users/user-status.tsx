@@ -1,4 +1,4 @@
-const userStatus: string = "available"
+const userStatus: string = "busy"; // todo: change this string from the user status in the database
 
 export default function UserStats() {
   const statusColor = {
@@ -20,7 +20,7 @@ export default function UserStats() {
   }
 
   // todo: get the user's current status from the database
-  return <span className={`${statusIndicator} border-2 rounded-full`}/>;
+  return <span className={`${statusIndicator} border-2 rounded-full`} />;
 }
 
 // todo: update this value from the database and make sure the value is a string

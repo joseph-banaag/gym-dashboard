@@ -1,52 +1,73 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import { clsx } from "clsx";
-import { useState } from "react";
 import { ChevronDoubleDownIcon } from "@heroicons/react/16/solid";
 
-export default function Dropdown() {
-  const [clicked, setClicked] = useState<boolean>(false);
-  const [sortGraph, setSortGraph] = useState<string>("This week");
+const sortList = ["This week", "Last week", "This month", "Monthly"];
 
-  const handleClick = () => setClicked(!clicked);
-  const sortList: string[] = ["This week", "Last week", "This month"];
+export default function Dropdown() {
+  const [open, setOpen] = useState(false);
+  const [sortGraph, setSortGraph] = useState("This week");
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    // this will wait for the dropdown to open and then will check any outside click to close the menu
+    const handleMouseDown = (e: MouseEvent) => {
+      if (!ref.current?.contains(e.target as Node)) setOpen(false);
+    };
+    // this will close the menu using escape key
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+
+    document.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [open]);
 
   return (
-    <>
-      {/* overlay */}
-      <span
-        className={`${clicked ? "absolute inset-0 w-full h-full" : "hidden"}`}
-        onClick={() => setClicked(!clicked)}
-      />
-
-      <div
-        className="relative border flex justify-between items-center gap-2 py-1 px-2 rounded-lg border-(--dim-grey) cursor-pointer"
-        onClick={handleClick}
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-haspopup="listbox"
+        onClick={() => setOpen((prev) => !prev)}
+        className="border flex justify-between items-center gap-2 py-1 px-2 rounded-lg border-(--dim-grey) cursor-pointer"
       >
         <span className="text-[11px] font-light">{sortGraph}</span>
         <ChevronDoubleDownIcon
-          className={clsx(
-            `${clicked ? " animate-bounce" : "animate-none"} w-4 h-4`,
-          )}
+          className={clsx("w-4 h-4", open ? "animate-bounce" : "animate-none")}
         />
-        <div
-          className={clsx(`
-        ${clicked ? "absolute" : "hidden"}  border top-7 left-0 text-[11px] px-1 border-(--dim-grey)/30 bg-(--carbon-black)/40 backdrop-blur-xs rounded-md flex flex-col justify-center items-center gap-1 py-2`)}
-        >
-          {sortList.map((item) => (
-            <button
-              key={item}
-              onClick={() => setSortGraph(item)}
-              className="py-1 px-2 border border-(--off-white)/30 dark:border-(--dim-grey)/30 rounded-md text-[11px] sm:font-extralight text-(--off-white)/90 bg-(--carbon-black)/30 shadow-lg/20"
-            >
-              {item}
-            </button>
-          ))}
-        </div>
+      </button>
+
+      <div
+        role="listbox"
+        className={clsx(
+          "absolute z-10 top-8 left-0 border text-[11px] px-1 py-2 gap-1 flex-col items-center rounded-md border-(--dim-grey)/30 bg-(--carbon-black)/40 backdrop-blur-xs",
+          open ? "flex" : "hidden",
+        )}
+      >
+        {sortList.map((item) => (
+          <button
+            key={item}
+            type="button"
+            role="option"
+            aria-selected={item === sortGraph}
+            onClick={() => {
+              setSortGraph(item);
+              setOpen(false);
+            }}
+            className="w-32 py-1 px-2 border border-(--off-white)/30 dark:border-(--dim-grey)/30 rounded-md text-[11px] sm:font-light text-(--off-white)/90 bg-(--carbon-black)/30 shadow-lg/20"
+          >
+            {item}
+          </button>
+        ))}
       </div>
-    </>
+    </div>
   );
 }
-// create a list of options for the dropdown menu and then set the value of the option using useState
-// todo: import the server const here and accept the props that will be using to get data from the database that
-//  will be called by a server component containing the graph. the server const will be exported by the main graph
-//  component via exported const.

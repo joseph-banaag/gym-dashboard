@@ -13,13 +13,13 @@ export const membersToCheck = [
   {
     name: "John Smith",
     plan: "monthly",
-    visit: 15,
+    visit: 8,
     currentMonth: daysInMonth,
   },
   {
     name: "Theo Martin",
     plan: "monthly",
-    visit: 25,
+    visit: 11,
     currentMonth: daysInMonth,
   },
   {

@@ -5,10 +5,10 @@ import { getInitials } from "@/app/lib/get-initials";
 
 export default function MembersStatus() {
   return (
-    <section className="w-full mt-5 py-3 px-5 sm:px-12">
+    <section className="w-full mt-12 py-3 px-5 sm:px-12">
       <div className="w-full p-3 flex flex-col border rounded-lg border-(--dim-grey)/30">
-        <div className="w-full flex justify-between mb-3">
-          <div className="flex flex-col ">
+        <div className="w-full flex justify-between mb-3 gap-3">
+          <div className="flex flex-col">
             <div className="text-md">Worth a check-in</div>
             <div className="text-[11px] font-light">
               A small nudge can help members get back into their routine.
@@ -17,9 +17,12 @@ export default function MembersStatus() {
 
           <Link
             href="/directory"
-            className="flex gap-1 justify-end items-start "
+            className="flex justify-end items-start gap-1"
           >
-            <span className="text-[11px] font-light">Member directory</span>
+            <span className="text-[11px] font-light">
+              <span className="hidden md:block">Member directory</span>
+              <span className="block md:hidden">Contact</span>
+            </span>
             <ArrowTopRightOnSquareIcon className="w-4 h-4" />
           </Link>
         </div>
