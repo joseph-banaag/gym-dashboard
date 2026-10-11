@@ -1,3 +1,7 @@
 export default function ThisWeekChart() {
-  return <div>this chart will show you the chart of this week</div>;
+  return (
+    <div>
+      <div>this is for this week&apos;s chart</div>
+    </div>
+  );
 }

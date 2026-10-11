@@ -45,17 +45,17 @@ export default function UserLoggedIn() {
           className={clsx(clicked ? "block" : "hidden")}
           onClick={changeClicked}
         >
-          <span className="w-8 h-8 z-5 absolute rounded-full p-1 flex justify-center items-center bottom-3 left-3 cursor-pointer shadow-xl/20 inset-shadow-sm/20  bg-(--off-white)/30 dark:bg-(--dim-grey)/70">
-            <XMarkIcon className="dark:text-(--sunflower-gold) text-(--orange)" />
+          <span className="w-8 h-8 z-5 absolute rounded-full p-1 flex justify-center items-center bottom-3 left-3 cursor-pointer shadow-xl/20 inset-shadow-sm/20 dark:bg-(--off-white)/10 bg-(--carbon-black)/10 hover:border-(--dim-grey)/50 hover:shadow-xl/30 hover:inset-shadow-sm/30">
+            <XMarkIcon className="hover:text-(--orange) text-(--dark-goldenrod)" />
           </span>
           <UserProfileMenu />
         </button>
 
-        <hr className="border rounded-2xl  border-(--orange) dark:border-(--dark-goldenrod) w-full my-2" />
+        <hr className="border border-t-0 rounded-2xl  border-(--orange) dark:border-(--dark-goldenrod) w-full my-2" />
 
         {/* logged-in user on the nav bar */}
         <button
-          className="flex justify-start items-center gap-2 p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/20 cursor-pointer border border-(--dim-grey)/30 hover:border hover:border-(--dim-grey)/50 w-full"
+          className="flex justify-start items-center gap-2 p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/20 cursor-pointer border border-(--dim-grey)/30 hover:border-(--dim-grey)/50 w-full"
           onClick={changeClicked}
         >
           <span className="cursor-pointer">

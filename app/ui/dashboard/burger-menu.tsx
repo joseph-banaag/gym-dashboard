@@ -55,7 +55,7 @@ export default function BurgerMenu() {
           checked ? "absolute" : "hidden",
           "top-8 left-0 bottom-0 w-45 h-[calc(100vh-70px)] sm:w-50 gap-20 bg-(--off-white)/90" +
             " dark:bg-(--carbon-black)/90 backdrop-blur-3xl inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20" +
-            " rounded-xl border-2 border-r-0 border-l-0 dark:border-(--dim-grey)/50 border-white transition-all delay-150 duration-500 ease-in-out -translate-x-8",
+            " rounded-xl border-2 border-r-0 border-l-0 dark:border-(--dim-grey)/50 border-white -translate-x-4 sm:-translate-x-8",
         )}
       >
         <div className="flex flex-col justify-between h-full">

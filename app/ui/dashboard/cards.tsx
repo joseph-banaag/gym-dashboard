@@ -13,7 +13,7 @@ export default function Cards() {
           >
             <span className="flex  justify-between items-center">
               <span className="text-[12px] font-light">{c.name}</span>
-              <CardIcon className="w-4 h-4" />
+              <CardIcon className="w-4 h-4 text-(--dark-goldenrod)" />
             </span>
             <span className="text-2xl font-bold">{c.value}</span>
             <span className="flex justify-between gap-1 items-center ">
