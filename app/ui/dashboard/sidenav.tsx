@@ -5,7 +5,7 @@ import UserLoggedIn from "@/app/ui/dashboard/user";
 
 export default function SideNav() {
   return (
-    <nav className="sticky top-0 left-0 w-60 h-dvh hidden lg:flex flex-col  justify-between  rounded-r-xl inset-shadow-sm/20  inset-shadow-slate-500 shadow-xl/20 bg-(--carbon-black)/10 dark:bg-(--carbon-black)/40">
+    <nav className="sticky top-0 left-0 w-60 h-dvh hidden lg:flex flex-col  justify-between  rounded-r-xl inset-shadow-sm/20  inset-shadow-slate-500 shadow-xl/20 bg-carbon-overlay">
       <Link href="/">
         <BusinessLogo />
       </Link>

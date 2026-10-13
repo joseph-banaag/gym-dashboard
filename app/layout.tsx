@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
+import { Public_Sans, Raleway } from "next/font/google";
+import { cn } from "@/lib/utils";
+
+const ralewayHeading = Raleway({subsets:['latin'],variable:'--font-heading'});
+
+const publicSans = Public_Sans({subsets:['latin'],variable:'--font-sans'});
 
 const adwaitaSans = localFont({
   src: [
@@ -51,7 +57,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${adwaitaSans.variable} antialiased`}>
+    <html lang="en" className={cn("antialiased", adwaitaSans.variable, "font-sans", publicSans.variable, ralewayHeading.variable)}>
       <body className="m-0 min-h-dvh">{children}</body>
     </html>
   );

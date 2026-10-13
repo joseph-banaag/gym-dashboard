@@ -2,8 +2,7 @@ import Image from "next/image";
 
 export default function BusinessLogo() {
   return (
-    <section
-      className="p-2 flex flex-col justify-center items-center">
+    <section className="p-2 flex flex-col justify-center items-center">
       <Image
         loading="eager"
         src="/oppa.png"
@@ -12,17 +11,14 @@ export default function BusinessLogo() {
         alt="Oppa fitness gym logo"
         className="w-18.75 h-18.75"
       />
-      <span className="text-xs font-medium text-foreground dark:text-(--off-white)">
-          Oppa Fitness Gym
-        </span>
+      <span className="text-xs font-medium">Oppa Fitness Gym</span>
     </section>
   );
 }
 
 export const BusinessLogoMobile = () => {
   return (
-    <section
-      className="p-2 flex flex-col justify-center items-center">
+    <section className="p-2 flex flex-col justify-center items-center">
       <Image
         loading="eager"
         src="/oppa.png"
@@ -31,9 +27,7 @@ export const BusinessLogoMobile = () => {
         alt="Oppa fitness gym logo"
         className="w-12.5 h-12.5"
       />
-      <span className="text-xs font-light text-foreground dark:text-(--off-white)">
-        Oppa Fitness Gym
-      </span>
+      <span className="text-xs font-light">Oppa Fitness Gym</span>
     </section>
   );
 };

@@ -47,9 +47,9 @@ export default function GraphsSection() {
   const CurrentChart = CHARTS[range];
 
   return (
-    <section className="mt-12 py-3 px-5 sm:px-12 grid grid-cols-3 xl:grid-cols-5 gap-5 dark:text-foreground text-(--carbon-black)/90">
+    <section className="mt-12 py-3 px-5 sm:px-12 grid grid-cols-3 xl:grid-cols-5 gap-5">
       {/* right side */}
-      <div className="col-span-3 p-3 rounded-lg bg-(--carbon-black)/10 dark:bg-(--carbon-black)/40">
+      <div className="col-span-3 p-3 rounded-lg bg-carbon-overlay">
         <div className="flex justify-between items-start shrink-0">
           <div>
             <h3 className="text-md">Attendance rhythm</h3>
@@ -63,7 +63,7 @@ export default function GraphsSection() {
               aria-expanded={open}
               aria-haspopup="listbox"
               onClick={() => setOpen((prev) => !prev)}
-              className="border z-50 flex justify-between items-center gap-2 py-1 px-2 rounded-lg border-(--dim-grey) cursor-pointer"
+              className="border z-50 flex justify-between items-center gap-2 py-1 px-2 rounded-lg border-dim-grey-overlay cursor-pointer"
             >
               <span className="text-[11px] font-light">{value}</span>
               <ChevronDoubleDownIcon
@@ -77,10 +77,9 @@ export default function GraphsSection() {
             <div
               role="listbox"
               className={clsx(
-                "absolute z-50 top-8 left-0 text-[11px] px-1 py-2 gap-1.5 flex-col items-center bg-(--off-white)/90" +
-                  " dark:bg-(--carbon-black)/70 backdrop-blur-3xl inset-shadow-slate-500 shadow-xl/30" +
-                  " inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 dark:border-(--dim-grey)/50" +
-                  " border-white transition delay-150 duration-500 ease-in-out",
+                "absolute z-50 top-8 left-0 text-[11px] px-2 py-3 gap-2 flex-col items-center" +
+                  " bg-carbon-overlay backdrop-blur-3xl inset-shadow-slate-500 shadow-xl/30" +
+                  " inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-dim-grey-overlay",
                 open ? "flex" : "hidden",
               )}
             >
@@ -95,7 +94,7 @@ export default function GraphsSection() {
                     setRange(o.value as ChartRange);
                     setValue(o.label);
                   }}
-                  className="w-24 py-1 text-[11px] sm:font-light cursor-pointer border-white/40 dark:border-(--dim-grey)/30 rounded-lg hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 hover:font-medium"
+                  className="w-24 py-1 text-[11px] sm:font-light cursor-pointer border-white/40 dark:border-dim-grey/30 rounded-md hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 hover:font-medium text-foreground"
                 >
                   {o.label}
                 </button>
@@ -112,7 +111,7 @@ export default function GraphsSection() {
       </div>
 
       {/* left side */}
-      <div className="col-span-3 xl:col-span-2 p-3 rounded-lg bg-(--carbon-black)/10 dark:bg-(--carbon-black)/40">
+      <div className="col-span-3 xl:col-span-2 p-3 rounded-lg bg-carbon-overlay">
         <ExerciseToday />
       </div>
     </section>
