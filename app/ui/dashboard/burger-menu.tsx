@@ -79,13 +79,13 @@ export default function BurgerMenu() {
             ref={navRef}
             className={clsx(
               checked ? "fixed" : "hidden",
-              "top-14 left-3 bottom-0 w-45 h-[calc(100vh-70px)] sm:w-50 gap-20 backdrop-blur-sm shadow-xl/30" +
+              "top-14 left-3 bottom-0 w-35 sm:w-45 h-[calc(100vh-70px)] sm:w-50 gap-20 backdrop-blur-sm shadow-xl/30" +
                 " inset-shadow-sm/20" +
                 " rounded-xl border-2 border-r-0 border-l-0 border-dim-grey-overlay ",
             )}
           >
             <div className="flex flex-col justify-between h-full">
-              <div className="h-full flex flex-col gap-2 p-5">
+              <div className="h-full flex flex-col gap-2 p-1 sm:p-5">
                 <NavRoutes />
               </div>
               <div className="flex flex-col justify-center items-center gap-2">

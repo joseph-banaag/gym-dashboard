@@ -62,7 +62,7 @@ export default function UserLoggedIn({ portalRef }: UserLoggedInProps) {
               </button>
 
               <div className="relative">
-                <div className="absolute z-200 bottom-0 left-0 w-60 flex flex-col bg-carbon-overlay backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-xl border-2 border-r-0 border-l-0 border-dim-grey-overlay pt-3 pb-16 px-4 gap-2 text-accent-foreground">
+                <div className="absolute z-200 bottom-0 left-0 w-40 sm:w-60 flex flex-col bg-carbon-overlay backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-xl border-2 border-r-0 border-l-0 border-dim-grey-overlay pt-3 pb-16 px-2 sm:px-4 gap-2 text-accent-foreground">
                   {profileSettings.map((link) => {
                     const LinkIcon = link.icon;
                     return (
@@ -70,12 +70,14 @@ export default function UserLoggedIn({ portalRef }: UserLoggedInProps) {
                         key={link.name}
                         href={link.route}
                         onClick={() => setClicked(false)}
-                        className="border p-3 flex items-center gap-2 border-dim-grey-overlay rounded-lg w-full hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 text-[13px] font-light hover:font-medium text-foreground"
+                        className="border p-2 sm:p-3 flex items-center gap-2 border-dim-grey-overlay rounded-lg w-full hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 text-[13px] font-light hover:font-medium text-foreground"
                       >
                         <span className="w-5 h-5">
                           <LinkIcon />
                         </span>
-                        {link.name}
+                        <span className="text-[11px] sm:text-sm">
+                          {link.name}
+                        </span>
                       </Link>
                     );
                   })}
@@ -90,7 +92,7 @@ export default function UserLoggedIn({ portalRef }: UserLoggedInProps) {
         {/* logged-in user on the nav bar */}
         <button
           ref={buttonRef}
-          className="flex justify-start items-center gap-2 p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/20 cursor-pointer border border-(--dim-grey)/30 hover:border-(--dim-grey)/50 w-full"
+          className="flex justify-start items-center gap-2 p-2 sm:p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/20 cursor-pointer border border-(--dim-grey)/30 hover:border-(--dim-grey)/50 w-full"
           onClick={changeClicked}
         >
           <span className="cursor-pointer">
