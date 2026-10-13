@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import {
   UserDesignation,
@@ -10,7 +10,6 @@ import HoverStatus from "../users/hover-status";
 import { createPortal } from "react-dom";
 import { profileSettings } from "@/app/lib/dashboard/profile-menu-list";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 type UserLoggedInProps = {
   portalRef?: React.RefObject<HTMLDivElement | null>;
@@ -22,7 +21,6 @@ export default function UserLoggedIn({ portalRef }: UserLoggedInProps) {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const internalMenuRef = useRef<HTMLDivElement | null>(null);
   const menuRef = portalRef ?? internalMenuRef;
-  const pathname = usePathname();
 
   const changeClicked = () => setClicked(!clicked);
 
@@ -53,7 +51,7 @@ export default function UserLoggedIn({ portalRef }: UserLoggedInProps) {
       <div className="flex flex-col gap-2 p-1 pb-2 w-full">
         {clicked &&
           createPortal(
-            <div ref={menuRef} className="fixed bottom-1 left-2">
+            <div ref={menuRef} className="fixed bottom-1 left-1">
               <button
                 type="button"
                 aria-label="Close menu"
