@@ -25,7 +25,7 @@ export default function PopUpNotification() {
       )}
     >
       <span className="flex justify-center items-center gap-2">
-        <span className="border-4 rounded-full border-(--sunflower-gold)" />
+        <span className="border-4 rounded-full border-(--dark-goldenrod)" />
         this will be the pop-up notification that will no longer exist after 5
         seconds.
       </span>
