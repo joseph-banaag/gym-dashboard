@@ -85,7 +85,7 @@ export default function BurgerMenu() {
             )}
           >
             <div className="flex flex-col justify-between h-full">
-              <div className="h-full flex flex-col gap-2 p-1 sm:p-5">
+              <div className="h-full flex flex-col gap-2 px-1 py-3 sm:p-5">
                 <NavRoutes />
               </div>
               <div className="flex flex-col justify-center items-center gap-2">
