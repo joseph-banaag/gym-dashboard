@@ -22,7 +22,7 @@ export default function Page() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 120);
+      setScrolled(window.scrollY > 80);
     };
 
     handleScroll(); // set the correct initial value on mount (e.g. page refreshed mid-scroll)
@@ -33,11 +33,9 @@ export default function Page() {
     };
   }, []);
 
-  console.log(scrolled);
-
   return (
     <>
-      <div className="text-foreground w-full min-w-105 min-h-screen px-8 2xl:px-32 background-blob overflow-x-clip">
+      <div className="text-foreground w-full min-h-screen px-8 2xl:px-32 background-blob">
         <div className="w-full">
           {/*
           todo: set top bar to fixed and then change the floating style when scrolled
@@ -134,7 +132,7 @@ export default function Page() {
             height={150}
           />
           <div className="w-full flex flex-col lg:flex-row gap-3 justify-between items-center">
-            <div className="flex flex-col justify-center items-center min-w-124.25 text-nowrap">
+            <div className="flex flex-col justify-center items-center text-nowrap">
               <span className="text-[14px] font-normal text-carbon-black/70 dark:text-off-white mb-3">
                 Operating hours:
               </span>
