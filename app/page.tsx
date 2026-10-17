@@ -22,7 +22,7 @@ export default function Page() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 80);
+      setScrolled(window.scrollY > 50);
     };
 
     handleScroll(); // set the correct initial value on mount (e.g. page refreshed mid-scroll)
@@ -37,38 +37,34 @@ export default function Page() {
     <>
       <div className="text-foreground w-full min-h-screen px-8 2xl:px-32 background-blob">
         <div className="w-full">
-          {/*
-          todo: set top bar to fixed and then change the floating style when scrolled
-          */}
           <div className="fixed top-1 left-0 w-full">
             <div
               className={clsx(
-                "flex h-18 items-center justify-between px-8 lg:px-20" +
-                  " 2xl:px-40",
+                "mx-auto flex h-12 items-center justify-between sm:px-8 lg:px-20 2xl:px-40",
+                "border border-transparent",
+                "transition-all duration-300 ease-in-out",
                 scrolled
-                  ? "w-17/18 sm:w-3/4 mx-auto rounded-xl border border-(--dim-grey)/30 bg-carbon-black/50" +
-                      " backdrop-blur-sm" +
-                      " shadow-lg/20 inset-shadow-off-white/30"
-                  : "w-full",
+                  ? "w-17/18 sm:w-3/4 rounded-xl border-(--dim-grey)/30 bg-off-white/20 dark:bg-carbon-black/40" +
+                      " backdrop-blur-sm shadow-lg/20 px-2"
+                  : "w-full rounded-none px-3",
               )}
             >
-              <div className="text-sm font-bold flex gap-1 text-shadow-xs">
+              <div className="text-[12px] font-bold flex gap-1 text-shadow-xs">
                 <span className="text-(--primary-scarlet)">Oppa</span>
                 <span className="dark:text-off-white text-foreground">
                   Fitness Gym
                 </span>
               </div>
-              <div className="flex gap-1 sm:gap-2 text-[12px] font-light">
-                <span>Admin login</span>
+              <div className="flex gap-1 sm:gap-2 text-[9px] sm:text-[11px]">
+                <Link href="/login/admin">Admin</Link>
                 <span>|</span>
-                <span>Members login</span>
+                <Link href="/login/user">Members</Link>
               </div>
             </div>
           </div>
-          <div className="h-10 lg:h-14 xl:h-34 w-full" />
 
-          <div className="w-full flex flex-col xl:flex-row pt-24 pb-8 sm:py-24">
-            <div className="w-full flex flex-col justify-center gap-8 px-1 lg:px-12 mb-5 lg:mb-15 sm:py-12">
+          <div className="w-full flex flex-col xl:flex-row pt-34 pb-12">
+            <div className="w-full flex flex-col justify-center gap-8 px-1 lg:px-12 mb-15 sm:py-12">
               <div className="flex flex-col">
                 <h1
                   className={`${shockSurgent.className} shrink font-semibold text-5xl sm:text-7xl text-(--orange) text-shadow-sm/10 text-nowrap`}
@@ -108,13 +104,13 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="w-full text-carbon-black/70 dark:text-foreground p-4 mb-20 md:mb-40">
+          <div className="w-full text-carbon-black/70 dark:text-foreground mb-20 md:mb-40">
             <div className="flex flex-col mb-4">
               <h2 className="text-[24px] sm:text-[30px] font-bold">
                 Our rates
               </h2>
               <p className="text-[12px] font-ligth px-3">
-                Flexible rates for all
+                Flexible rates for every-Juan:
               </p>
             </div>
             <Rates />
@@ -133,21 +129,21 @@ export default function Page() {
           />
           <div className="w-full flex flex-col lg:flex-row gap-3 justify-between items-center">
             <div className="flex flex-col justify-center items-center text-nowrap">
-              <span className="text-[14px] font-normal text-carbon-black/70 dark:text-off-white mb-3">
+              <span className="text-[14px] font-normal text-carbon-black/80 dark:text-off-white mb-3">
                 Operating hours:
               </span>
-              <span className="text-[12px] font-light text-carbon-black/70 dark:text-off-white/70">
+              <span className="text-[11px] text-carbon-black/60 dark:text-off-white/70">
                 Monday - Saturday, 9:00 AM to 9:00 PM
               </span>
-              <span className="text-[12px] font-light text-carbon-black/70 dark:text-off-white/70">
+              <span className="text-[11px] text-carbon-black/60 dark:text-off-white/70">
                 Sunday, 1:00 PM to 9:00 PM
               </span>
             </div>
-            <div className="px-3 py-1 rounded-full bg-off-white shadow-lg/30 backdrop-blur-xs mt-5">
+            <div className="px-3 py-1 rounded-full bg-off-white shadow-lg/20 backdrop-blur-xs mt-5 inset-shadow-xs inset-shadow-carbon-overlay flex justify-center items-center">
               <Link
                 target="_blank"
                 href="https://www.facebook.com/oppafitnessgym/"
-                className="text-[#1877F2] font-bold"
+                className="text-[12px] text-[#1877F2] font-bold"
               >
                 facebook
               </Link>
