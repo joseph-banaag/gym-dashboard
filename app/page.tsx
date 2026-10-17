@@ -82,7 +82,7 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="w-full text-carbon-black/70 dark:text-foreground border rounded-xl border-(--dim-grey)/30 p-4 shadow-lg/10 mb-40">
+          <div className="w-full text-carbon-black/70 dark:text-foreground border rounded-xl border-(--dim-grey)/30 p-4 shadow-lg/10 mb-20 md:mb-40">
             <div className="flex flex-col mb-4">
               <h2 className="text-[24px] sm:text-[30px] font-bold">
                 Our rates
@@ -97,7 +97,7 @@ export default function Page() {
 
         <hr className="border-t border-(--dim-grey)/70 w-14/15 mx-auto" />
 
-        <div className="w-full px-25 pt-5 flex gap-15">
+        <div className="w-full px-25 pt-5 flex flex-col lg:flex-row gap-15 justify-center items-center pb-10 sm:pb-5">
           <Image
             src="/oppa.png"
             alt="Oppa fitness gym logo"
@@ -105,8 +105,8 @@ export default function Page() {
             width={150}
             height={150}
           />
-          <div className="w-full flex justify-between items-center">
-            <div className="flex flex-col">
+          <div className="w-full flex flex-col sm:flex-row gap-3 justify-between items-center">
+            <div className="flex flex-col justify-center sm:justify-start items-center sm:items-start m-w-[497px] text-nowrap">
               <span className="text-[14px] font-normal text-carbon-black/70 dark:text-off-white mb-3">
                 Operating hours:
               </span>
@@ -120,6 +120,7 @@ export default function Page() {
             <Link
               target="_blank"
               href="https://www.facebook.com/oppafitnessgym/"
+              className="text-[#1877F2]"
             >
               facebook
             </Link>
