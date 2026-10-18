@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { login } from "@/app/login/admin/actions";
 
+// TODO: create a program that will revoke every attempted access to the admin login page aside from doks account.
+
 export default function LoginPage() {
   return (
     <div className="absolute inset-0 bg-(--primary-scarlet) bg-radial-[at_75%_90%] from-(--deep-crimson) via-(--primary-scarlet) to-(--deep-crimson) to-95% text-off-white">

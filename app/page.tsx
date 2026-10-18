@@ -56,9 +56,7 @@ export default function Page() {
                 </span>
               </div>
               <div className="flex gap-1 sm:gap-2 text-[9px] sm:text-[11px]">
-                <Link href="/login/admin">Admin</Link>
-                <span>|</span>
-                <Link href="/login/user">Members</Link>
+                <Link href="/login/user">Members login</Link>
               </div>
             </div>
           </div>
