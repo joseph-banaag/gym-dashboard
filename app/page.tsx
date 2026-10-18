@@ -41,12 +41,12 @@ export default function Page() {
             <div
               className={clsx(
                 "mx-auto flex h-12 items-center justify-between sm:px-8 lg:px-20 2xl:px-40",
-                "border border-transparent",
+                "border",
                 "transition-all duration-300 ease-in-out",
                 scrolled
-                  ? "w-17/18 sm:w-3/4 rounded-xl border-(--dim-grey)/30 bg-off-white/20 dark:bg-carbon-black/40" +
-                      " backdrop-blur-sm shadow-lg/20 px-2"
-                  : "w-full rounded-none px-3",
+                  ? "w-17/18 sm:w-3/4 rounded-xl border-(--dim-grey)/30 bg-off-white/20 dark:bg-carbon-black/60" +
+                      " backdrop-blur-sm shadow-lg/20 px-2 inset-shadow-lg/20 inset-shadow-white"
+                  : "w-full rounded-none px-3 border-transparent",
               )}
             >
               <div className="text-[12px] font-bold flex gap-1 text-shadow-xs">
