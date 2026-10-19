@@ -31,12 +31,14 @@ export default function LoginPage() {
             </span>
           </div>
 
+          {/* form container */}
           <div className="mt-5 sm:mt-10 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-xl border-2 border-r-0 border-l-0 border-white/20 pt-3 px-2 sm:px-4 gap-2 text-carbon-black/80 dark:text-off-white/70">
             <span className="text-xs px-3">Member&apos;s sign-in</span>
             <form
               action={login}
               className="flex flex-col justify-start items-center gap-8 p-3"
             >
+              {/* username */}
               <div className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
                 <input
                   required={true}
@@ -48,6 +50,7 @@ export default function LoginPage() {
                 />
               </div>
 
+              {/* password*/}
               <div className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
                 <input
                   required={true}

@@ -31,6 +31,7 @@ export default function AdminLoginPage() {
               Oppa Fitness Gym
             </span>
           </div>
+          {/* form container */}
           <div className="mt-5 sm:mt-10 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-xl border-2 border-r-0 border-l-0 border-white/20 pt-3 px-2 sm:px-4 gap-2 text-carbon-black/80 dark:text-off-white/70">
             <span className="text-xs px-3">Admin&apos;s sign-in</span>
 
@@ -38,7 +39,8 @@ export default function AdminLoginPage() {
               action={login}
               className="flex flex-col justify-start items-center gap-8 p-3"
             >
-              <span className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
+              {/* username */}
+              <div className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
                 <input
                   required={true}
                   type="text"
@@ -47,8 +49,10 @@ export default function AdminLoginPage() {
                   autoComplete="username"
                   className="px-4 border-none outline-none"
                 />
-              </span>
-              <span className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
+              </div>
+
+              {/* password */}
+              <div className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
                 <input
                   required={true}
                   autoComplete="current-password"
@@ -64,7 +68,7 @@ export default function AdminLoginPage() {
                     <EyeSlashIcon className="w-5 h-5" />
                   )}
                 </span>
-              </span>
+              </div>
 
               <button
                 type="submit"

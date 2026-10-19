@@ -1,6 +1,10 @@
-import { newAdmin } from "@/app/actions/signup/new-admin-actions";
+"use client";
 
+import { newAdmin } from "@/app/actions/signup/new-admin-actions";
+import clsx from "clsx";
+import { useState } from "react";
 import Image from "next/image";
+import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 
 const passwordPattern =
   /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9\s]).{12,128}$/;
@@ -8,6 +12,8 @@ const passwordPattern =
 const usernamePattern = /^[a-zA-Z][a-zA-Z0-9_]{2,19}$/;
 
 export default function CreateAdminAccount() {
+  const [dispalyPwd, setDisplayPwd] = useState<boolean>(false);
+
   return (
     <div className="absolute inset-0 background-blob">
       <div className="size-full min-w-85 flex flex-col justify-center items-center backdrop-blur-xs">
@@ -58,19 +64,31 @@ export default function CreateAdminAccount() {
             <div className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
               <input
                 required={true}
-                type="password"
+                type={clsx(dispalyPwd ? "text" : "password")}
                 name="password"
-                placeholder="Password"
+                placeholder="Use browser suggestion"
                 autoComplete="new-password"
                 className="px-4 border-none outline-none"
+                minLength={12}
+                maxLength={128}
               />
+              <span
+                onClick={() => setDisplayPwd((prev) => !prev)}
+                className="cursor-pointer pe-4"
+              >
+                {dispalyPwd ? (
+                  <EyeIcon className="w-5 h-5" />
+                ) : (
+                  <EyeSlashIcon className="w-5 h-5" />
+                )}
+              </span>
             </div>
 
             {/*  confirm password*/}
             <div className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
               <input
                 required={true}
-                type="password"
+                type={clsx(dispalyPwd ? "text" : "password")}
                 name="password"
                 placeholder="Confirm Password"
                 autoComplete="new-password"

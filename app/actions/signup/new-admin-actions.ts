@@ -8,5 +8,5 @@ export async function newAdmin(formData: FormData) {
 
   console.log(username, password);
 
-  redirect("/dashboard"); // will redirect to /dashboard once the authentication and validation is done
+  redirect("/"); // will redirect to /dashboard once the authentication and validation is done
 }
