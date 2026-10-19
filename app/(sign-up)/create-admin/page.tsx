@@ -36,7 +36,7 @@ export default function CreateAdminAccount() {
                 required={true}
                 type="text"
                 name="username"
-                placeholder="Username"
+                placeholder="Admin name"
                 autoComplete="username"
                 className="px-4 border-none outline-none"
               />

@@ -19,7 +19,7 @@ request
 
 
 ## TODO now:
-    - connect to database
+    - add information to the database
     - create a regex for the password and a valid username
     - complete user page first before the CRM
     - add authentication to the application using Authjs/nextauthjs
@@ -27,4 +27,3 @@ request
 
 
 // what changed (commit message; summarized of what have done.)?
-connected to mongodb atlas
