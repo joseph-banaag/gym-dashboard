@@ -1,5 +1,5 @@
 import React from "react";
-import ThisWeekChart from "@/app/lib/dashboard/week-chart";
+import ThisWeekChart from "@/components/dashboard/week-chart";
 
 export default function Classes() {
   return (

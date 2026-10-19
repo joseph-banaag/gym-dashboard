@@ -2,7 +2,7 @@
 
 import localFont from "next/font/local";
 import Image from "next/image";
-import Rates from "@/app/lib/landing/plan-cards";
+import Rates from "@/components/landing/plan-cards";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
@@ -56,7 +56,9 @@ export default function Page() {
                 </span>
               </div>
               <div className="flex gap-1 sm:gap-2 text-[9px] sm:text-[11px]">
-                <Link href="/login/user">Members login</Link>
+                <Link href="/login/user">Member</Link>
+                <span>|</span>
+                <Link href="/login/admin">Admin</Link>
               </div>
             </div>
           </div>
@@ -118,16 +120,18 @@ export default function Page() {
         <hr className="border-t border-(--dim-grey)/70 w-14/15 mx-auto" />
 
         <div className="w-full px-25 pt-5 flex flex-col lg:flex-row gap-15 justify-center items-center pb-10 sm:pb-5">
-          <Image
-            src="/oppa.png"
-            alt="Oppa fitness gym logo"
-            loading="eager"
-            width={150}
-            height={150}
-          />
+          <div className="w-28 h-28">
+            <Image
+              src="/oppa.png"
+              alt="Oppa fitness gym logo"
+              loading="eager"
+              width={150}
+              height={150}
+            />
+          </div>
           <div className="w-full flex flex-col lg:flex-row gap-3 justify-between items-center">
             <div className="flex flex-col justify-center items-center text-nowrap">
-              <span className="text-[14px] font-normal text-carbon-black/80 dark:text-off-white mb-3">
+              <span className="text-[14px] font-semibold text-foreground dark:text-off-white mb-3">
                 Operating hours:
               </span>
               <span className="text-[11px] text-carbon-black/60 dark:text-off-white/70">

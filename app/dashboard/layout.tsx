@@ -1,7 +1,7 @@
 import React from "react";
-import SideNav from "@/app/ui/dashboard/sidenav";
+import SideNav from "@/components/ui/dashboard/sidenav";
 import "@/app/globals.css";
-import Topbar from "@/app/ui/dashboard/topbar";
+import Topbar from "@/components/ui/dashboard/topbar";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

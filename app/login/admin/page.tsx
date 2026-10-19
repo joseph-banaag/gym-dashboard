@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { login } from "@/app/login/user/actions";
+import { login } from "@/app/actions/admin-actions";
 import { useState } from "react";
 import clsx from "clsx";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
@@ -35,7 +35,7 @@ export default function AdminLoginPage() {
               action={login}
               className="flex flex-col justify-start items-center gap-8 p-3"
             >
-              <span className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border-2 border-r-0 border-l-0 border-white/20 text-sm font-light">
+              <span className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
                 <input
                   required={true}
                   type="text"
@@ -45,7 +45,7 @@ export default function AdminLoginPage() {
                   className="px-4 border-none outline-none"
                 />
               </span>
-              <span className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border-2 border-r-0 border-l-0 border-white/20 text-sm font-light">
+              <span className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
                 <input
                   required={true}
                   autoComplete="current-password"

@@ -1,6 +1,6 @@
 import BurgerMenu from "@/app/ui/dashboard/burger-menu";
 import TopBarBreadcrumbs from "@/app/ui/dashboard/topbarbreadcrmbs";
-import DateToday from "@/app/lib/dashboard/date-today";
+import DateToday from "@/components/dashboard/date-today";
 import Notification from "@/app/ui/dashboard/notif";
 import PopUpNotification from "@/app/ui/dashboard/pop-up";
 

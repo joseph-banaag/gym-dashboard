@@ -23,7 +23,7 @@
 }
 
 .background-blob {
-    background: radial-gradient(ellipse 60% 20% at 95% 0%, #fcc55f 0%, transparent 100%);
+    background: radial-gradient(ellipse 60% 20% at 95% 0%, var(--sunflower-gold) 0%, transparent 100%);
 }
 
 @theme inline {

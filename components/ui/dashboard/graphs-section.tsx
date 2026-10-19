@@ -2,11 +2,11 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import ExerciseToday from "@/app/ui/dashboard/exercise-today";
-import { ChartRange, RANGE_OPTIONS } from "@/app/lib/dashboard/charts";
-import LastWeekChart from "@/app/lib/dashboard/biweek-chart";
-import MonthlyChart from "@/app/lib/dashboard/year-chart";
-import ThisMonthChart from "@/app/lib/dashboard/month-chart";
-import ThisWeekChart from "@/app/lib/dashboard/week-chart";
+import { ChartRange, RANGE_OPTIONS } from "@/components/dashboard/charts";
+import LastWeekChart from "@/components/dashboard/biweek-chart";
+import MonthlyChart from "@/components/dashboard/year-chart";
+import ThisMonthChart from "@/components/dashboard/month-chart";
+import ThisWeekChart from "@/components/dashboard/week-chart";
 import { ChevronDoubleDownIcon } from "@heroicons/react/16/solid";
 import { clsx } from "clsx";
 import { createPortal } from "react-dom";

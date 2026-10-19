@@ -1,7 +1,7 @@
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid";
-import { membersToCheck } from "@/app/lib/dashboard/member-check";
+import { membersToCheck } from "@/components/dashboard/member-check";
 import Link from "next/link";
-import { getInitials } from "@/app/lib/dashboard/get-initials";
+import { getInitials } from "@/components/dashboard/get-initials";
 
 export default function MembersStatus() {
   return (

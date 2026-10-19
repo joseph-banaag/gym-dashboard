@@ -1,2 +1,30 @@
-create a user page that has a loading animation welcoming theme with their profile picture and username for 5 seconds
+* create a user page that has a loading animation welcoming theme with their profile picture and username for 5 seconds
 before displaying the main user's page.
+
+* get the new user and approve the account creating request before letting them use the application
+
+* get the newly created admin account and check if the account is valid before approving the new account creation
+request
+
+
+
+
+
+
+
+
+
+
+
+
+
+## TODO now:
+    - change file convention, removing none routing folder inside the app/
+    - connect to database
+    - add authentication to the application using Authjs/nextauthjs
+
+
+
+// what changed (commit message; summarized of what have done.)?
+user and admin login page that redirects to designated pages.
+connected to mongodb atlasT`

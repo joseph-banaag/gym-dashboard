@@ -5,10 +5,10 @@ import {
   UserDesignation,
   UserImage,
   UserName,
-} from "@/app/lib/dashboard/current-user";
+} from "@/components/dashboard/current-user";
 import HoverStatus from "../users/hover-status";
 import { createPortal } from "react-dom";
-import { profileSettings } from "@/app/lib/dashboard/profile-menu-list";
+import { profileSettings } from "@/components/dashboard/profile-menu-list";
 import Link from "next/link";
 
 type UserLoggedInProps = {

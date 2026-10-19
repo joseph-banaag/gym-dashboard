@@ -19,7 +19,7 @@ const plans = [
   },
   {
     name: "Monthly Pass",
-    price: "₱ 600",
+    price: "₱ 700",
     term: "Unlimited monthly pass",
     description:
       "The most affordable and budget friendly rates for all. Students and senior citizens are discounted.",

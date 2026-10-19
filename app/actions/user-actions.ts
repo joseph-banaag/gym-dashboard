@@ -10,5 +10,5 @@ export async function login(formData: FormData) {
 
   // validate, check against DB, hash compare, set session cookie...
 
-  redirect("/dashboard");
+  redirect("/users");
 }

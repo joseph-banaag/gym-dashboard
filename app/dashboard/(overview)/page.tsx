@@ -1,7 +1,7 @@
 import "@/app/globals.css";
-import Cards from "@/app/ui/dashboard/cards";
-import GraphsSection from "@/app/ui/dashboard/graphs-section";
-import MembersStatus from "@/app/ui/dashboard/member-status";
+import Cards from "@/components/ui/dashboard/cards";
+import GraphsSection from "@/components/ui/dashboard/graphs-section";
+import MembersStatus from "@/components/ui/dashboard/member-status";
 
 export default function Overview() {
   return (
