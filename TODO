@@ -9,6 +9,40 @@ request
 
 
 
+password regex pattern requires non-alphanumeric characters, non-whitespace and should have at least 8 characters
+create allow chrome password suggestion to autopopulate the password form
+
+<!-- Signup -->
+<input type="text" name="username" autocomplete="username" />
+<input type="password" name="password" autocomplete="new-password" />
+
+NOTE:
+- check from the database if the username is unique, if not alert user that the username is already taken
+- if user request a password reset, send it to the email address
+- add password rules in the input field:
+    <input
+      type="password"
+      autocomplete="new-password"
+      passwordrules="minlength: 12; maxlength: 128; required: lower; required: upper; required: digit; required: special;"
+    />
+
+
+
+THIS WILL AUTO COMPLETE THE RECENT LOGIN INFORMATION OF THE USER. A BROWSER FEATURE
+<!-- Login -->
+<input type="text" name="username" autocomplete="username" />
+<input type="password" name="password" autocomplete="current-password" />
+
+
+// TODO:  to create-new-user a new account get the following:
+// username - creat username must be at least characters with numbers and special characters (ex: matthew_516)
+// check if username is already in use before allowing user to use it
+// email address
+// password -regex password. create-new-user a suggestion password by the browser. suggest user to use the useStrong password
+//   add password check and strength meter and show which rules are met or not met if the user can provide a proper
+//   password
+// confirmed password
+// account creation date
 
 
 
