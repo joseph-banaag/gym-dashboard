@@ -8,7 +8,7 @@ import {
 export const profileSettings = [
   {
     name: "Profile Settings",
-    route: "/user-profile",
+    route: "/users-profile",
     icon: Cog8ToothIcon,
   },
   {

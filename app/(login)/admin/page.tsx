@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { login } from "@/app/actions/admin-actions";
+import { login } from "@/app/actions/login/admin-actions";
 import { useState } from "react";
 import clsx from "clsx";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
-// TODO: create a program that will revoke every attempted access to the admin login page aside from doks account.
+// TODO: create-new-users a program that will revoke every attempted access to the admin login page aside from doks account.
 
 export default function AdminLoginPage() {
   const [displayPw, SetDisplayPw] = useState<boolean>(false);
@@ -70,6 +71,15 @@ export default function AdminLoginPage() {
                 Continue
               </button>
             </form>
+            <div className="w-full flex justify-center items-center mb-2 gap-1 text-[12px]">
+              <span>No account yet?</span>
+              <Link
+                href="/create-admin"
+                className="underline underline-offset-2"
+              >
+                Create here
+              </Link>
+            </div>
           </div>
         </div>
       </div>

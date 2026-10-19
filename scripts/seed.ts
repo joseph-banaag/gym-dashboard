@@ -3,8 +3,8 @@ import bcrypt from "bcryptjs";
 import { customers, users } from "@/lib/placeholder";
 
 async function seed() {
-  const uri = process.env.GYM_MONGODB_URI;
-  if (!uri) throw new Error("Missing GYM_MONGODB_URI environment variable");
+  const uri = process.env.MONGODB_URI;
+  if (!uri) throw new Error("Missing MONGODB_URI environment variable");
 
   const client = new MongoClient(uri);
 

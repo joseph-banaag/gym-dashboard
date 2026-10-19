@@ -2,13 +2,11 @@
 
 import { redirect } from "next/navigation";
 
-export async function login(formData: FormData) {
+export async function newAdmin(formData: FormData) {
   const username = formData.get("username") as string;
   const password = formData.get("password") as string;
 
   console.log(username, password);
 
-  // validate, check against DB, hash compare, set session cookie...
-
-  redirect("/dashboard");
+  redirect("/dashboard"); // will redirect to /dashboard once the authentication and validation is done
 }

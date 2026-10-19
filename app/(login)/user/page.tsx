@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { login } from "@/app/actions/user-actions";
+import { login } from "@/app/actions/login/user-actions";
 import { useState } from "react";
 import clsx from "clsx";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [show, setShow] = useState<boolean>(false);
@@ -15,7 +16,7 @@ export default function LoginPage() {
 
   return (
     <div className="absolute inset-0 background-blob">
-      <div className="size-full min-w-85 flex flex-col justify-center items-center backdrop-blur-xs">
+      <div className="size-full min-w-85 flex flex-col justify-center items-center backdrop-blur-xs ">
         <div className="flex flex-col justify-center items-center gap-8">
           <div className="flex flex-col justify-center items-center">
             <Image
@@ -34,7 +35,7 @@ export default function LoginPage() {
               action={login}
               className="flex flex-col justify-start items-center gap-8 p-3"
             >
-              <span className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
+              <div className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
                 <input
                   required={true}
                   type="text"
@@ -43,15 +44,16 @@ export default function LoginPage() {
                   autoComplete="username"
                   className="px-4 border-none outline-none"
                 />
-              </span>
-              <span className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
+              </div>
+
+              <div className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
                 <input
                   required={true}
                   autoComplete="current-password"
                   type={clsx(show ? "text" : "password")}
                   name="password"
                   placeholder="Password"
-                  className="px-4 border-none outline-none"
+                  className="px-4 border-none outline-none background-none"
                 />
                 <span onClick={changeView} className="cursor-pointer pe-4">
                   {show ? (
@@ -60,7 +62,7 @@ export default function LoginPage() {
                     <EyeSlashIcon className="w-5 h-5" />
                   )}
                 </span>
-              </span>
+              </div>
 
               <button
                 type="submit"
@@ -69,6 +71,15 @@ export default function LoginPage() {
                 Continue
               </button>
             </form>
+            <div className="w-full flex justify-center items-center mb-2 gap-1 text-[12px]">
+              <span>No account yet?</span>
+              <Link
+                href="/create-new-user"
+                className="underline underline-offset-2"
+              >
+                Create here
+              </Link>
+            </div>
           </div>
         </div>
       </div>
