@@ -8,7 +8,7 @@ import {
 } from "@/components/dashboard/current-user";
 import HoverStatus from "../users/hover-status";
 import { createPortal } from "react-dom";
-import { profileSettings } from "@/components/dashboard/profile-menu-list";
+import { profileSettings } from "@/lib/dashboard/profile-menu-list";
 import Link from "next/link";
 
 type UserLoggedInProps = {

@@ -10,7 +10,7 @@ export default function TopBarBreadcrumbs() {
 
   return (
     <nav className="flex gap-2">
-      <Link href="/" className="text-foreground/70">
+      <Link href="/public" className="text-foreground/70">
         home
       </Link>
 

@@ -1,4 +1,4 @@
-import { cardContent } from "@/components/dashboard/cards";
+import { cardContent } from "@/lib/dashboard/cards";
 
 export default function Cards() {
   return (

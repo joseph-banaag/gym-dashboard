@@ -2,7 +2,7 @@
 import { useState } from "react";
 import clsx from "clsx";
 import UserStats from "./user-status";
-import { status } from "@/app/ui/users/user-status";
+import { status } from "@/components/ui/users/user-status";
 
 let userStatus: string;
 

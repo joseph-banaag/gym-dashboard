@@ -1,4 +1,4 @@
-import { getDaysInMonth } from "@/components/dashboard/current-month";
+import { getDaysInMonth } from "@/lib/dashboard/current-month";
 
 const daysInMonth = getDaysInMonth();
 

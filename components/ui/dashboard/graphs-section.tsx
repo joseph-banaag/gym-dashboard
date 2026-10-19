@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import ExerciseToday from "@/app/ui/dashboard/exercise-today";
-import { ChartRange, RANGE_OPTIONS } from "@/components/dashboard/charts";
+import ExerciseToday from "./exercise-today";
+import { ChartRange, RANGE_OPTIONS } from "@/lib/dashboard/charts";
 import LastWeekChart from "@/components/dashboard/biweek-chart";
 import MonthlyChart from "@/components/dashboard/year-chart";
 import ThisMonthChart from "@/components/dashboard/month-chart";

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
-import { links } from "@/components/dashboard/nav-links";
+import { links } from "@/lib/dashboard/nav-links";
 
 export default function NavRoutes() {
   const pathname = usePathname();
@@ -18,9 +18,12 @@ export default function NavRoutes() {
             href={link.href}
             className={clsx(
               "h-8 w-full sm:h-11 font-medium flex gap-2 justify-center p-2 sm:p-3 items-center hover:shadow-xl/30" +
-                " transition delay-75 duration-200 ease-in-out  hover:text-(--azure-mist)/80 border border-(--dim-grey)/60 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:bg-(--deep-crimson)",
+                " transition delay-75 duration-200 ease-in-out  hover:text-(--azure-mist)/80 border" +
+                " border-(--dim-grey)/60 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500" +
+                " shadow-xl/20" +
+                " backdrop-blur-xs hover:bg-(--deep-crimson)",
               pathname === link.href
-                ? "bg-(--deep-crimson) border border-(--primary-scarlet)/80 shadow-xl/80 bg-radial-[at_75%_90%] from-(--crimson-red)/75 via-(--crimson-red)/50 to-(--primary-scarlet) to-95% text-(--off-white)"
+                ? "bg-(--deep-crimson) border border-(--primary-scarlet)/80 shadow-xl/80 bg-radial-[at_75%_90%] from-(--crimson-red)/75 via-(--crimson-red)/50 to-(--primary-scarlet) to-95% text-off-white"
                 : "text-foreground",
             )}
           >

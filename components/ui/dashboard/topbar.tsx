@@ -1,8 +1,8 @@
-import BurgerMenu from "@/app/ui/dashboard/burger-menu";
-import TopBarBreadcrumbs from "@/app/ui/dashboard/topbarbreadcrmbs";
+import BurgerMenu from "./burger-menu";
+import TopBarBreadcrumbs from "./topbarbreadcrmbs";
 import DateToday from "@/components/dashboard/date-today";
-import Notification from "@/app/ui/dashboard/notif";
-import PopUpNotification from "@/app/ui/dashboard/pop-up";
+import Notification from "./notif";
+import PopUpNotification from "./pop-up";
 
 export default function Topbar() {
   return (

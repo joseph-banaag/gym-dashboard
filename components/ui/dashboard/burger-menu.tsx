@@ -2,10 +2,10 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./button.module.css";
 import "@/app/globals.css";
-import { BusinessLogoMobile } from "@/app/ui/dashboard/biz-logo";
-import UserLoggedIn from "@/app/ui/dashboard/user";
+import { BusinessLogoMobile } from "@/components/ui/dashboard/biz-logo";
+import UserLoggedIn from "@/components/ui/dashboard/user";
 import Link from "next/link";
-import NavRoutes from "@/app/ui/dashboard/nav-routes";
+import NavRoutes from "@/components/ui/dashboard/nav-routes";
 import clsx from "clsx";
 import { createPortal } from "react-dom";
 import { usePathname } from "next/navigation";
@@ -89,7 +89,7 @@ export default function BurgerMenu() {
                 <NavRoutes />
               </div>
               <div className="flex flex-col justify-center items-center gap-2">
-                <Link href="/">
+                <Link href="/public">
                   <BusinessLogoMobile />
                 </Link>
                 <div className="flex justify-center items-center w-full">
