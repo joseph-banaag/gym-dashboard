@@ -3,16 +3,11 @@
 import Image from "next/image";
 import { login } from "@/app/actions/login/user-actions";
 import { useState } from "react";
-import clsx from "clsx";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
 export default function LoginPage() {
   const [show, setShow] = useState<boolean>(false);
-
-  const changeView = () => {
-    setShow((prevShow) => !prevShow);
-  };
 
   return (
     <div className="absolute inset-0 background-blob">
@@ -55,12 +50,15 @@ export default function LoginPage() {
                 <input
                   required={true}
                   autoComplete="current-password"
-                  type={clsx(show ? "text" : "password")}
+                  type={show ? "text" : "password"}
                   name="password"
                   placeholder="Password"
                   className="px-4 border-none outline-none background-none"
                 />
-                <span onClick={changeView} className="cursor-pointer pe-4">
+                <span
+                  onClick={() => setShow((prevShow) => !prevShow)}
+                  className="cursor-pointer pe-4"
+                >
                   {show ? (
                     <EyeIcon className="w-5 h-5" />
                   ) : (

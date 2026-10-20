@@ -49,16 +49,14 @@ export default function Page() {
                   : "w-full rounded-none px-3 border-transparent",
               )}
             >
-              <div className="text-[12px] font-bold flex gap-1 text-shadow-xs">
+              <div className="text-[14px] font-bold flex gap-1 text-shadow-xs">
                 <span className="text-(--primary-scarlet)">Oppa</span>
                 <span className="dark:text-off-white text-foreground">
                   Fitness Gym
                 </span>
               </div>
-              <div className="flex gap-1 sm:gap-2 text-[9px] sm:text-[11px]">
-                <Link href="/user">Member</Link>
-                <span>|</span>
-                <Link href="/admin">Admin</Link>
+              <div className="flex gap-2 xs:gap-3 text-[10px]  xs:text-[12px]">
+                <Link href="/user">Sign in</Link>
               </div>
             </div>
           </div>
@@ -99,7 +97,7 @@ export default function Page() {
                 loading="eager"
                 width={570}
                 height={570}
-                className="w-full xl:w-screen h-80 md:h-120 object-cover rounded-2xl shadow-lg/30 shadow-inset-gray-200"
+                className="w-full xl:w-screen h-80 md:h-120 object-cover rounded-2xl shadow-lg/30"
               />
             </div>
           </div>

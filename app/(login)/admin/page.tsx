@@ -3,18 +3,14 @@
 import Image from "next/image";
 import { login } from "@/app/actions/login/admin-actions";
 import { useState } from "react";
-import clsx from "clsx";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 
-// TODO: create-new-users a program that will revoke every attempted access to the admin login page aside from doks account.
+// TODO: create-new-user-profile a program that will revoke every attempted access to the admin login page aside from doks account.
 
 export default function AdminLoginPage() {
   const [displayPw, SetDisplayPw] = useState<boolean>(false);
 
-  const changeView = () => {
-    SetDisplayPw((prev) => !prev);
-  };
   return (
     <div className="absolute inset-0 background-blob">
       <div className="size-full min-w-85 flex flex-col justify-center items-center backdrop-blur-xs">
@@ -56,12 +52,15 @@ export default function AdminLoginPage() {
                 <input
                   required={true}
                   autoComplete="current-password"
-                  type={clsx(displayPw ? "text" : "password")}
+                  type={displayPw ? "text" : "password"}
                   name="password"
                   placeholder="Password"
                   className="px-4 border-none outline-none"
                 />
-                <span onClick={changeView} className="cursor-pointer pe-4">
+                <span
+                  onClick={() => SetDisplayPw((prev) => !prev)}
+                  className="cursor-pointer pe-4"
+                >
                   {displayPw ? (
                     <EyeIcon className="w-5 h-5" />
                   ) : (

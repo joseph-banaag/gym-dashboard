@@ -1,18 +1,23 @@
 "use client";
 
-import { newUser } from "@/app/actions/signup/new-user-actions";
+import { type FormState, newUser } from "@/app/actions/signup/new-user-actions";
 import Image from "next/image";
-import clsx from "clsx";
-import { useState } from "react";
+import { useActionState, useState } from "react";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+import { createPortal } from "react-dom";
 
-const passwordPattern =
-  /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9\s]).{12,128}$/;
-
-const usernamePattern = /^[a-zA-Z][a-zA-Z0-9_]{2,19}$/;
+const initialState: FormState = {};
 
 export default function CreateUserAccount() {
   const [showPwd, setShowPwd] = useState<boolean>(false);
+  const [state, formAction, pending] = useActionState(newUser, initialState);
+
+  const errorMessages = [
+    state.errors?.username,
+    state.errors?.email,
+    state.errors?.password,
+    state.errors?.confirmPassword,
+  ].filter((msg): msg is string => Boolean(msg));
 
   return (
     <div className="absolute inset-0 background-blob">
@@ -33,11 +38,11 @@ export default function CreateUserAccount() {
         {/* form container */}
         <div className="mt-5 sm:mt-10 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-xl border-2 border-r-0 border-l-0 border-white/20 pt-3 px-2 sm:px-4 gap-2 text-carbon-black/80 dark:text-off-white/70">
           <form
-            action={newUser}
+            action={formAction}
             className="flex flex-col justify-start items-center gap-8 p-3"
           >
             {/* username */}
-            <div className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
+            <div className="relative flex items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
               <input
                 required={true}
                 type="text"
@@ -61,12 +66,12 @@ export default function CreateUserAccount() {
             </div>
 
             {/*  password*/}
-            <div className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
+            <div className="flex items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
               <input
                 required={true}
-                type={clsx(showPwd ? "text" : "password")}
+                type={showPwd ? "text" : "password"}
                 name="password"
-                placeholder="Use browser suggestion"
+                placeholder="Password"
                 autoComplete="new-password"
                 className="px-4 border-none outline-none"
                 minLength={12}
@@ -88,8 +93,8 @@ export default function CreateUserAccount() {
             <div className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
               <input
                 required={true}
-                type={clsx(showPwd ? "text" : "password")}
-                name="password"
+                type={showPwd ? "text" : "password"}
+                name="confirmPassword"
                 placeholder="Confirm Password"
                 autoComplete="new-password"
                 className="px-4 border-none outline-none"
@@ -98,11 +103,28 @@ export default function CreateUserAccount() {
 
             <button
               type="submit"
+              disabled={pending}
+
               className="border-dim-grey-overlay rounded-lg px-2 py-1 hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 text-[14px] font-semibold hover:text-carbon-black text-carbon-black/70 my-3 bg-(--orange) flex justify-center items-center cursor-pointer"
             >
-              Create your account
+              {pending ? "Creating..." : "Create your account"}
             </button>
           </form>
+          {errorMessages.length > 0 &&
+            createPortal(
+              <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex w-80 flex-col gap-2">
+                {errorMessages.map((msg) => (
+                  <p
+                    key={msg}
+                    role="alert"
+                    className="text-[11px] font-light rounded-lg dark:bg-carbon-black/80 bg-off-white/30 px-2 py-1 backdrop-blur-xs border border-(--dim-grey)/30 inset-shadow-carbon-overlay"
+                  >
+                    {msg}
+                  </p>
+                ))}
+              </div>,
+              document.body,
+            )}
         </div>
       </div>
     </div>

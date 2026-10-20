@@ -1,18 +1,26 @@
 "use client";
 
-import { newAdmin } from "@/app/actions/signup/new-admin-actions";
-import clsx from "clsx";
-import { useState } from "react";
+import {
+  type FormState,
+  newAdmin,
+} from "@/app/actions/signup/new-admin-actions";
+import { useActionState, useState } from "react";
 import Image from "next/image";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
+import { createPortal } from "react-dom";
 
-const passwordPattern =
-  /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9\s]).{12,128}$/;
-
-const usernamePattern = /^[a-zA-Z][a-zA-Z0-9_]{2,19}$/;
+const initialState: FormState = {};
 
 export default function CreateAdminAccount() {
-  const [dispalyPwd, setDisplayPwd] = useState<boolean>(false);
+  const [displayPwd, setDisplayPwd] = useState<boolean>(false);
+  const [state, formAction, pending] = useActionState(newAdmin, initialState);
+
+  const errorMessages = [
+    state.errors?.adminName,
+    state.errors?.adminEmail,
+    state.errors?.adminPassword,
+    state.errors?.adminConfirmPassword,
+  ].filter((msg): msg is string => Boolean(msg));
 
   return (
     <div className="absolute inset-0 background-blob">
@@ -33,7 +41,7 @@ export default function CreateAdminAccount() {
         {/*  form container */}
         <div className="mt-5 sm:mt-10 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-xl border-2 border-r-0 border-l-0 border-white/20 pt-3 px-2 sm:px-4 gap-2 text-carbon-black/80 dark:text-off-white/70">
           <form
-            action={newAdmin}
+            action={formAction}
             className="flex flex-col justify-start items-center gap-8 p-3"
           >
             {/* username */}
@@ -41,7 +49,7 @@ export default function CreateAdminAccount() {
               <input
                 required={true}
                 type="text"
-                name="username"
+                name="adminName"
                 placeholder="Admin name"
                 autoComplete="username"
                 className="px-4 border-none outline-none"
@@ -53,7 +61,7 @@ export default function CreateAdminAccount() {
               <input
                 required={true}
                 type="email"
-                name="email"
+                name="adminEmail"
                 placeholder="juan@email.com"
                 autoComplete="email"
                 className="px-4 border-none outline-none"
@@ -64,9 +72,9 @@ export default function CreateAdminAccount() {
             <div className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
               <input
                 required={true}
-                type={clsx(dispalyPwd ? "text" : "password")}
-                name="password"
-                placeholder="Use browser suggestion"
+                type={displayPwd ? "text" : "password"}
+                name="adminPassword"
+                placeholder="Password"
                 autoComplete="new-password"
                 className="px-4 border-none outline-none"
                 minLength={12}
@@ -76,7 +84,7 @@ export default function CreateAdminAccount() {
                 onClick={() => setDisplayPwd((prev) => !prev)}
                 className="cursor-pointer pe-4"
               >
-                {dispalyPwd ? (
+                {displayPwd ? (
                   <EyeIcon className="w-5 h-5" />
                 ) : (
                   <EyeSlashIcon className="w-5 h-5" />
@@ -88,8 +96,8 @@ export default function CreateAdminAccount() {
             <div className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
               <input
                 required={true}
-                type={clsx(dispalyPwd ? "text" : "password")}
-                name="password"
+                type={displayPwd ? "text" : "password"}
+                name="adminConfirmPassword"
                 placeholder="Confirm Password"
                 autoComplete="new-password"
                 className="px-4 border-none outline-none"
@@ -98,11 +106,28 @@ export default function CreateAdminAccount() {
 
             <button
               type="submit"
+              disabled={pending}
+
               className="border-dim-grey-overlay rounded-lg px-2 py-1 hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 text-[14px] font-semibold hover:text-carbon-black text-carbon-black/70 my-3 bg-(--orange) flex justify-center items-center cursor-pointer"
             >
-              Create your account
+              {pending ? "Creating..." : "Create your account"}
             </button>
           </form>
+          {errorMessages.length > 0 &&
+            createPortal(
+              <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex w-80 flex-col gap-2">
+                {errorMessages.map((msg) => (
+                  <p
+                    key={msg}
+                    role="alert"
+                    className="text-[11px] font-light rounded-lg dark:bg-carbon-black/80 bg-off-white/30 px-2 py-1 backdrop-blur-xs border border-(--dim-grey)/30 inset-shadow-carbon-overlay"
+                  >
+                    {msg}
+                  </p>
+                ))}
+              </div>,
+              document.body,
+            )}
         </div>
       </div>
     </div>

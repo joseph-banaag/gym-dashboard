@@ -10,7 +10,7 @@ export async function login(formData: FormData) {
 
   // validate, check against DB, hash compare, set session cookie...
 
-  redirect("/"); // will redirect to /users once the authentication and validation is done
+  redirect("/"); // will redirect to /user-profile once the authentication and validation is done
 }
 
-// TODO: redirect users to create-new-users users account page if no account has created yet.
+// TODO: redirect user-profile to create-new-user-profile user-profile account page if no account has created yet.

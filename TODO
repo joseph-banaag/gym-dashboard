@@ -45,7 +45,8 @@ THIS WILL AUTO COMPLETE THE RECENT LOGIN INFORMATION OF THE USER. A BROWSER FEAT
 // account creation date
 
 
-
+                <Link href="/admin">Admin</Link>
+                <Link href="/coach">Coach</Link>
 
 
 
@@ -53,6 +54,7 @@ THIS WILL AUTO COMPLETE THE RECENT LOGIN INFORMATION OF THE USER. A BROWSER FEAT
 
 
 ## TODO now:
+    - create a terms and condition and privacy policy
     - add information to the database
     - create a regex for the password and a valid username
     - complete user page first before the CRM
@@ -61,3 +63,7 @@ THIS WILL AUTO COMPLETE THE RECENT LOGIN INFORMATION OF THE USER. A BROWSER FEAT
 
 
 // what changed (commit message; summarized of what have done.)?
+
+created account creation page and sign in page for coach
+added pages for p&p and Tos
+added error message for invalid credentials

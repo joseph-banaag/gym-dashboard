@@ -1,0 +1,117 @@
+Here's a feature list for the member side, grouped so you can pick what to build first.
+
+**Core profile and progress**
+- Profile with goals (fat loss, muscle gain, strength, endurance), height, weight, and experience level
+- Body measurements and weight log with trend charts
+- Progress photos (private, side-by-side comparison by date)
+- Personal records (PRs) per exercise, with a "new PR" celebration
+- Workout history with volume, sets, reps, and weights over time
+
+**Training**
+- Weekly program planner (assign workouts to days, drag to rearrange)
+- Exercise library with video or image demos, muscle groups, and equipment needed
+- Workout logger with rest timer, last-session numbers shown inline, and quick set copy
+- Program templates (beginner full-body, push/pull/legs, upper/lower) that members can adopt and customize
+- Trainer-assigned programs, if your gym has coaches
+- Deload and progression suggestions (e.g., "add 2.5 kg next session")
+
+**Gym operations**
+- Membership status, plan type, and renewal date, with payment history
+- QR code or barcode check-in, and attendance history
+- Class schedule and booking, with waitlists and cancellations
+- Personal training session booking
+- Locker or equipment reservations, if relevant
+- Gym announcements, holiday hours, and equipment-down notices
+- Live or typical crowd level ("busiest at 6 PM")
+
+**Nutrition**
+- Calorie and macro targets based on goals
+- Simple meal and water logging
+- Meal plan suggestions or trainer-set plans
+- Supplement and habit tracking
+
+**Motivation and engagement**
+- Streaks and weekly consistency score
+- Badges and milestones (first 10 check-ins, 100 workouts, etc.)
+- Goals with deadlines and progress bars
+- Leaderboards or challenges (opt-in, so it doesn't feel pressuring)
+- Reminders and push notifications for workouts, renewals, and booked classes
+- Weekly or monthly progress summary
+
+**Health and recovery**
+- Sleep, mood, soreness, and energy check-ins
+- Injury notes, so the app can flag or swap affected exercises
+- Rest day guidance and stretching or mobility routines
+- Optional wearable integration (Apple Health, Google Fit, Garmin)
+
+**Social and support**
+- Friends or workout buddies, and shared workouts
+- Community feed or groups (optional)
+- In-app messaging with trainers
+- Feedback and support requests
+
+**Account and trust**
+- Privacy controls (who can see photos and stats)
+- Data export and account deletion
+- Notification preferences
+- Units toggle (kg/lb, cm/in)
+- Dark mode, and offline logging for gyms with poor signal
+
+**Suggested build order**
+1. Profile, workout logger, exercise library, weekly planner, progress charts
+2. Check-in, membership status, class booking
+3. Streaks, goals, badges, reminders
+4. Nutrition, recovery, and trainer messaging
+5. Social features and wearables
+
+For a first version, the workout logger plus progress charts is the part members will use every visit, so getting that fast and pleasant matters most. If you tell me whether you're starting with the member side or the trainer/admin side, I can help sketch the data models (for MongoDB) or the page structure in your Next.js app.
+
+
+Since you already have Auth.js and MongoDB Atlas set up, you can build on that rather than starting over.
+
+**1. Choose how members sign up**
+
+GitHub sign-in won't suit gym members, so add one or two of these:
+
+- **Google sign-in:** the easiest to add and the least friction for members. It's just another provider in your Auth.js config.
+- **Email magic link:** no passwords to store. It needs the MongoDB adapter and an email service like Resend.
+- **Email + password (Credentials provider):** the most familiar, but you own more of the security. You have to hash passwords yourself (bcrypt or argon2), and Auth.js requires JWT sessions with this provider.
+
+My suggestion is Google plus email magic link for the first version. It gives you real accounts with the least security work. If you want classic email and password, it's very doable, just more code.
+
+**2. Separate members from admins**
+
+Your existing dashboard is presumably for staff, so add a `role` field (`member`, `trainer`, `admin`) to the user record. New signups always default to `member`, and the role is set only on the server, never from a form field. Then protect routes so `/dashboard` requires staff and `/member/*` requires a signed-in user. Next.js middleware is a good place for this.
+
+**3. Data model (MongoDB)**
+
+Keep signup lean and collect the rest later.
+
+- `users`: name, email (unique index), image, role, createdAt. The Auth.js adapter manages most of this.
+- `memberProfiles`: userId, goal, height, weight, experience level, preferred units, onboardingCompleted. This is created during onboarding.
+- Later collections: `workouts`, `weeklyPlans`, `measurements`, `personalRecords`.
+
+**4. Pages to build first**
+
+- `/signup` and `/login`
+- `/onboarding`: a short 2 to 3 step form for goal, body stats, and experience (let members skip optional fields)
+- `/member` home: a simple "Welcome, here's your week" page
+- `/member/profile`: edit details, units, and privacy
+
+**5. Account basics to include from day one**
+
+- Validate inputs with zod, on the server as well as the client.
+- Verify email addresses (magic link does this for free).
+- Rate-limit signup and login.
+- Add a terms and privacy checkbox. You'll be storing health-related data like weight and photos, so this matters.
+- Add account deletion early. It's much harder to retrofit.
+
+**Suggested order**
+
+1. Add Google or email provider and switch to the MongoDB adapter
+2. Add the `role` field and route protection
+3. Build signup/login pages
+4. Build onboarding and the `memberProfiles` collection
+5. Build the member home shell, then start on the workout logger
+
+If you tell me which sign-in method you're going with, I can write the Auth.js config and the middleware for it, matching your `@/` alias and TypeScript setup.

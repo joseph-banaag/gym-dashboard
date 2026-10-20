@@ -2,15 +2,55 @@
 
 import { redirect } from "next/navigation";
 
-export async function newUser(formData: FormData) {
-  const username = formData.get("username") as string;
-  const password = formData.get("password") as string;
+const passwordPattern =
+  /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9\s]).{12,128}$/;
+const usernamePattern = /^[a-zA-Z][a-zA-Z0-9_]{2,19}$/;
+const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-  // todo: add the creation date when saving the data to the database
+export type FormState = {
+  errors?: {
+    username?: string;
+    password?: string;
+    email?: string;
+    confirmPassword?: string;
+  };
+  message?: string;
+};
 
-  console.log(username, password);
+export async function newUser(
+  prevState: FormState,
+  formData: FormData,
+): Promise<FormState> {
+  const username = String(formData.get("username") ?? "").trim();
+  const password = String(formData.get("password") ?? "");
+  const confirmPassword = String(formData.get("confirmPassword") ?? "");
+  const email = String(formData.get("email") ?? "").trim();
 
-  // validate, check against DB, hash compare, set session cookie...
+  const errors: NonNullable<FormState["errors"]> = {};
 
-  redirect("/"); // will redirect to /users once the authentication and validation is done
+  if (!usernamePattern.test(username)) {
+    errors.username =
+      "Username must be 3-20 characters, start with a letter, and contain only letters, numbers, or underscores.";
+  }
+
+  if (!passwordPattern.test(password)) {
+    errors.password =
+      "Password must be 12-128 characters and include an uppercase letter, a lowercase letter, a number, and a special character.";
+  }
+
+  if (email.length > 254 || !emailPattern.test(email)) {
+    errors.email = "Please enter a valid email address";
+  }
+
+  if (password !== confirmPassword) {
+    errors.confirmPassword = "Password must match confirm password";
+  }
+
+  if (Object.keys(errors).length > 0) {
+    return { errors };
+  }
+
+  // todo: create the user here (hash the password, save to DB, etc.)
+
+  redirect("/user-profile");
 }
