@@ -8,14 +8,16 @@ const plans = [
     description:
       "Per day training session. Students and senior citizens are discounted.",
     icon: <Calendar1Icon />,
+    discount: "(₱ 35.00)",
   },
   {
-    name: "B-week Pass",
+    name: "2-week Pass",
     price: "₱ 400",
     term: "Unlimited Two",
     description:
       "Unlimited two weeks pass. Students and senior citizens are discounted.",
     icon: <Calendar2Icon />,
+    discount: "(₱ 350.00)",
   },
   {
     name: "Monthly Pass",
@@ -24,6 +26,7 @@ const plans = [
     description:
       "The most affordable and budget friendly rates for all. Students and senior citizens are discounted.",
     icon: <CalendarDaysIcon />,
+    discount: "(₱ 600.00)",
   },
 ];
 
@@ -39,7 +42,7 @@ export default function Rates() {
               className="col-span-1 border p-3 rounded-lg border-(--dim-grey)/40 shadow-lg/10 flex flex-col gap-4"
             >
               <div className="flex justify-between items-center">
-                <h3 className="text-lg font-semibold text-(--orange) dark:text-(--sunflower-gold)">
+                <h3 className="text-lg font-semibold text-(--orange)">
                   {plan.name}
                 </h3>
                 <span className="text-carbon-black/70 dark:text-off-white/70">
@@ -57,7 +60,12 @@ export default function Rates() {
                 </span>
                 <span className="text-[11px] font-light">{plan.term}</span>
               </div>
-              <p className="text-sm font-light">{plan.description}</p>
+              <div className="text-sm">
+                <p className="font-light">{plan.description}</p>
+                <span className="font-semibold text-(--sunflower-gold)">
+                  {plan.discount}
+                </span>
+              </div>
             </div>
           );
         })}

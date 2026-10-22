@@ -25,6 +25,7 @@ export async function newAdmin(
   const password = String(formData.get("adminPassword") ?? "");
   const email = String(formData.get("adminEmail") ?? "").trim();
   const confirmPassword = String(formData.get("adminConfirmPassword") ?? "");
+  const role = "admin";
 
   const errors: NonNullable<FormState["errors"]> = {};
 

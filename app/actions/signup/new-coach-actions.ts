@@ -25,6 +25,7 @@ export async function newCoach(
   const password = String(formData.get("coachPassword") ?? "");
   const confirmPassword = String(formData.get("coachConfirmPassword") ?? "");
   const email = String(formData.get("coachEmail") ?? "").trim();
+  const role = "coach";
 
   const errors: NonNullable<FormState["errors"]> = {};
 

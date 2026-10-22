@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useActionState, useState } from "react";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import { createPortal } from "react-dom";
+import { PLANS } from "@/lib/plans";
 
 const initialState: FormState = {};
 
@@ -12,11 +13,15 @@ export default function CreateUserAccount() {
   const [showPwd, setShowPwd] = useState<boolean>(false);
   const [state, formAction, pending] = useActionState(newUser, initialState);
 
+  console.log(state);
+  console.log(pending);
+
   const errorMessages = [
     state.errors?.username,
     state.errors?.email,
     state.errors?.password,
     state.errors?.confirmPassword,
+    state.errors?.memberPlan,
   ].filter((msg): msg is string => Boolean(msg));
 
   return (
@@ -101,6 +106,25 @@ export default function CreateUserAccount() {
               />
             </div>
 
+            {/* Plan options */}
+            <div className="flex justify-center items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light px-4">
+              <select
+                name="memberPlan"
+                required={true}
+                className="w-full relative"
+              >
+                {PLANS.map((p) => (
+                  <option
+                    key={p.name}
+                    value={p.value}
+                    className="bg-off-white/70 dark:bg-carbon-black/80 px-2 py-1 "
+                  >
+                    {p.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             <button
               type="submit"
               disabled={pending}
@@ -130,3 +154,5 @@ export default function CreateUserAccount() {
     </div>
   );
 }
+
+// TODO: add a plan dropdown menu

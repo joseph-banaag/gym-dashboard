@@ -65,7 +65,7 @@ export default function Page() {
             <div className="w-full flex flex-col justify-center gap-8 px-1 lg:px-12 mb-15 sm:py-12">
               <div className="flex flex-col">
                 <h1
-                  className={`${shockSurgent.className} shrink font-semibold text-5xl sm:text-7xl text-(--orange) text-shadow-sm/10 text-nowrap`}
+                  className={`${shockSurgent.className} shrink font-semibold text-5xl sm:text-7xl text-(--sunflower-gold) text-shadow-sm/10 text-nowrap`}
                 >
                   Train hard,
                 </h1>
@@ -79,11 +79,11 @@ export default function Page() {
                 </p>
                 <p>
                   By using this application, you can manage your{" "}
-                  <strong className="text-(--orange) text-[16px] font-bold">
+                  <strong className="text-(--sunflower-gold) text-[16px] font-bold">
                     weekly program{" "}
                   </strong>
                   and{" "}
-                  <strong className="text-(--orange) text-[16px] font-bold">
+                  <strong className="text-(--sunflower-gold) text-[16px] font-bold">
                     track your progress.
                   </strong>
                 </p>

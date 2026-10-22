@@ -13,6 +13,7 @@ export type FormState = {
     password?: string;
     email?: string;
     confirmPassword?: string;
+    memberPlan?: string;
   };
   message?: string;
 };
@@ -25,6 +26,10 @@ export async function newUser(
   const password = String(formData.get("password") ?? "");
   const confirmPassword = String(formData.get("confirmPassword") ?? "");
   const email = String(formData.get("email") ?? "").trim();
+  const memberPlan = String(formData.get("memberPlan") ?? "");
+  const role = "member";
+
+  console.log("members plan:", memberPlan);
 
   const errors: NonNullable<FormState["errors"]> = {};
 
@@ -46,6 +51,10 @@ export async function newUser(
     errors.confirmPassword = "Password must match confirm password";
   }
 
+  if (memberPlan === "default") {
+    errors.memberPlan = "Select the correct membership plan";
+  }
+
   if (Object.keys(errors).length > 0) {
     return { errors };
   }
@@ -54,3 +63,14 @@ export async function newUser(
 
   redirect("/user-profile");
 }
+
+// TODO: create an automated userId maker when user created their account base on year. for example Uid202634: 34th
+//  member in 2026
+
+//members information:
+//userId:
+//username:
+//email:
+//password: hashed
+//planId: daily | b-week | monthly
+// role: member |coach | admin | owner
