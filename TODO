@@ -59,6 +59,7 @@ THIS WILL AUTO COMPLETE THE RECENT LOGIN INFORMATION OF THE USER. A BROWSER FEAT
     - create a regex for the password and a valid username
     - complete user page first before the CRM
     - add authentication to the application using Authjs/nextauthjs
+    - make sure to lowercase usernames and email address before storing to the database
 
 
 

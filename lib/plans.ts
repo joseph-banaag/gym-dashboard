@@ -9,7 +9,7 @@ export const PLANS = [
   },
   {
     value: "2-week",
-    name: "2-week plan",
+    name: "2-week",
   },
   {
     value: "monthly",

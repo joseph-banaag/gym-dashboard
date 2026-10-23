@@ -13,9 +13,6 @@ export default function CreateUserAccount() {
   const [showPwd, setShowPwd] = useState<boolean>(false);
   const [state, formAction, pending] = useActionState(newUser, initialState);
 
-  console.log(state);
-  console.log(pending);
-
   const errorMessages = [
     state.errors?.username,
     state.errors?.email,
@@ -34,6 +31,7 @@ export default function CreateUserAccount() {
             alt="Oppa fitness gym logo"
             width={180}
             height={180}
+            className="h-auto w-32 md:w-44"
           />
           <span className="text-md font-semibold text-shadow-xs text-carbon-black/70 dark:text-off-white/70">
             Oppa Fitness Gym
@@ -111,13 +109,13 @@ export default function CreateUserAccount() {
               <select
                 name="memberPlan"
                 required={true}
-                className="w-full relative"
+                className="w-full relative outline-none"
               >
                 {PLANS.map((p) => (
                   <option
                     key={p.name}
                     value={p.value}
-                    className="bg-off-white/70 dark:bg-carbon-black/80 px-2 py-1 "
+                    className="bg-off-white/70 dark:bg-carbon-black/80 px-2 py-1 outline-none"
                   >
                     {p.name}
                   </option>

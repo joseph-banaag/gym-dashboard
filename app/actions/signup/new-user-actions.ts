@@ -74,3 +74,15 @@ export async function newUser(
 //password: hashed
 //planId: daily | b-week | monthly
 // role: member |coach | admin | owner
+
+// TODO: USE DIFFERENT DATABASE FOR USERS, COACH, ADMIN, OWNER
+
+const dataStructure = {
+  _id: 1,
+  userId: "U202634",
+  username: "doks",
+  email: "doks@gmail.com",
+  password: "hashedPassword",
+  plan: ["daily plan", "2-week plan", "monthly plan"],
+  role: ["member", "admin", "coach"],
+};
