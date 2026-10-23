@@ -51,6 +51,7 @@ export default function CreateCoach() {
                 name="coachName"
                 placeholder="Coach name"
                 autoComplete="username"
+                defaultValue={state.values?.coachName}
                 className="px-4 border-none outline-none"
               />
             </div>
@@ -63,6 +64,7 @@ export default function CreateCoach() {
                 name="coachEmail"
                 placeholder="juan@email.com"
                 autoComplete="email"
+                defaultValue={state.values?.coachEmail}
                 className="px-4 border-none outline-none"
               />
             </div>

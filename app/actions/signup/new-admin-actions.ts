@@ -72,6 +72,7 @@ export async function newAdmin(
       adminEmail: adminEmailLower,
       adminPasswordHashed,
       role: "admin",
+      membershipStatus: "active",
       created_at: new Date(),
     });
   } catch (e) {

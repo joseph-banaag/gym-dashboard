@@ -7,6 +7,7 @@ export interface Admin {
   adminEmail: string;
   adminPasswordHashed: string;
   role: "admin";
+  membershipStatus: "active" | "inactive";
   created_at: Date;
 }
 
