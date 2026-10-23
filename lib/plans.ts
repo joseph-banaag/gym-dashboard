@@ -1,9 +1,5 @@
 export const PLANS = [
   {
-    value: "default",
-    name: "Choose your plan:",
-  },
-  {
     value: "daily",
     name: "Daily",
   },
@@ -16,3 +12,7 @@ export const PLANS = [
     name: "Monthly",
   },
 ];
+
+export const INCLUDE_PLANS: readonly string[] = PLANS.map(({ value }) => value);
+
+export type planValue = (typeof PLANS)[number]["value"];

@@ -1,6 +1,10 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { getMembersCollection } from "@/lib/members";
+import bcrypt from "bcryptjs";
+import { INCLUDE_PLANS } from "@/lib/plans";
+import { MongoServerError } from "mongodb";
 
 const passwordPattern =
   /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9\s]).{12,128}$/;
@@ -15,6 +19,10 @@ export type FormState = {
     confirmPassword?: string;
     memberPlan?: string;
   };
+  values?: {
+    username?: string;
+    email?: string;
+  };
   message?: string;
 };
 
@@ -27,9 +35,6 @@ export async function newUser(
   const confirmPassword = String(formData.get("confirmPassword") ?? "");
   const email = String(formData.get("email") ?? "").trim();
   const memberPlan = String(formData.get("memberPlan") ?? "");
-  const role = "member";
-
-  console.log("members plan:", memberPlan);
 
   const errors: NonNullable<FormState["errors"]> = {};
 
@@ -51,38 +56,43 @@ export async function newUser(
     errors.confirmPassword = "Password must match confirm password";
   }
 
-  if (memberPlan === "default") {
+  if (!INCLUDE_PLANS.includes(memberPlan)) {
     errors.memberPlan = "Select the correct membership plan";
   }
 
   if (Object.keys(errors).length > 0) {
-    return { errors };
+    return {
+      errors,
+      values: { username, email },
+    };
   }
 
-  // todo: create the user here (hash the password, save to DB, etc.)
+  const emailLower = email.toLowerCase();
+  const passwordHashed = await bcrypt.hash(password, 12);
+  const members = await getMembersCollection();
+
+  try {
+    await members.insertOne({
+      username,
+      email: emailLower,
+      passwordHashed,
+      role: "member",
+      memberPlan,
+      membershipStatus: "active",
+      createdAt: new Date(),
+    });
+  } catch (e) {
+    if (e instanceof MongoServerError && e.code === 11000) {
+      if (e.keyPattern?.email) {
+        return { errors: { email: "Email is already registered." } };
+      }
+      if (e.keyPattern?.username) {
+        return { errors: { username: "Username is already taken." } };
+      }
+    }
+    console.error("Signup failed.", e);
+    return { message: "Something went wrong. Please try again." };
+  }
 
   redirect("/user-profile");
 }
-
-// TODO: create an automated userId maker when user created their account base on year. for example Uid202634: 34th
-//  member in 2026
-
-//members information:
-//userId:
-//username:
-//email:
-//password: hashed
-//planId: daily | b-week | monthly
-// role: member |coach | admin | owner
-
-// TODO: USE DIFFERENT DATABASE FOR USERS, COACH, ADMIN, OWNER
-
-const dataStructure = {
-  _id: 1,
-  userId: "U202634",
-  username: "doks",
-  email: "doks@gmail.com",
-  password: "hashedPassword",
-  plan: ["daily plan", "2-week plan", "monthly plan"],
-  role: ["member", "admin", "coach"],
-};

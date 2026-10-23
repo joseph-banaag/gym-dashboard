@@ -52,6 +52,7 @@ export default function CreateUserAccount() {
                 name="username"
                 placeholder="Username"
                 autoComplete="username"
+                defaultValue={state.values?.username}
                 className="px-4 border-none outline-none"
               />
             </div>
@@ -64,6 +65,7 @@ export default function CreateUserAccount() {
                 name="email"
                 placeholder="juan@email.com"
                 autoComplete="email"
+                defaultValue={state.values?.email}
                 className="px-4 border-none outline-none"
               />
             </div>
@@ -109,8 +111,16 @@ export default function CreateUserAccount() {
               <select
                 name="memberPlan"
                 required={true}
+                defaultValue="default"
                 className="w-full relative outline-none"
               >
+                <option
+                  value="default"
+                  disabled
+                  className="bg-off-white/70 dark:bg-carbon-black/80 px-2 py-1 outline-none"
+                >
+                  Select a plan
+                </option>
                 {PLANS.map((p) => (
                   <option
                     key={p.name}
@@ -152,5 +162,3 @@ export default function CreateUserAccount() {
     </div>
   );
 }
-
-// TODO: add a plan dropdown menu

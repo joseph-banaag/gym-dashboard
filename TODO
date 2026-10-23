@@ -49,7 +49,28 @@ THIS WILL AUTO COMPLETE THE RECENT LOGIN INFORMATION OF THE USER. A BROWSER FEAT
                 <Link href="/coach">Coach</Link>
 
 
+// TODO: create an automated userId maker when user created their account base on year. for example Uid202634: 34th
+//  member in 2026
 
+//members information:
+//userId:
+//username:
+//email:
+//password: hashed
+//planId: daily | b-week | monthly
+// role: member |coach | admin | owner
+
+// TODO: USE DIFFERENT DATABASE FOR USERS, COACH, ADMIN, OWNER
+
+const dataStructure = {
+  _id: 1,
+  userId: "U202634",
+  username: "doks",
+  email: "doks@gmail.com",
+  password: "hashedPassword",
+  plan: ["daily plan", "2-week plan", "monthly plan"],
+  role: ["member", "admin", "coach"],
+};
 
 
 
