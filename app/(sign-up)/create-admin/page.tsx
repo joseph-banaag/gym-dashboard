@@ -52,6 +52,7 @@ export default function CreateAdminAccount() {
                 name="adminName"
                 placeholder="Admin name"
                 autoComplete="username"
+                defaultValue={state.values?.adminName}
                 className="px-4 border-none outline-none"
               />
             </div>
@@ -64,6 +65,7 @@ export default function CreateAdminAccount() {
                 name="adminEmail"
                 placeholder="juan@email.com"
                 autoComplete="email"
+                defaultValue={state.values?.adminEmail}
                 className="px-4 border-none outline-none"
               />
             </div>

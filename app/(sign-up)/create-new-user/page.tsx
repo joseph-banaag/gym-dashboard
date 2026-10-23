@@ -13,6 +13,10 @@ export default function CreateUserAccount() {
   const [showPwd, setShowPwd] = useState<boolean>(false);
   const [state, formAction, pending] = useActionState(newUser, initialState);
 
+  // TODO: CREATE A PROGRAM THAT WILL REDIRECT USERS TO LOGIN IF THE USERNAME AND EMAIL EXISTS.
+  const emailTaken = state.errors?.email;
+  console.log("emailTaken", emailTaken);
+
   const errorMessages = [
     state.errors?.username,
     state.errors?.email,
