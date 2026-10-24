@@ -28,9 +28,6 @@ export async function login(
     { collation: { locale: "en", strength: 2 } },
   );
 
-  const email = member?.email;
-  console.log("members's email: ", email);
-
   if (!member) return { errors: { username: INVALID } };
 
   const ok = await bcrypt.compare(password, member.passwordHashed);
