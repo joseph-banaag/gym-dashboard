@@ -1,15 +1,16 @@
 import "server-only";
-import { SignJWT, jwtVerify } from "jose";
+import { jwtVerify, SignJWT } from "jose";
 import { cookies } from "next/headers";
 
 const secret = process.env.SESSION_SECRET;
-if (!secret) throw new Error("SESSION_SECRET is missing");
+if (!secret) throw new Error("SESSION_SECRET is missing.");
 const key = new TextEncoder().encode(secret);
 
 const SESSION_DAYS = 7;
 
 export type SessionPayload = { memberId: string; role: "member" };
 
+// CREATE SESSION
 export async function createSession(memberId: string, role: "member") {
   const expiresAt = new Date(Date.now() + SESSION_DAYS * 24 * 60 * 60 * 1000);
 
@@ -29,6 +30,7 @@ export async function createSession(memberId: string, role: "member") {
   });
 }
 
+// READ/GET SESSION
 export async function getSession(): Promise<SessionPayload | null> {
   const token = (await cookies()).get("session")?.value;
   if (!token) return null;
@@ -44,6 +46,7 @@ export async function getSession(): Promise<SessionPayload | null> {
   }
 }
 
+// DELETE SESSION
 export async function deleteSession() {
   (await cookies()).delete("session");
 }

@@ -40,21 +40,22 @@ export default function Page() {
           <div className="fixed top-1 left-0 w-full">
             <div
               className={clsx(
-                "mx-auto flex h-12 items-center justify-between px-4 sm:px-8 lg:px-20 2xl:px-40",
+                "mx-auto flex items-center justify-between py-2",
                 "border",
                 "transition-all duration-300 ease-in-out",
                 scrolled
                   ? "w-16/18 sm:w-3/4 rounded-xl border-(--dim-grey)/30 bg-off-white/20 dark:bg-carbon-black/60" +
-                      " backdrop-blur-sm shadow-lg/20 px-2 inset-shadow-lg/20 inset-shadow-white"
-                  : "w-full rounded-none px-3 border-transparent",
+                      " backdrop-blur-sm shadow-lg/20 px-4 inset-shadow-lg/20 inset-shadow-white"
+                  : "w-full rounded-none px-3 sm:px-8 lg:px-20 2xl:px-40 border-transparent",
               )}
             >
-              <div className="text-[14px] font-bold flex gap-1 text-shadow-xs">
-                <span className="text-(--primary-scarlet)">Oppa</span>
-                <span className="dark:text-off-white text-foreground">
-                  Fitness Gym
-                </span>
-              </div>
+              <Link
+                href="/"
+                className="text-[11px] xs:text-[14px] font-bold flex gap-1 text-shadow-xs border border-(--dim-grey)/30 p-1 xs:px-2 px:py-1 backdrop-blur-xs bg-off-white/80 rounded-lg"
+              >
+                <span className="text-(--deep-crimson)/80">Oppa</span>
+                <span className="text-carbon-black/80">Fitness Gym</span>
+              </Link>
               <div className="flex gap-2 xs:gap-3 text-[10px]  xs:text-[12px]">
                 <Link href="/user">Sign in</Link>
               </div>

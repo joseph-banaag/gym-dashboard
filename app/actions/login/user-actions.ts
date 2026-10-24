@@ -18,7 +18,7 @@ export async function login(
 ): Promise<LoginState> {
   const username = String(formData.get("username") ?? "").trim();
   const password = String(formData.get("password") ?? "");
-  const INVALID = "Invalid username or password";
+  const INVALID = "Invalid username or password. Try creating an account.";
 
   if (!username || !password) return { errors: { username: INVALID } };
 
@@ -31,7 +31,7 @@ export async function login(
   if (!member) return { errors: { username: INVALID } };
 
   const ok = await bcrypt.compare(password, member.passwordHashed);
-  if (!ok) return { errors: { username: INVALID } };
+  if (!ok) return { errors: { password: INVALID } };
 
   await createSession(member._id!.toString(), member.role);
   redirect("/user-profile");

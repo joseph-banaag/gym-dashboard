@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { getCoachesCollection } from "@/lib/coach";
 import bcrypt from "bcryptjs";
 import { MongoServerError } from "mongodb";
+import { createCoachSession } from "@/lib/coach-session";
 
 const passwordPattern =
   /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9\s]).{12,128}$/;
@@ -34,6 +35,7 @@ export async function newCoach(
     formData.get("coachConfirmPassword") ?? "",
   );
   const coachEmail = String(formData.get("coachEmail") ?? "").trim();
+  const INVALID_CREDS = "Invalid credentials. Try recovering your account.";
 
   const errors: NonNullable<FormState["errors"]> = {};
 
@@ -66,8 +68,10 @@ export async function newCoach(
   const coachPasswordHashed = await bcrypt.hash(coachPassword, 12);
   const coaches = await getCoachesCollection();
 
+  let coachId: string;
+
   try {
-    await coaches.insertOne({
+    const result = await coaches.insertOne({
       coachName,
       coachEmail: coachEmailLower,
       coachPasswordHashed,
@@ -75,18 +79,22 @@ export async function newCoach(
       membershipStatus: "active",
       created_at: new Date(),
     });
+
+    coachId = result.insertedId.toString();
   } catch (e) {
     if (e instanceof MongoServerError && e.code === 11000) {
       if (e.keyPattern?.coachEmail) {
-        return { errors: { coachEmail: "Email is already registered." } };
+        return { errors: { coachEmail: INVALID_CREDS } };
       }
       if (e.keyPattern?.coachName) {
-        return { errors: { coachName: "Username is already taken." } };
+        return { errors: { coachName: INVALID_CREDS } };
       }
     }
     console.error("Signup failed.", e);
     return { message: "Something went wrong. Please try again." };
   }
+
+  await createCoachSession(coachId, "coach");
 
   redirect("/coach-profile");
 }

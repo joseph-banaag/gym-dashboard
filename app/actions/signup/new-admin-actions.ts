@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { getAdminsCollection } from "@/lib/admin";
 import bcrypt from "bcryptjs";
 import { MongoServerError } from "mongodb";
+import { createAdminSession } from "@/lib/admin-session";
 
 const passwordPattern =
   /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9\s]).{12,128}$/;
@@ -34,6 +35,7 @@ export async function newAdmin(
   const adminConfirmPassword = String(
     formData.get("adminConfirmPassword") ?? "",
   );
+  const INVALID_ACCOUNT = "Invalid credentials. Try recovering your account";
 
   const errors: NonNullable<FormState["errors"]> = {};
 
@@ -66,8 +68,10 @@ export async function newAdmin(
   const adminPasswordHashed = await bcrypt.hash(adminPassword, 12);
   const admins = await getAdminsCollection();
 
+  let adminId: string;
+
   try {
-    await admins.insertOne({
+    const result = await admins.insertOne({
       adminName,
       adminEmail: adminEmailLower,
       adminPasswordHashed,
@@ -75,18 +79,21 @@ export async function newAdmin(
       membershipStatus: "active",
       created_at: new Date(),
     });
+
+    adminId = result.insertedId.toString();
   } catch (e) {
     if (e instanceof MongoServerError && e.code === 11000) {
       if (e.keyPattern?.adminEmail) {
-        return { errors: { adminEmail: "Email is already registered." } };
+        return { errors: { adminEmail: INVALID_ACCOUNT } };
       }
       if (e.keyPattern?.adminName) {
-        return { errors: { adminName: "Username is already taken." } };
+        return { errors: { adminName: INVALID_ACCOUNT } };
       }
     }
     console.error("Signup failed. ", e);
     return { message: "Something went wrong. Please try again." };
   }
 
+  await createAdminSession(adminId, "admin");
   redirect("/admin-profile");
 }
