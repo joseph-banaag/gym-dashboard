@@ -1,4 +1,6 @@
 TODO:
+    - fix regex for strong password suggestion by the browser.
+
     - set up auth using JOSE (JSON object signing and encryption)
     - in the sign up form to create a program to redirect existing account to /login
     - reset account password using email not username

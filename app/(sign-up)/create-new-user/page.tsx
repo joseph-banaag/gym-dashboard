@@ -80,8 +80,6 @@ export default function CreateUserAccount() {
                 placeholder="Password"
                 autoComplete="new-password"
                 className="px-4 border-none outline-none"
-                minLength={12}
-                maxLength={128}
               />
               <span
                 onClick={() => setShowPwd((prev) => !prev)}

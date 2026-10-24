@@ -78,8 +78,6 @@ export default function CreateCoach() {
                 placeholder="Password"
                 autoComplete="new-password"
                 className="px-4 border-none outline-none"
-                minLength={12}
-                maxLength={128}
               />
               <span
                 onClick={() => setDisplayPwd((prev) => !prev)}
