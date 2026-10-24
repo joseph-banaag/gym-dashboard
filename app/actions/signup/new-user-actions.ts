@@ -5,6 +5,7 @@ import { getMembersCollection } from "@/lib/members";
 import bcrypt from "bcryptjs";
 import { INCLUDE_PLANS } from "@/lib/plans";
 import { MongoServerError } from "mongodb";
+import { createSession } from "@/lib/session";
 
 const passwordPattern =
   /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9\s]).{12,128}$/;
@@ -35,6 +36,8 @@ export async function newUser(
   const confirmPassword = String(formData.get("confirmPassword") ?? "");
   const email = String(formData.get("email") ?? "").trim();
   const memberPlan = String(formData.get("memberPlan") ?? "");
+  const INVALID_CREDENTIALS =
+    "Invalid credentials. Try recovering your account";
 
   const errors: NonNullable<FormState["errors"]> = {};
 
@@ -71,8 +74,10 @@ export async function newUser(
   const passwordHashed = await bcrypt.hash(password, 12);
   const members = await getMembersCollection();
 
+  let memberId: string;
+
   try {
-    await members.insertOne({
+    const result = await members.insertOne({
       username,
       email: emailLower,
       passwordHashed,
@@ -81,18 +86,22 @@ export async function newUser(
       membershipStatus: "active",
       createdAt: new Date(),
     });
+
+    memberId = result.insertedId.toString();
   } catch (e) {
     if (e instanceof MongoServerError && e.code === 11000) {
       if (e.keyPattern?.email) {
-        return { errors: { email: "Email is already registered." } };
+        return { errors: { email: INVALID_CREDENTIALS } };
       }
       if (e.keyPattern?.username) {
-        return { errors: { username: "Username is already taken." } };
+        return { errors: { username: INVALID_CREDENTIALS } };
       }
     }
     console.error("Signup failed.", e);
     return { message: "Something went wrong. Please try again." };
   }
+
+  await createSession(memberId, "member");
 
   redirect("/user-profile");
 }

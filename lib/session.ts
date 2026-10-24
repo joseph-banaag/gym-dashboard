@@ -1,0 +1,49 @@
+import "server-only";
+import { SignJWT, jwtVerify } from "jose";
+import { cookies } from "next/headers";
+
+const secret = process.env.SESSION_SECRET;
+if (!secret) throw new Error("SESSION_SECRET is missing");
+const key = new TextEncoder().encode(secret);
+
+const SESSION_DAYS = 7;
+
+export type SessionPayload = { memberId: string; role: "member" };
+
+export async function createSession(memberId: string, role: "member") {
+  const expiresAt = new Date(Date.now() + SESSION_DAYS * 24 * 60 * 60 * 1000);
+
+  const token = await new SignJWT({ memberId, role })
+    .setProtectedHeader({ alg: "HS256" })
+    .setIssuedAt()
+    .setExpirationTime(expiresAt)
+    .sign(key);
+
+  const cookieStore = await cookies();
+  cookieStore.set("session", token, {
+    httpOnly: true, // JavaScript in the browser can't read it
+    secure: process.env.NODE_ENV === "production", // HTTPS only on Vercel
+    sameSite: "lax",
+    expires: expiresAt,
+    path: "/",
+  });
+}
+
+export async function getSession(): Promise<SessionPayload | null> {
+  const token = (await cookies()).get("session")?.value;
+  if (!token) return null;
+
+  try {
+    const { payload } = await jwtVerify(token, key, { algorithms: ["HS256"] });
+    return {
+      memberId: payload.memberId as string,
+      role: payload.role as "member",
+    };
+  } catch {
+    return null; // expired, tampered with, or invalid
+  }
+}
+
+export async function deleteSession() {
+  (await cookies()).delete("session");
+}

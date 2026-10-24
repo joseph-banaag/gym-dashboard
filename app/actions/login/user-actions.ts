@@ -1,16 +1,46 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { getMembersCollection } from "@/lib/members";
+import bcrypt from "bcryptjs";
+import { createSession, deleteSession } from "@/lib/session";
 
-export async function login(formData: FormData) {
-  const username = formData.get("username") as string;
-  const password = formData.get("password") as string;
+export type LoginState = {
+  errors?: {
+    username?: string;
+    password?: string;
+  };
+};
 
-  console.log(username, password);
+export async function login(
+  prevState: LoginState,
+  formData: FormData,
+): Promise<LoginState> {
+  const username = String(formData.get("username") ?? "").trim();
+  const password = String(formData.get("password") ?? "");
+  const INVALID = "Invalid username or password";
 
-  // validate, check against DB, hash compare, set session cookie...
+  if (!username || !password) return { errors: { username: INVALID } };
 
-  redirect("/"); // will redirect to /user-profile once the authentication and validation is done
+  const members = await getMembersCollection();
+  const member = await members.findOne(
+    { username },
+    { collation: { locale: "en", strength: 2 } },
+  );
+
+  const email = member?.email;
+  console.log("members's email: ", email);
+
+  if (!member) return { errors: { username: INVALID } };
+
+  const ok = await bcrypt.compare(password, member.passwordHashed);
+  if (!ok) return { errors: { username: INVALID } };
+
+  await createSession(member._id!.toString(), member.role);
+  redirect("/user-profile");
 }
 
-// TODO: redirect user-profile to create-new-user-profile user-profile account page if no account has created yet.
+export async function logout() {
+  await deleteSession();
+  redirect("/");
+}

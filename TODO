@@ -1,87 +1,9 @@
-* create a user page that has a loading animation welcoming theme with their profile picture and username for 5 seconds
-before displaying the main user's page.
-
-* get the new user and approve the account creating request before letting them use the application
-
-* get the newly created admin account and check if the account is valid before approving the new account creation
-request
+TODO:
+    - set up auth using JOSE
+    - in the sign up form to create a program to redirect existing account to /login
+    - reset account password using email not username
 
 
 
-
-password regex pattern requires non-alphanumeric characters, non-whitespace and should have at least 8 characters
-create allow chrome password suggestion to autopopulate the password form
-
-<!-- Signup -->
-<input type="text" name="username" autocomplete="username" />
-<input type="password" name="password" autocomplete="new-password" />
-
-NOTE:
-- check from the database if the username is unique, if not alert user that the username is already taken
-- if user request a password reset, send it to the email address
-- add password rules in the input field:
-    <input
-      type="password"
-      autocomplete="new-password"
-      passwordrules="minlength: 12; maxlength: 128; required: lower; required: upper; required: digit; required: special;"
-    />
-
-
-
-THIS WILL AUTO COMPLETE THE RECENT LOGIN INFORMATION OF THE USER. A BROWSER FEATURE
-<!-- Login -->
-<input type="text" name="username" autocomplete="username" />
-<input type="password" name="password" autocomplete="current-password" />
-
-
-// TODO:  to create-new-user a new account get the following:
-// username - creat username must be at least characters with numbers and special characters (ex: matthew_516)
-// check if username is already in use before allowing user to use it
-// email address
-// password -regex password. create-new-user a suggestion password by the browser. suggest user to use the useStrong password
-//   add password check and strength meter and show which rules are met or not met if the user can provide a proper
-//   password
-// confirmed password
-// account creation date
-
-
-                <Link href="/admin">Admin</Link>
-                <Link href="/coach">Coach</Link>
-
-
-// TODO: create an automated userId maker when user created their account base on year. for example Uid202634: 34th
-//  member in 2026
-
-//members information:
-//userId:
-//username:
-//email:
-//password: hashed
-//planId: daily | b-week | monthly
-// role: member |coach | admin | owner
-
-// TODO: USE DIFFERENT DATABASE FOR USERS, COACH, ADMIN, OWNER
-
-const dataStructure = {
-  _id: 1,
-  userId: "U202634",
-  username: "doks",
-  email: "doks@gmail.com",
-  password: "hashedPassword",
-  plan: ["daily plan", "2-week plan", "monthly plan"],
-  role: ["member", "admin", "coach"],
-};
-
-
-
-## TODO now:
-    - create a terms and condition and privacy policy
-    - add information to the database
-    - create a regex for the password and a valid username
-    - complete user page first before the CRM
-    - add authentication to the application using Authjs/nextauthjs
-    - make sure to lowercase usernames and email address before storing to the database
-
-
-
-// COMMIT MESSAGE HERE:
+// COMMIT MESSAGE:
+added a spinning svg to the create account btn.f
