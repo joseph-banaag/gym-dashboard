@@ -124,7 +124,7 @@ export default function LoginPage() {
             <div className="w-full flex justify-center items-center mb-2 gap-1 text-[12px]">
               <span>No account yet?</span>
               <Link
-                href="/create-new-user"
+                href="/members/create-new-user"
                 className="underline underline-offset-2"
               >
                 Create here

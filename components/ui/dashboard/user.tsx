@@ -1,6 +1,9 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { XMarkIcon } from "@heroicons/react/24/solid";
+import {
+  ArrowLeftStartOnRectangleIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/solid";
 import {
   UserDesignation,
   UserImage,
@@ -10,6 +13,7 @@ import HoverStatus from "../users/hover-status";
 import { createPortal } from "react-dom";
 import { profileSettings } from "@/lib/dashboard/profile-menu-list";
 import Link from "next/link";
+import { logout } from "@/app/actions/login/owner-actions";
 
 type UserLoggedInProps = {
   portalRef?: React.RefObject<HTMLDivElement | null>;
@@ -81,6 +85,15 @@ export default function UserLoggedIn({ portalRef }: UserLoggedInProps) {
                       </Link>
                     );
                   })}
+                  <form
+                    action={logout}
+                    className="border p-2 sm:p-3 flex items-center gap-2 border-dim-grey-overlay rounded-lg w-full hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 text-[13px] font-light hover:font-medium text-foreground"
+                  >
+                    <ArrowLeftStartOnRectangleIcon className="w-5 h-5" />
+                    <button type="submit" className="text-[11px] sm:text-sm">
+                      Logout
+                    </button>
+                  </form>
                 </div>
               </div>
             </div>,
@@ -98,7 +111,7 @@ export default function UserLoggedIn({ portalRef }: UserLoggedInProps) {
           <span className="cursor-pointer">
             <HoverStatus />
           </span>
-          <div className="w-8 h-8 rounded-2xl flex justify-center items-center overflow-hidden border-foreground">
+          <div className="w-7 xs:w-8 h-7 xs:h-8 rounded-2xl flex justify-center items-center overflow-hidden border-foreground">
             <UserImage />
           </div>
           <div className="flex flex-col justify-start items-start">

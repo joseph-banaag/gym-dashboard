@@ -1,5 +1,26 @@
 TODO:
     - fix regex for strong password suggestion by the browser.
+    - add email validation from sign up before logging in the client and keep the email validated
+
+    sign up:
+        -> created the account with:
+            * username
+            * email
+            * password (that match the regex for a secure password)
+            * confirmed password
+            * validated email
+
+            I. once the sign up is done, click the continue button to trigger the email validation and display the page
+            that accepts the 6 digit validation code.
+            II. send the email verification with a random code that should match what the randomizer created
+            III. verify the code and let it running for 5 minutes
+            IV. if the verification failed. Provide a resend code like to trigger randomizer number and send the email
+            to the user's given email address.
+                IV-A. if the user provided wrong code. proceed to step VI.
+            V. provide 3 tries only.
+            VI. cancel the operation and prompt user that the sign up has failed.
+            VII. log in user if the verification is successful.
+
 
     - set up auth using JOSE (JSON object signing and encryption)
     - in the sign up form to create a program to redirect existing account to /login
@@ -8,3 +29,9 @@ TODO:
 
 
 // COMMIT MESSAGE:
+
+⚠️⚠️⚠️⚠️⚠️ WARNING! test the application first before deploying. make sure account creating is working since the files
+were moved.
+
+// CREATE OWNER LOGIN
+-owner-session

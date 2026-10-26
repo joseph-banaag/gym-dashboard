@@ -126,7 +126,7 @@ export default function CoachLoginPage() {
             <div className="w-full flex justify-center items-center mb-2 gap-1 text-[12px]">
               <span>No account yet?</span>
               <Link
-                href="/create-new-coach"
+                href="/coaches/create-new-coach"
                 className="underline underline-offset-2"
               >
                 Create here

@@ -10,9 +10,13 @@ import Link from "next/link";
 
 const initialState: FormState = {};
 
+// MEMBER'S FORM
 export default function CreateUserAccount() {
   const [showPwd, setShowPwd] = useState<boolean>(false);
   const [state, formAction, pending] = useActionState(newUser, initialState);
+
+  // todo: once submitted display a new form that will take the code sent to email and verify first before
+  //  completing the account creating process
 
   const errorMessages = [
     state.errors?.username,
@@ -164,7 +168,7 @@ export default function CreateUserAccount() {
                 {pending ? "Creating..." : "Create your account"}
               </button>
               <Link
-                href="/"
+                href="/public"
                 className="text-xs underline underline-offset-2 cursor-pointer"
               >
                 Recover your account

@@ -1,5 +1,4 @@
 import {
-  ArrowLeftStartOnRectangleIcon,
   BellAlertIcon,
   Cog8ToothIcon,
   NumberedListIcon,
@@ -20,10 +19,5 @@ export const profileSettings = [
     name: "Todo",
     route: "/dashboard/todo",
     icon: NumberedListIcon,
-  },
-  {
-    name: "Logout",
-    route: "/",
-    icon: ArrowLeftStartOnRectangleIcon,
   },
 ];

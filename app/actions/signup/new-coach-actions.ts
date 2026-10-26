@@ -7,7 +7,7 @@ import { MongoServerError } from "mongodb";
 import { createCoachSession } from "@/lib/coach-session";
 
 const passwordPattern =
-  /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9\s])\S{12,128}$/;
+  /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])[\x21-\x7E]{12,128}$/;
 const usernamePattern = /^[a-zA-Z][a-zA-Z0-9_]{2,19}$/;
 const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -26,7 +26,7 @@ export type FormState = {
 };
 
 export async function newCoach(
-  prevState: FormState,
+  _prevState: FormState,
   formData: FormData,
 ): Promise<FormState> {
   const coachName = String(formData.get("coachName") ?? "").trim();
@@ -46,8 +46,7 @@ export async function newCoach(
 
   if (!passwordPattern.test(coachPassword)) {
     errors.coachPassword =
-      "Password must be at least 12 characters and include an uppercase letter, a lowercase letter, a number, and a" +
-      " special character and no whitespaces.";
+      "Password must be 12–128 characters and include at least one uppercase letter, one lowercase letter, one number, and one special character. Spaces are not allowed.";
   }
 
   if (!emailPattern.test(coachEmail)) {
@@ -99,3 +98,7 @@ export async function newCoach(
 
   redirect("/coach-profile");
 }
+
+//VERIFYING EMAIL
+
+//RESEND VERIFICATION CODE

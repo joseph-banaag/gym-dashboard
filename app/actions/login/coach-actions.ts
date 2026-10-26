@@ -13,7 +13,7 @@ export type CoachLoginState = {
 };
 
 export async function login(
-  prevState: CoachLoginState,
+  _prevState: CoachLoginState,
   formData: FormData,
 ): Promise<CoachLoginState> {
   const coachName = String(formData.get("coachName") ?? "").trim();

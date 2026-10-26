@@ -21,7 +21,7 @@ export async function createSession(memberId: string, role: "member") {
     .sign(key);
 
   const cookieStore = await cookies();
-  cookieStore.set("session", token, {
+  cookieStore.set("memberSession", token, {
     httpOnly: true, // JavaScript in the browser can't read it
     secure: process.env.NODE_ENV === "production", // HTTPS only on Vercel
     sameSite: "lax",
@@ -32,7 +32,7 @@ export async function createSession(memberId: string, role: "member") {
 
 // READ/GET SESSION
 export async function getSession(): Promise<SessionPayload | null> {
-  const token = (await cookies()).get("session")?.value;
+  const token = (await cookies()).get("memberSession")?.value;
   if (!token) return null;
 
   try {
@@ -48,5 +48,5 @@ export async function getSession(): Promise<SessionPayload | null> {
 
 // DELETE SESSION
 export async function deleteSession() {
-  (await cookies()).delete("session");
+  (await cookies()).delete("memberSession");
 }

@@ -17,8 +17,20 @@ const shockSurgent = localFont({
   ],
 });
 
+const StaffBtn = [
+  {
+    name: "Coach",
+    path: "/coach",
+  },
+  {
+    name: "Admin",
+    path: "/admin",
+  },
+];
+
 export default function Page() {
   const [scrolled, setScrolled] = useState<boolean>(false);
+  const [enableBtn, setEnableBtn] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +44,9 @@ export default function Page() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  // TODO: create a function that will disable the coach and admin button when the page is load to a members window
+  // -get ownerSession and enable  staff button
 
   return (
     <>
@@ -57,7 +72,22 @@ export default function Page() {
                 <span className="text-carbon-black/80">Fitness Gym</span>
               </Link>
               <div className="flex gap-2 xs:gap-3 text-[10px]  xs:text-[12px]">
-                <Link href="/user">Sign in</Link>
+                <Link href="/user">Member</Link>
+
+                {StaffBtn.map((item) =>
+                  enableBtn ? (
+                    <Link key={item.name} href={item.path}>
+                      {item.name}
+                    </Link>
+                  ) : (
+                    <span
+                      key={item.name}
+                      className="opacity-50 cursor-not-allowed"
+                    >
+                      {item.name}
+                    </span>
+                  ),
+                )}
               </div>
             </div>
           </div>
@@ -103,8 +133,8 @@ export default function Page() {
             </div>
           </div>
 
-          <div className="w-full text-carbon-black/70 dark:text-foreground mb-20 md:mb-40">
-            <div className="flex flex-col mb-4">
+          <div className="w-full mb-20 md:mb-40">
+            <div className="flex flex-col mb-4 text-carbon-black/70 dark:text-foreground/70">
               <h2 className="text-[24px] sm:text-[30px] font-bold">
                 Our rates
               </h2>
@@ -140,7 +170,7 @@ export default function Page() {
                 Sunday, 1:00 PM to 9:00 PM
               </span>
             </div>
-            <div className="px-3 py-1 rounded-full bg-off-white shadow-lg/20 backdrop-blur-xs mt-5 inset-shadow-xs inset-shadow-carbon-overlay flex justify-center items-center">
+            <div className="px-3 py-1 rounded-full bg-off-white shadow-sm/20 backdrop-blur-xs mt-5 inset-shadow-xs inset-shadow-carbon-overlay flex justify-center items-center">
               <Link
                 target="_blank"
                 href="https://www.facebook.com/oppafitnessgym/"

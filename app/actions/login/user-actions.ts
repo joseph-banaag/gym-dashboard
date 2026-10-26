@@ -3,7 +3,7 @@
 import { redirect } from "next/navigation";
 import { getMembersCollection } from "@/lib/members";
 import bcrypt from "bcryptjs";
-import { createSession, deleteSession } from "@/lib/session";
+import { createSession, deleteSession } from "@/lib/member-session";
 
 export type LoginState = {
   errors?: {
@@ -13,7 +13,7 @@ export type LoginState = {
 };
 
 export async function login(
-  prevState: LoginState,
+  _prevState: LoginState,
   formData: FormData,
 ): Promise<LoginState> {
   const username = String(formData.get("username") ?? "").trim();

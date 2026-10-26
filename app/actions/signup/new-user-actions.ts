@@ -5,10 +5,10 @@ import { getMembersCollection } from "@/lib/members";
 import bcrypt from "bcryptjs";
 import { INCLUDE_PLANS } from "@/lib/plans";
 import { MongoServerError } from "mongodb";
-import { createSession } from "@/lib/session";
+import { createSession } from "@/lib/member-session";
 
 const passwordPattern =
-  /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9\s])\S{12,128}$/;
+  /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])[\x21-\x7E]{12,128}$/;
 const usernamePattern = /^[a-zA-Z][a-zA-Z0-9_]{2,19}$/;
 const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -27,8 +27,9 @@ export type FormState = {
   message?: string;
 };
 
+// MEMBER'S ACTION
 export async function newUser(
-  prevState: FormState,
+  _prevState: FormState,
   formData: FormData,
 ): Promise<FormState> {
   const username = String(formData.get("username") ?? "").trim();
@@ -37,7 +38,7 @@ export async function newUser(
   const email = String(formData.get("email") ?? "").trim();
   const memberPlan = String(formData.get("memberPlan") ?? "");
   const INVALID_CREDENTIALS =
-    "Invalid credentials. Try recovering your account";
+    "Invalid credentials. Try recovering your account.";
 
   const errors: NonNullable<FormState["errors"]> = {};
 
@@ -48,8 +49,7 @@ export async function newUser(
 
   if (!passwordPattern.test(password)) {
     errors.password =
-      "Password must be at least 12 characters and include an uppercase letter, a lowercase letter, a number, and a" +
-      " special character and no whitespaces.";
+      "Password must be 12–128 characters and include at least one uppercase letter, one lowercase letter, one number, and one special character. Spaces are not allowed.";
   }
 
   if (email.length > 254 || !emailPattern.test(email)) {
@@ -106,3 +106,7 @@ export async function newUser(
 
   redirect("/user-profile");
 }
+
+//VERIFYING EMAIL
+
+//RESEND VERIFICATION CODE

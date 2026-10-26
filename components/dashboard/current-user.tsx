@@ -9,7 +9,7 @@ export function UserImage() {
         width={32}
         height={32}
         alt="User's profile photo"
-        className="w-8 h-8"
+        className="object-cover"
       />
       ;
     </>

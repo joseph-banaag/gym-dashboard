@@ -42,7 +42,7 @@ export default function Rates() {
               className="col-span-1 border p-3 rounded-lg border-(--dim-grey)/40 shadow-lg/10 flex flex-col gap-4"
             >
               <div className="flex justify-between items-center">
-                <h3 className="text-lg font-semibold text-(--orange)">
+                <h3 className="text-lg font-semibold text-(--harvest-gold)">
                   {plan.name}
                 </h3>
                 <span className="text-carbon-black/70 dark:text-off-white/70">
@@ -58,11 +58,15 @@ export default function Rates() {
                     <span className="text-[18px] h-3">00</span>
                   </span>
                 </span>
-                <span className="text-[11px] font-light">{plan.term}</span>
+                <span className="text-[11px] font-light text-carbon-black/70 dark:text-foreground/70">
+                  {plan.term}
+                </span>
               </div>
               <div className="text-sm">
-                <p className="font-light">{plan.description}</p>
-                <span className="font-semibold text-(--sunflower-gold)">
+                <p className="font-light text-carbon-black/70 dark:text-foreground/70">
+                  {plan.description}
+                </p>
+                <span className="font-semibold text-(--harvest-gold)">
                   {plan.discount}
                 </span>
               </div>

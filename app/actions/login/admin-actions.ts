@@ -13,7 +13,7 @@ export type AdminLoginState = {
 };
 
 export async function login(
-  prevState: AdminLoginState,
+  _prevState: AdminLoginState,
   formData: FormData,
 ): Promise<AdminLoginState> {
   const adminName = String(formData.get("adminName") ?? "").trim();
