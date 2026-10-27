@@ -1,11 +1,11 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { getMembersCollection } from "@/lib/members";
+import { getMembersCollection } from "@/lib/collections/members";
 import bcrypt from "bcryptjs";
 import { INCLUDE_PLANS } from "@/lib/plans";
 import { MongoServerError } from "mongodb";
-import { createSession } from "@/lib/member-session";
+import { createSession } from "@/lib/sessions/member-session";
 
 const passwordPattern =
   /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])[\x21-\x7E]{12,128}$/;

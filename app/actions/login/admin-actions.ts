@@ -1,9 +1,12 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { getAdminsCollection } from "@/lib/admin";
+import { getAdminsCollection } from "@/lib/collections/admin";
 import bcrypt from "bcryptjs";
-import { createAdminSession, deleteAdminSession } from "@/lib/admin-session";
+import {
+  createAdminSession,
+  deleteAdminSession,
+} from "@/lib/sessions/admin-session";
 
 export type AdminLoginState = {
   errors?: {

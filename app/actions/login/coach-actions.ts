@@ -1,9 +1,12 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { getCoachesCollection } from "@/lib/coach";
+import { getCoachesCollection } from "@/lib/collections/coach";
 import bcrypt from "bcryptjs";
-import { createCoachSession, deleteCoachSession } from "@/lib/coach-session";
+import {
+  createCoachSession,
+  deleteCoachSession,
+} from "@/lib/sessions/coach-session";
 
 export type CoachLoginState = {
   errors?: {

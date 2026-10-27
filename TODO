@@ -1,5 +1,6 @@
 TODO:
-    - fix regex for strong password suggestion by the browser.
+    - secure the url and redirect non logged in users using nextjs proxy
+    - add dal (data access layer)
     - add email validation from sign up before logging in the client and keep the email validated
 
     sign up:
@@ -29,6 +30,9 @@ TODO:
 
 
 // COMMIT MESSAGE:
+add
+
+
 
 ⚠️⚠️⚠️⚠️⚠️ WARNING! test the application first before deploying. make sure account creating is working since the files
 were moved.

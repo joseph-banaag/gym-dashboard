@@ -2,8 +2,8 @@ import "server-only";
 import { jwtVerify, SignJWT } from "jose";
 import { cookies } from "next/headers";
 
-const secret = process.env.SESSION_SECRET;
-if (!secret) throw new Error("SESSION_SECRET is missing.");
+const secret = process.env.COACH_SESSION_SECRET;
+if (!secret) throw new Error("COACH_SESSION_SECRET is missing.");
 const key = new TextEncoder().encode(secret);
 
 const SESSION_DAYS = 7;
@@ -37,6 +37,8 @@ export async function getCoachSession(): Promise<CoachSessionPayload | null> {
 
   try {
     const { payload } = await jwtVerify(token, key, { algorithms: ["HS256"] });
+    if (typeof payload.coachId !== "string" || payload.role !== "coach")
+      return null;
     return {
       coachId: payload.coachId as string,
       role: payload.role as "coach",

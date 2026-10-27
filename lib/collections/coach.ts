@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { getDb } from "@/lib/db";
+import { getDb } from "@/lib/mongodb/db";
 
 export interface Coach {
   _id?: ObjectId;

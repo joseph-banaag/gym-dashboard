@@ -1,4 +1,4 @@
-import client from "@/lib/mongodb";
+import client from "@/lib/mongodb/mongodb";
 
 async function main() {
   const coaches = client.db("gym-members").collection("coaches");

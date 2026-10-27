@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb";
-import { getDb } from "./db";
+import { getDb } from "../mongodb/db";
 import { planValue } from "@/lib/plans";
 
 export interface Member {

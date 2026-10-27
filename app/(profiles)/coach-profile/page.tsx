@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
-import { getCoachesCollection } from "@/lib/coach";
+import { getCoachesCollection } from "@/lib/collections/coach";
 import { ObjectId } from "mongodb";
-import { getCoachSession } from "@/lib/coach-session";
+import { getCoachSession } from "@/lib/sessions/coach-session";
 import { logout } from "@/app/actions/login/coach-actions";
 
 export default async function Page() {

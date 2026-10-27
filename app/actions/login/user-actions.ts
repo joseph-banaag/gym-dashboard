@@ -1,9 +1,9 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { getMembersCollection } from "@/lib/members";
+import { getMembersCollection } from "@/lib/collections/members";
 import bcrypt from "bcryptjs";
-import { createSession, deleteSession } from "@/lib/member-session";
+import { createSession, deleteSession } from "@/lib/sessions/member-session";
 
 export type LoginState = {
   errors?: {

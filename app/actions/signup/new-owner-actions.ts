@@ -1,9 +1,9 @@
 "use server";
 
-import { getOwnerCollection } from "@/lib/owner";
+import { getOwnerCollection } from "@/lib/collections/owner";
 import bcrypt from "bcryptjs";
 import { MongoServerError } from "mongodb";
-import { createOwnerSession } from "@/lib/owner-session";
+import { createOwnerSession } from "@/lib/sessions/owner-session";
 import { redirect } from "next/navigation";
 
 const passwordPattern =

@@ -1,6 +1,6 @@
-import { getSession } from "@/lib/member-session";
+import { getSession } from "@/lib/sessions/member-session";
 import { redirect } from "next/navigation";
-import { getMembersCollection } from "@/lib/members";
+import { getMembersCollection } from "@/lib/collections/members";
 import { ObjectId } from "mongodb";
 import { logout } from "@/app/actions/login/user-actions";
 

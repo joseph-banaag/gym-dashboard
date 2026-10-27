@@ -1,10 +1,10 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { getAdminsCollection } from "@/lib/admin";
+import { getAdminsCollection } from "@/lib/collections/admin";
 import bcrypt from "bcryptjs";
 import { MongoServerError } from "mongodb";
-import { createAdminSession } from "@/lib/admin-session";
+import { createAdminSession } from "@/lib/sessions/admin-session";
 
 const passwordPattern =
   /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])[\x21-\x7E]{12,128}$/;

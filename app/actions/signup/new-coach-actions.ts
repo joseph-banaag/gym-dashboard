@@ -1,10 +1,10 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { getCoachesCollection } from "@/lib/coach";
+import { getCoachesCollection } from "@/lib/collections/coach";
 import bcrypt from "bcryptjs";
 import { MongoServerError } from "mongodb";
-import { createCoachSession } from "@/lib/coach-session";
+import { createCoachSession } from "@/lib/sessions/coach-session";
 
 const passwordPattern =
   /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9])[\x21-\x7E]{12,128}$/;

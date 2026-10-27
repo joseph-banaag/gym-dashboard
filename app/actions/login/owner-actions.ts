@@ -1,8 +1,11 @@
 "use server";
 
-import { getOwnerCollection } from "@/lib/owner";
+import { getOwnerCollection } from "@/lib/collections/owner";
 import bcrypt from "bcryptjs";
-import { createOwnerSession, deleteOwnerSession } from "@/lib/owner-session";
+import {
+  createOwnerSession,
+  deleteOwnerSession,
+} from "@/lib/sessions/owner-session";
 import { redirect } from "next/navigation";
 
 export type OwnerLoginState = {

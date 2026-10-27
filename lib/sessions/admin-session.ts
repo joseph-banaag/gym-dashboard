@@ -2,8 +2,8 @@ import "server-only";
 import { jwtVerify, SignJWT } from "jose";
 import { cookies } from "next/headers";
 
-const secretKey = process.env.SESSION_SECRET;
-if (!secretKey) throw new Error("SESSION_SECRET is missing");
+const secretKey = process.env.ADMIN_SESSION_SECRET;
+if (!secretKey) throw new Error("ADMIN_SESSION_SECRET is missing");
 const key = new TextEncoder().encode(secretKey);
 
 const SESSION_DAYS = 7;
@@ -37,6 +37,8 @@ export async function getAdminSession(): Promise<AdminSessionPayload | null> {
 
   try {
     const { payload } = await jwtVerify(token, key, { algorithms: ["HS256"] });
+    if (typeof payload.adminId !== "string" || payload.role !== "admin")
+      return null;
     return {
       adminId: payload.adminId as string,
       role: payload.role as "admin",

@@ -1,6 +1,6 @@
-import { getAdminSession } from "@/lib/admin-session";
+import { getAdminSession } from "@/lib/sessions/admin-session";
 import { redirect } from "next/navigation";
-import { getAdminsCollection } from "@/lib/admin";
+import { getAdminsCollection } from "@/lib/collections/admin";
 import { ObjectId } from "mongodb";
 import { logout } from "@/app/actions/login/admin-actions";
 

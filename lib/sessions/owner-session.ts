@@ -38,6 +38,8 @@ export async function getOwnerSession(): Promise<SessionPayload | null> {
 
   try {
     const { payload } = await jwtVerify(token, key, { algorithms: ["HS256"] });
+    if (typeof payload.ownerId !== "string" || payload.role !== "owner")
+      return null;
     return {
       ownerId: payload.ownerId as string,
       role: payload.role as "owner",
