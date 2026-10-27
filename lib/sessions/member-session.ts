@@ -1,6 +1,7 @@
 import "server-only";
 import { jwtVerify, SignJWT } from "jose";
 import { cookies } from "next/headers";
+import { cache } from "react";
 
 const secret = process.env.MEMBER_SESSION_SECRET;
 if (!secret) throw new Error("MEMBER_SESSION_SECRET is missing.");
@@ -31,7 +32,7 @@ export async function createSession(memberId: string, role: "member") {
 }
 
 // READ/GET SESSION
-export async function getSession(): Promise<SessionPayload | null> {
+export const getSession = cache(async (): Promise<SessionPayload | null> => {
   const token = (await cookies()).get("memberSession")?.value;
   if (!token) return null;
 
@@ -46,7 +47,7 @@ export async function getSession(): Promise<SessionPayload | null> {
   } catch {
     return null; // expired, tampered with, or invalid
   }
-}
+});
 
 // DELETE SESSION
 export async function deleteSession() {

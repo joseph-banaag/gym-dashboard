@@ -6,7 +6,7 @@ import {
   ExclamationCircleIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/solid";
-import type {ComponentType, SVGProps} from "react";
+import type { ComponentType, SVGProps } from "react";
 
 export interface Card {
   name: string;
@@ -47,4 +47,4 @@ export const cardContent: Card[] = [
   },
 ];
 
-// TODO: if trajectory is going up from previous performance provide arrow up icon and arrow down if not.
+// TODO.txt: if trajectory is going up from previous performance provide arrow up icon and arrow down if not.
