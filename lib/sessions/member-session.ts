@@ -40,8 +40,8 @@ export async function getSession(): Promise<SessionPayload | null> {
     if (typeof payload.memberId !== "string" || payload.role !== "member")
       return null;
     return {
-      memberId: payload.memberId as string,
-      role: payload.role as "member",
+      memberId: payload.memberId,
+      role: "member",
     };
   } catch {
     return null; // expired, tampered with, or invalid

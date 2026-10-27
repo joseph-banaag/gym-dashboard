@@ -1,1 +1,1 @@
-// todo: will create-new-user-profile list of program for the month
+// todo: will create-new-member list of program for the month

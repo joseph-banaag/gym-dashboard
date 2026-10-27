@@ -36,8 +36,10 @@ export async function login(
   const ok = await bcrypt.compare(coachPassword, coach.coachPasswordHashed);
   if (!ok) return { errors: { coachPassword: INVALID } };
 
-  await createCoachSession(coach._id!.toString(), coach.role);
-  redirect("/coach-profile");
+  const coachId = coach._id!.toString();
+
+  await createCoachSession(coachId, coach.role);
+  redirect(`/coach/${coachId}`);
 }
 
 export async function logout() {

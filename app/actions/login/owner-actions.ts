@@ -36,9 +36,10 @@ export async function login(
 
   const ok = await bcrypt.compare(ownerPassword, owner.ownerPasswordHashed);
   if (!ok) return { errors: { ownerPassword: INVALID_MSG } };
+  const ownerId = owner._id!.toString();
 
-  await createOwnerSession(owner._id!.toString(), owner.role);
-  redirect("/dashboard");
+  await createOwnerSession(ownerId, owner.role);
+  redirect(`/owner/${ownerId}`);
 }
 
 export async function logout() {

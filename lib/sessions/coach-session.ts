@@ -40,8 +40,8 @@ export async function getCoachSession(): Promise<CoachSessionPayload | null> {
     if (typeof payload.coachId !== "string" || payload.role !== "coach")
       return null;
     return {
-      coachId: payload.coachId as string,
-      role: payload.role as "coach",
+      coachId: payload.coachId,
+      role: "coach",
     };
   } catch {
     return null;

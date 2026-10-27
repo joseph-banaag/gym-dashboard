@@ -40,8 +40,8 @@ export async function getAdminSession(): Promise<AdminSessionPayload | null> {
     if (typeof payload.adminId !== "string" || payload.role !== "admin")
       return null;
     return {
-      adminId: payload.adminId as string,
-      role: payload.role as "admin",
+      adminId: payload.adminId,
+      role: "admin",
     };
   } catch {
     return null;

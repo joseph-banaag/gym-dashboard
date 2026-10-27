@@ -33,8 +33,10 @@ export async function login(
   const ok = await bcrypt.compare(password, member.passwordHashed);
   if (!ok) return { errors: { password: INVALID } };
 
-  await createSession(member._id!.toString(), member.role);
-  redirect("/user-profile");
+  const memberId = member._id!.toString();
+
+  await createSession(memberId, member.role);
+  redirect(`/member/${memberId}`);
 }
 
 export async function logout() {

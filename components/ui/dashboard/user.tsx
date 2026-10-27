@@ -102,7 +102,7 @@ export default function UserLoggedIn({ portalRef }: UserLoggedInProps) {
 
         <hr className="border border-t-0 rounded-2xl border-(--orange) w-full my-2" />
 
-        {/* logged-in user-profile on the nav bar */}
+        {/* logged-in member on the nav bar */}
         <button
           ref={buttonRef}
           className="flex justify-start items-center gap-2 p-2 sm:p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/20 cursor-pointer border border-(--dim-grey)/30 hover:border-(--dim-grey)/50 w-full"

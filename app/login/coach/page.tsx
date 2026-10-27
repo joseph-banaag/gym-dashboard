@@ -1,21 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { type AdminLoginState, login } from "@/app/actions/login/admin-actions";
+import { type CoachLoginState, login } from "@/app/actions/login/coach-actions";
 import { useActionState, useState } from "react";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { createPortal } from "react-dom";
 
-const initialState: AdminLoginState = {};
+const initialState: CoachLoginState = {};
 
-export default function AdminLoginPage() {
-  const [displayPw, SetDisplayPw] = useState<boolean>(false);
+export default function CoachLoginPage() {
+  const [showPwd, setShowPwd] = useState<boolean>(false);
   const [state, formAction, pending] = useActionState(login, initialState);
 
   const errorMessages = [
-    state.errors?.adminName,
-    state.errors?.adminPassword,
+    state.errors?.coachName,
+    state.errors?.coachPassword,
   ].filter((msg): msg is string => Boolean(msg));
 
   return (
@@ -36,7 +36,7 @@ export default function AdminLoginPage() {
           </div>
           {/* form container */}
           <div className="mt-5 sm:mt-10 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-xl border border-r-0 border-l-0 border-white/20 pt-3 px-2 gap-2 text-carbon-black/80 dark:text-off-white/70">
-            <span className="text-xs px-3">Admin&apos;s sign-in</span>
+            <span className="text-xs px-3">Coach&apos;s sign-in</span>
 
             <form
               action={formAction}
@@ -47,7 +47,7 @@ export default function AdminLoginPage() {
                 <input
                   required={true}
                   type="text"
-                  name="adminName"
+                  name="coachName"
                   placeholder="Admin name"
                   autoComplete="username"
                   className="px-4 border-none outline-none"
@@ -59,16 +59,16 @@ export default function AdminLoginPage() {
                 <input
                   required={true}
                   autoComplete="current-password"
-                  type={displayPw ? "text" : "password"}
-                  name="adminPassword"
+                  type={showPwd ? "text" : "password"}
+                  name="coachPassword"
                   placeholder="Password"
                   className="px-4 border-none outline-none"
                 />
                 <span
-                  onClick={() => SetDisplayPw((prev) => !prev)}
+                  onClick={() => setShowPwd((prev) => !prev)}
                   className="cursor-pointer pe-4"
                 >
-                  {displayPw ? (
+                  {showPwd ? (
                     <EyeIcon className="w-5 h-5" />
                   ) : (
                     <EyeSlashIcon className="w-5 h-5" />
@@ -126,7 +126,7 @@ export default function AdminLoginPage() {
             <div className="w-full flex justify-center items-center mb-2 gap-1 text-[12px]">
               <span>No account yet?</span>
               <Link
-                href="/admins/create-admin"
+                href="/sign-up/coaches/create-new-coach"
                 className="underline underline-offset-2"
               >
                 Create here

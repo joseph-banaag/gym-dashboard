@@ -102,7 +102,7 @@ export async function createOwner(
 
   await createOwnerSession(ownerId, "owner");
 
-  redirect("/dashboard");
+  redirect(`/owner/${ownerId}`);
 }
 
 //VERIFYING EMAIL

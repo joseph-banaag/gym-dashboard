@@ -6,7 +6,7 @@ import { logout } from "@/app/actions/login/coach-actions";
 
 export default async function Page() {
   const coachSession = await getCoachSession();
-  if (!coachSession) redirect("/coach");
+  if (!coachSession) redirect("/login/coach");
 
   const coaches = await getCoachesCollection();
   const coach = coaches.findOne(
@@ -14,7 +14,7 @@ export default async function Page() {
     { projection: { coachPasswordHashed: 0 } },
   );
 
-  if (!coach) redirect("/coach");
+  if (!coach) redirect("/login/coach");
 
   return (
     <div>

@@ -95,7 +95,7 @@ export async function newAdmin(
   }
 
   await createAdminSession(adminId, "admin");
-  redirect("/admin-profile");
+  redirect(`/admin/${adminId}`);
 }
 
 //VERIFYING EMAIL

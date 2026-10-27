@@ -11,7 +11,7 @@ const SESSION_DAYS = 30;
 
 export type SessionPayload = { ownerId: string; role: "owner" };
 
-//CREATE OWNER SESSION
+//CREATE owner SESSION
 export async function createOwnerSession(ownerId: string, role: "owner") {
   const expiresAt = new Date(Date.now() + SESSION_DAYS * 24 * 60 * 60 * 1000);
 
@@ -41,8 +41,8 @@ export async function getOwnerSession(): Promise<SessionPayload | null> {
     if (typeof payload.ownerId !== "string" || payload.role !== "owner")
       return null;
     return {
-      ownerId: payload.ownerId as string,
-      role: payload.role as "owner",
+      ownerId: payload.ownerId,
+      role: "owner",
     };
   } catch {
     return null;

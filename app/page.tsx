@@ -20,11 +20,11 @@ const shockSurgent = localFont({
 const StaffBtn = [
   {
     name: "Coach",
-    path: "/coach",
+    path: "/login/coach",
   },
   {
     name: "Admin",
-    path: "/admin",
+    path: "/login/admin",
   },
 ];
 
@@ -72,7 +72,7 @@ export default function Page() {
                 <span className="text-carbon-black/80">Fitness Gym</span>
               </Link>
               <div className="flex gap-2 xs:gap-3 text-[10px]  xs:text-[12px]">
-                <Link href="/user">Member</Link>
+                <Link href="/login/member">Member</Link>
 
                 {StaffBtn.map((item) =>
                   enableBtn ? (

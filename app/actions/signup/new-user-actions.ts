@@ -104,7 +104,7 @@ export async function newUser(
 
   await createSession(memberId, "member");
 
-  redirect("/user-profile");
+  redirect(`/member/${memberId}`);
 }
 
 //VERIFYING EMAIL

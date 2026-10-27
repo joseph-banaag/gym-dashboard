@@ -127,7 +127,7 @@ export default function OwnerLoginPage() {
             <div className="w-full flex justify-center items-center mb-2 gap-1 text-[12px]">
               <span>No account yet?</span>
               <Link
-                href="/OWNER/create-owner"
+                href="/sign-up/owner/create-owner"
                 className="underline underline-offset-2"
               >
                 Create here

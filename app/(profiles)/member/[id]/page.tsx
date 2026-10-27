@@ -4,9 +4,17 @@ import { getMembersCollection } from "@/lib/collections/members";
 import { ObjectId } from "mongodb";
 import { logout } from "@/app/actions/login/user-actions";
 
-export default async function UsersPage() {
+export default async function UsersPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  console.log("ID value is: ", id);
+  console.log("ID type: ", typeof id);
+
   const session = await getSession();
-  if (!session) redirect("/user");
+  if (!session) redirect("/login/member");
 
   const members = await getMembersCollection();
   const member = await members.findOne(
@@ -14,7 +22,7 @@ export default async function UsersPage() {
     { projection: { passwordHashed: 0 } },
   );
 
-  if (!member) redirect("/user");
+  if (!member) redirect("/login/member");
 
   return (
     <div>

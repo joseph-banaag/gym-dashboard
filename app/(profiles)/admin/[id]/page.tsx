@@ -6,7 +6,7 @@ import { logout } from "@/app/actions/login/admin-actions";
 
 export default async function Page() {
   const adminSession = await getAdminSession();
-  if (!adminSession) redirect("/admin");
+  if (!adminSession) redirect("/login/admin");
 
   const admins = await getAdminsCollection();
   const admin = admins.findOne(
@@ -14,7 +14,7 @@ export default async function Page() {
     { projection: { adminPasswordHashed: 0 } },
   );
 
-  if (!admin) redirect("/admin");
+  if (!admin) redirect("/login/admin");
 
   return (
     <div className="flex flex-col">

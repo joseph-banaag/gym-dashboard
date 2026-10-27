@@ -96,7 +96,7 @@ export async function newCoach(
 
   await createCoachSession(coachId, "coach");
 
-  redirect("/coach-profile");
+  redirect(`/coach/${coachId}`);
 }
 
 //VERIFYING EMAIL

@@ -1,21 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import { login, type LoginState } from "@/app/actions/login/user-actions";
+import { type AdminLoginState, login } from "@/app/actions/login/admin-actions";
 import { useActionState, useState } from "react";
 import { EyeIcon, EyeSlashIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { createPortal } from "react-dom";
 
-const initialState: LoginState = {};
+const initialState: AdminLoginState = {};
 
-export default function LoginPage() {
-  const [show, setShow] = useState<boolean>(false);
+export default function AdminLoginPage() {
+  const [displayPw, SetDisplayPw] = useState<boolean>(false);
   const [state, formAction, pending] = useActionState(login, initialState);
 
-  const errorMessages = [state.errors?.username, state.errors?.password].filter(
-    (msg): msg is string => Boolean(msg),
-  );
+  const errorMessages = [
+    state.errors?.adminName,
+    state.errors?.adminPassword,
+  ].filter((msg): msg is string => Boolean(msg));
 
   return (
     <div className="absolute inset-0 background-blob">
@@ -33,41 +34,41 @@ export default function LoginPage() {
               Oppa Fitness Gym
             </span>
           </div>
-
           {/* form container */}
-          <div className="mt-5 sm:mt-10 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-xl border border-r-0 border-l-0 border-white/20 pt-3 px-2 gap-2 text-carbon-black/80 dark:text-off-white/70 ">
-            <span className="text-xs px-3">Member&apos;s sign-in</span>
+          <div className="mt-5 sm:mt-10 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-xl border border-r-0 border-l-0 border-white/20 pt-3 px-2 gap-2 text-carbon-black/80 dark:text-off-white/70">
+            <span className="text-xs px-3">Admin&apos;s sign-in</span>
+
             <form
               action={formAction}
               className="flex flex-col justify-start items-center gap-8 p-3"
             >
               {/* username */}
-              <div className="flex items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
+              <div className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
                 <input
                   required={true}
                   type="text"
-                  name="username"
-                  placeholder="Username"
+                  name="adminName"
+                  placeholder="Admin name"
                   autoComplete="username"
                   className="px-4 border-none outline-none"
                 />
               </div>
 
-              {/* password*/}
-              <div className="flex items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
+              {/* password */}
+              <div className="flex  items-center w-full py-2 bg-off-white/20 dark:bg-carbon-black/20 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-white/20 text-sm font-light">
                 <input
                   required={true}
                   autoComplete="current-password"
-                  type={show ? "text" : "password"}
-                  name="password"
+                  type={displayPw ? "text" : "password"}
+                  name="adminPassword"
                   placeholder="Password"
-                  className="px-4 border-none outline-none background-none"
+                  className="px-4 border-none outline-none"
                 />
                 <span
-                  onClick={() => setShow((prevShow) => !prevShow)}
+                  onClick={() => SetDisplayPw((prev) => !prev)}
                   className="cursor-pointer pe-4"
                 >
-                  {show ? (
+                  {displayPw ? (
                     <EyeIcon className="w-5 h-5" />
                   ) : (
                     <EyeSlashIcon className="w-5 h-5" />
@@ -106,6 +107,7 @@ export default function LoginPage() {
                 {pending ? "Processing..." : "Login"}
               </button>
             </form>
+
             {errorMessages.length > 0 &&
               createPortal(
                 <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 flex w-80 flex-col gap-2">
@@ -124,7 +126,7 @@ export default function LoginPage() {
             <div className="w-full flex justify-center items-center mb-2 gap-1 text-[12px]">
               <span>No account yet?</span>
               <Link
-                href="/members/create-new-user"
+                href="/sign-up/admins/create-admin"
                 className="underline underline-offset-2"
               >
                 Create here

@@ -46,8 +46,10 @@ export async function login(
       errors: { adminPassword: INVALID_ACCOUNT },
     };
 
-  await createAdminSession(admin._id!.toString(), admin.role);
-  redirect("/admin-profile");
+  const adminId = admin._id!.toString();
+
+  await createAdminSession(adminId, admin.role);
+  redirect(`/admin/${adminId}`);
 }
 
 export async function logout() {

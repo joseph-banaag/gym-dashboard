@@ -3,6 +3,12 @@ TODO:
     - add dal (data access layer)
     - add email validation from sign up before logging in the client and keep the email validated
 
+NOTE:  to pass the data from server component to client component, create a new server component and fetch the data and
+pass the it down to the client component as props <MembersPage members={members} />
+
+
+
+
     sign up:
         -> created the account with:
             * username
@@ -33,9 +39,5 @@ TODO:
 add
 
 
-
-⚠️⚠️⚠️⚠️⚠️ WARNING! test the application first before deploying. make sure account creating is working since the files
-were moved.
-
-// CREATE OWNER LOGIN
--owner-session
+opt - folder for optional programs
+etc - folder for system settings
