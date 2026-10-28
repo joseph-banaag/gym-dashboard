@@ -10,16 +10,22 @@ export const requireOwner = cache(async () => {
 });
 
 export async function getAllAdmins() {
-  await requireOwner();
+  const owner = await requireOwner();
+  if (!owner) redirect("/");
+  return owner;
   //  create function here like getting database information and use it the to sever components that needs it
 }
 
 export async function getAllCoaches() {
-  await requireOwner();
+  const owner = await requireOwner();
+  if (!owner) redirect("/");
+  return owner;
   //  create function here like getting database information and use it the to sever components that needs it
 }
 
 export async function getAllMembers() {
-  await requireOwner();
+  const owner = await requireOwner();
+  if (!owner) redirect("/");
+  return owner;
   //  create function here like getting database information and use it the to sever components that needs it
 }

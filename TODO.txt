@@ -1,14 +1,13 @@
 TODO:
+    - add dal (data access layer) to all routes
+    - use dal when working with database
     - secure the url and redirect non logged in users using nextjs proxy
-    - add dal (data access layer)
-    - add email validation from sign up before logging in the client and keep the email validated
-
-NOTE:  to pass the data from server component to client component, create a new server component and fetch the data and
-pass the it down to the client component as props <MembersPage members={members} />
 
 
 
-
+#################################################################################################
+TO FOLLOW PROJECT IMPLEMENTATION UNTIL THE APPLICATION SITS ON A PAID DOMAIN.
+caveat: the email verification process required a running domain.
     sign up:
         -> created the account with:
             * username
@@ -27,16 +26,13 @@ pass the it down to the client component as props <MembersPage members={members}
             V. provide 3 tries only.
             VI. cancel the operation and prompt user that the sign up has failed.
             VII. log in user if the verification is successful.
-
-
-    - set up auth using JOSE (JSON object signing and encryption)
-    - in the sign up form to create a program to redirect existing account to /login
-    - reset account password using email not username
+#################################################################################################
 
 
 
 // COMMIT MESSAGE:
-added a direct button to facebook page messenger:
+added dal to fetch member data from db
+
 
 
 opt - folder for optional programs

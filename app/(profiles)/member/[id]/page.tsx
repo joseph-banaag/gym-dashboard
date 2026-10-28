@@ -1,19 +1,9 @@
-import { getSession } from "@/lib/sessions/member-session";
-import { redirect } from "next/navigation";
-import { getMembersCollection } from "@/lib/collections/members";
-import { ObjectId } from "mongodb";
+import { getMember } from "@/lib/dals/member";
 
 export default async function UsersPage() {
-  const session = await getSession();
-  if (!session) redirect("/login/member");
+  const member = await getMember();
 
-  const members = await getMembersCollection();
-  const member = await members.findOne(
-    { _id: new ObjectId(session.memberId) },
-    { projection: { passwordHashed: 0 } }, // this prevents the db to send the passwordHashed information
-  );
-
-  if (!member) redirect("/login/member");
+  console.log("MEMBERS FROM DAL: ", member); // remove this once the information is used.
 
   return (
     <div className="w-full h-full border">

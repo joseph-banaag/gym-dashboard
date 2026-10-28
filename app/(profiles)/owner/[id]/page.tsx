@@ -6,6 +6,7 @@ export default function OwnerPage() {
     <div className="flex flex-col justify-center items-center">
       <h2>welcome to the owners page!</h2>
       <Link href="/">home</Link>
+      <Link href="/dashboard">Dashboard</Link>
       <form action={logout}>
         <button type="submit">logout</button>
       </form>

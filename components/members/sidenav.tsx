@@ -8,17 +8,40 @@ export default async function Sidenav() {
 
   const { memberId } = session;
 
+  const memberNav = [
+    {
+      name: "Main",
+      route: `/member/${memberId}`,
+    },
+    {
+      name: "Workout plans",
+      route: `/member/${memberId}/workouts`,
+    },
+    {
+      name: "Gym Attendance",
+      route: `/member/${memberId}/attenndance`,
+    },
+    {
+      name: "See Progress",
+      route: `/member/${memberId}/progress`,
+    },
+  ];
+
   return (
-    <nav className="hidden lg:flex w-2/18 min-w-40 h-full border flex-col items-center">
-      <Link href={`/member/${memberId}`}>Home</Link>
-      <Link href={`/member/${memberId}/workouts`}>Go to workouts</Link>
-      <Link href={`/member/${memberId}/attendance/`}>Go to attendance</Link>
-      <Link href={`/member/${memberId}/progress/`}>See progress</Link>
-      <div className="flex flex-col">
-        <form action={logout}>
-          <button type="submit">Log out</button>
-        </form>
-      </div>
+    <nav className="hidden lg:flex w-2/18 min-w-40 h-full border flex-col p-5 gap-2">
+      {memberNav.map((nav) => (
+        <Link key={nav.name} href={nav.route}>
+          {nav.name}
+        </Link>
+      ))}
+      <form action={logout}>
+        <button
+          type="submit"
+          className="border px-2 py-1 rounded-lg cursor-pointer w-full flex items-start"
+        >
+          Log out
+        </button>
+      </form>
     </nav>
   );
 }

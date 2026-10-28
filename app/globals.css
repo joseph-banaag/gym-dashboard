@@ -4,7 +4,7 @@
 :root {
     --background: #faf9f6;
     --foreground: #292a2e;
-    --background-half: rgba(250, 249, 246, 0.5);
+    --background-half: rgba(250, 249, 246, 0.3);
     --deep-crimson: #96031a;
     --primary-scarlet: #dc0425;
     --carbon-black: rgb(27, 27, 30);
@@ -52,7 +52,7 @@
     :root {
         --background: #292a2e;
         --foreground: #faf9f6;
-        --background-half: rgba(41, 42, 46, 0.5);
+        --background-half: rgba(41, 42, 46, 0.8);
     }
 
     .background-blob {
