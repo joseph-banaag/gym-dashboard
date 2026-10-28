@@ -6,6 +6,7 @@ import Rates from "@/components/landing/plan-cards";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
+import { FacebookBtns, StaffBtn } from "@/components/ui/home/const";
 
 const shockSurgent = localFont({
   src: [
@@ -16,17 +17,6 @@ const shockSurgent = localFont({
     },
   ],
 });
-
-const StaffBtn = [
-  {
-    name: "Coach",
-    path: "/login/coach",
-  },
-  {
-    name: "Admin",
-    path: "/login/admin",
-  },
-];
 
 type LandingPageProps = {
   ownerIsHere: boolean;
@@ -167,14 +157,22 @@ export default function LandingPage({ ownerIsHere }: LandingPageProps) {
               Sunday, 1:00 PM to 9:00 PM
             </span>
           </div>
-          <div className="px-3 py-1 rounded-full bg-off-white shadow-sm/20 backdrop-blur-xs mt-5 inset-shadow-xs inset-shadow-carbon-overlay flex justify-center items-center">
-            <Link
-              target="_blank"
-              href="https://www.facebook.com/oppafitnessgym/"
-              className="text-[12px] text-[#1877F2] font-bold"
-            >
-              facebook
-            </Link>
+          <div className="flex flex-col justify-center items-center text-nowrap gap-2">
+            <p className="text-[11px] text-carbon-black/80 dark:text-off-white/80">
+              Follow us on Facebook and send us a message.
+            </p>
+            <div className="flex gap-2 text-nowrap">
+              {FacebookBtns.map((btn) => (
+                <Link
+                  key={btn.name}
+                  target="_blank"
+                  href={btn.path}
+                  className="text-[11px] "
+                >
+                  <Image src={btn.src} alt={btn.alt} width={25} height={25} />
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>

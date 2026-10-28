@@ -4,6 +4,7 @@
 :root {
     --background: #faf9f6;
     --foreground: #292a2e;
+    --background-half: rgba(250, 249, 246, 0.5);
     --deep-crimson: #96031a;
     --primary-scarlet: #dc0425;
     --carbon-black: rgb(27, 27, 30);
@@ -51,6 +52,7 @@
     :root {
         --background: #292a2e;
         --foreground: #faf9f6;
+        --background-half: rgba(41, 42, 46, 0.5);
     }
 
     .background-blob {
@@ -72,7 +74,20 @@ body {
     box-sizing: border-box;
 }
 
-input:-webkit-autofill {
-    transition: background-color 9999s ease-in-out 0s;
-    -webkit-text-fill-color: #fff !important;
+
+/* ===== Autofill override (works for both themes) ===== */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px var(--background-half) inset !important;
+    -webkit-text-fill-color: var(--foreground) !important;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+input:autofill {
+    backdrop-filter: blur(10px);
+    background-color: var(--background-half) !important;
+    color: var(--foreground) !important;
+    box-shadow: 0 0 0 1000px var(--background-half) inset !important;
 }
