@@ -3,9 +3,11 @@ import Sidenav from "@/components/members/sidenav";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <main className="flex flex-row w-screen h-screen dark:bg-accent dark:text-accent-foreground">
-      <Sidenav />
-      <div className="w-full lg:w-16/18">{children}</div>
+    <main className="flex min-h-screen w-full">
+      <div className="fixed top-0 left-0 z-10 h-screen w-40 xl:w-45 shrink-0 py-1 hidden lg:block">
+        <Sidenav />
+      </div>
+      <section className="flex-1 p-5 lg:ml-40 xl:ml-45">{children}</section>
     </main>
   );
 }

@@ -5,7 +5,7 @@ import Topbar from "@/components/ui/dashboard/topbar";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <main className="flex flex-row w-full h-full dark:bg-accent dark:text-accent-foreground">
+    <main className="flex flex-row w-full h-full">
       <SideNav />
       <section className="w-screen">
         <Topbar />

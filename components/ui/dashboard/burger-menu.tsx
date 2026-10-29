@@ -34,8 +34,6 @@ export default function BurgerMenu() {
       const insideNav = navRef.current?.contains(target);
       const insideProfileMenu = profileMenuRef.current?.contains(target); // for profile settings menu
 
-      console.log("Inside button: ", insideButton);
-
       if (!insideButton && !insideNav && !insideProfileMenu) setChecked(false);
     };
 
@@ -43,7 +41,7 @@ export default function BurgerMenu() {
       if (event.key === "Escape") setChecked(false);
     };
 
-    const mq = window.matchMedia("(min-width: 1024px)");
+    const mq = window.matchMedia("(min-width: 1280px)");
     const handleChange = (e: MediaQueryListEvent) => {
       if (e.matches) setChecked(false);
     };
@@ -79,13 +77,13 @@ export default function BurgerMenu() {
             ref={navRef}
             className={clsx(
               checked ? "fixed" : "hidden",
-              "top-14 left-3 bottom-0 w-35 sm:w-45 h-[calc(100vh-70px)] sm:w-50 gap-20 backdrop-blur-sm shadow-xl/30" +
+              "top-14 left-3 bottom-0 w-40 h-[calc(100vh-70px)] gap-20 backdrop-blur-sm shadow-xl/30" +
                 " inset-shadow-sm/20" +
-                " rounded-xl border-2 border-r-0 border-l-0 border-dim-grey-overlay ",
+                " rounded-xl border-2 border-r-0 border-l-0 border-dim-grey-overlay",
             )}
           >
             <div className="flex flex-col justify-between h-full">
-              <div className="h-full flex flex-col gap-2 px-1 py-3 sm:p-5">
+              <div className="h-full flex flex-col gap-2 p-2 sm:p-3">
                 <NavRoutes />
               </div>
               <div className="flex flex-col justify-center items-center gap-2">

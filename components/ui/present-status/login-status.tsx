@@ -1,4 +1,4 @@
-const userStatus: string = "busy"; // todo: change this string from the member status in the database
+const loginStatus: string = "busy"; // todo: change this string from the member status in the database
 
 export default function UserStats() {
   const statusColor = {
@@ -24,4 +24,4 @@ export default function UserStats() {
 }
 
 // todo: update this value from the database and make sure the value is a string
-export const status: string = userStatus;
+export const status: string = loginStatus;

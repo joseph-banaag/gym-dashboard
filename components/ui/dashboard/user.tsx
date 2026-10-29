@@ -9,7 +9,7 @@ import {
   UserImage,
   UserName,
 } from "@/components/dashboard/current-user";
-import HoverStatus from "../users/hover-status";
+import HoverStatus from "@/components/ui/present-status/hover-status";
 import { createPortal } from "react-dom";
 import { profileSettings } from "@/lib/dashboard/profile-menu-list";
 import Link from "next/link";
@@ -55,18 +55,18 @@ export default function UserLoggedIn({ portalRef }: UserLoggedInProps) {
       <div className="flex flex-col gap-2 p-1 pb-2 w-full">
         {clicked &&
           createPortal(
-            <div ref={menuRef} className="fixed bottom-1 left-1">
+            <div ref={menuRef} className="fixed bottom-6 left-6">
               <button
                 type="button"
                 aria-label="Close menu"
                 onClick={() => setClicked(false)}
-                className="w-8 h-8 absolute z-210 rounded-full p-1 flex justify-center items-center bottom-3 left-3 cursor-pointer shadow-xl/20 inset-shadow-sm/20 bg-carbon-overlay hover:border-(--dim-grey)/50 hover:shadow-xl/30 hover:inset-shadow-sm/30"
+                className="w-6 h-6 absolute z-210 rounded-full p-1 flex justify-center items-center bottom-3 left-3 cursor-pointer shadow-xl/20 inset-shadow-sm/20 bg-carbon-overlay hover:border-(--dim-grey)/50 hover:shadow-xl/30 hover:inset-shadow-sm/30"
               >
-                <XMarkIcon className="text-(--orange)" />
+                <XMarkIcon className="text-foreground" />
               </button>
 
               <div className="relative">
-                <div className="absolute z-200 bottom-0 left-0 w-40 sm:w-60 flex flex-col bg-carbon-overlay backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-xl border-2 border-r-0 border-l-0 border-dim-grey-overlay pt-3 pb-16 px-2 sm:px-4 gap-2 text-accent-foreground">
+                <div className="absolute z-200 bottom-1 left-1 flex flex-col bg-carbon-overlay/70 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-xl border-2 border-r-0 border-l-0 border-dim-grey-overlay gap-2 text-accent-foreground px-3 pt-2 pb-12">
                   {profileSettings.map((link) => {
                     const LinkIcon = link.icon;
                     return (
@@ -74,24 +74,22 @@ export default function UserLoggedIn({ portalRef }: UserLoggedInProps) {
                         key={link.name}
                         href={link.route}
                         onClick={() => setClicked(false)}
-                        className="border p-2 sm:p-3 flex items-center gap-2 border-dim-grey-overlay rounded-lg w-full hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 text-[13px] font-light hover:font-medium text-foreground"
+                        className="border px-3 py-2 flex items-center gap-2 border-dim-grey-overlay rounded-lg w-full hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 text-[13px] font-light hover:font-medium text-foreground"
                       >
-                        <span className="w-5 h-5">
-                          <LinkIcon />
-                        </span>
-                        <span className="text-[11px] sm:text-sm">
+                        <LinkIcon className="w-4 h-4" />
+                        <span className="text-[11px] text-nowrap">
                           {link.name}
                         </span>
                       </Link>
                     );
                   })}
-                  <form
-                    action={logout}
-                    className="border p-2 sm:p-3 flex items-center gap-2 border-dim-grey-overlay rounded-lg w-full hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 text-[13px] font-light hover:font-medium text-foreground"
-                  >
-                    <ArrowLeftStartOnRectangleIcon className="w-5 h-5" />
-                    <button type="submit" className="text-[11px] sm:text-sm">
-                      Logout
+                  <form action={logout}>
+                    <button
+                      type="submit"
+                      className="flex items-center gap-2 border px-3 py-2 border-dim-grey-overlay rounded-lg w-full hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 font-light hover:font-medium text-foreground"
+                    >
+                      <ArrowLeftStartOnRectangleIcon className="w-4 h-4" />
+                      <span className="text-[11px]">Logout</span>
                     </button>
                   </form>
                 </div>
@@ -105,7 +103,7 @@ export default function UserLoggedIn({ portalRef }: UserLoggedInProps) {
         {/* logged-in member on the nav bar */}
         <button
           ref={buttonRef}
-          className="flex justify-start items-center gap-2 p-2 sm:p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/20 cursor-pointer border border-(--dim-grey)/30 hover:border-(--dim-grey)/50 w-full"
+          className="flex justify-start items-center gap-2 px-3 py-2 inset-shadow-sm/20 rounded-lg inset-shadow-slate-500 shadow-xl/20 cursor-pointer border border-(--dim-grey)/30 hover:border-(--dim-grey)/50 w-full"
           onClick={changeClicked}
         >
           <span className="cursor-pointer">

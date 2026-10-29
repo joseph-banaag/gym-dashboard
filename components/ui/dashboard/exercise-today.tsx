@@ -1,4 +1,4 @@
-import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { programSchedule } from "@/lib/dashboard/programs-today";
 import SeatStatus from "@/components/ui/dashboard/seat-status";

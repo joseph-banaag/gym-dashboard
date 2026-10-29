@@ -7,7 +7,7 @@ export default async function Page() {
 
   return (
     <>
-      <div>This is the members workouts page</div>
+      <main>This is the members workouts page</main>
     </>
   );
 }

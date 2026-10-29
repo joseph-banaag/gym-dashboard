@@ -5,5 +5,9 @@ export default async function Page() {
   const session = await getSession();
   if (!session) redirect("/login/member");
 
-  return <div>this is the members attendance page</div>;
+  return (
+    <>
+      <main>this is the members attendance page</main>
+    </>
+  );
 }

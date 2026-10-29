@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import clsx from "clsx";
-import UserStats from "./user-status";
-import { status } from "@/components/ui/users/user-status";
+import UserStats from "./login-status";
+import { status } from "@/components/ui/present-status/login-status";
 
 let userStatus: string;
 
