@@ -1,13 +1,13 @@
 import { getSession } from "@/lib/sessions/member-session";
 import Link from "next/link";
 import { logout } from "@/app/actions/login/user-actions";
-import {
-  CalendarDateRangeIcon,
-  ClipboardDocumentCheckIcon,
-  HomeIcon,
-  PresentationChartLineIcon,
-} from "@heroicons/react/24/outline";
 import { ArrowLeftStartOnRectangleIcon } from "@heroicons/react/24/solid";
+import {
+  CalendarCheck2,
+  ChartNoAxesColumnIcon,
+  Dumbbell,
+  Home,
+} from "lucide-react";
 
 export default async function Sidenav() {
   const session = await getSession();
@@ -19,22 +19,22 @@ export default async function Sidenav() {
     {
       name: "Main",
       route: `/member/${memberId}`,
-      icon: HomeIcon,
+      icon: Home,
     },
     {
       name: "Workout plans",
       route: `/member/${memberId}/workouts`,
-      icon: ClipboardDocumentCheckIcon,
+      icon: Dumbbell,
     },
     {
       name: "Gym Attendance",
       route: `/member/${memberId}/attendance`,
-      icon: CalendarDateRangeIcon,
+      icon: CalendarCheck2,
     },
     {
       name: "See Progress",
       route: `/member/${memberId}/progress`,
-      icon: PresentationChartLineIcon,
+      icon: ChartNoAxesColumnIcon,
     },
   ];
 

@@ -1,9 +1,7 @@
-import { redirect } from "next/navigation";
-import { getSession } from "@/lib/sessions/member-session";
+import { getMember } from "@/lib/dals/member";
 
 export default async function Page() {
-  const session = await getSession();
-  if (!session) redirect("/login/member");
+  const member = await getMember();
 
   return (
     <>

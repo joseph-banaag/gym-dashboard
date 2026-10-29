@@ -34,7 +34,7 @@ export default function DateToday() {
   }, []);
 
   return (
-    <span className="flex gap-2 text-xs font-light">
+    <span className="flex gap-2 text-[11px]">
       <span className="text-nowrap hidden sm:block">{formattedDate}</span>
       <span className="hidden sm:block">|</span>
       <span className="text-nowrap hidden md:block">{time}</span>

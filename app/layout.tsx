@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
+import { LayoutProps } from "next/dist/lib/metadata/metadata-resolution-primitives";
 
 const adwaitaSans = localFont({
   src: [
@@ -45,7 +46,7 @@ const adwaitaSans = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Oppa Fitness Gym | Dashboard",
+  title: "Oppa Fitness Gym | Welcome",
   description: "Gym dashboard showing the overview of everything about the gym",
 };
 
