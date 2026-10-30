@@ -5,10 +5,10 @@ import Notification from "@/components/ui/member/member-notif";
 import { JetBrains_Mono } from "next/font/google";
 import { Metadata } from "next";
 
-let username;
+const username: string = "Doks";
 
 export const metadata: Metadata = {
-  title: `${username}`,
+  title: `${username} | Dashboard`,
 };
 
 const jetbrainsMono = JetBrains_Mono({
@@ -55,20 +55,20 @@ export default async function UsersPage() {
           {getTimeDay()}, {user}!
         </h1>
       </div>
-      <div className="flex justify-between px-6 mb-3">
+      <div className="flex flex-col md:flex-row -translate-x-6 md:translate-x-0 gap-2 justify-between px-6 mb-3">
         <span className="text-[11px] text-carbon-black/70 dark:text-off-white/70">
           A quick look at your training and what&apos;s next...
         </span>
-        <div className="px-2 py-1 border rounded-xl text-[11px] border-(--dim-grey)/70 inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/10">
+        <div className="w-24 flex justify-center items-center px-2 py-1 border rounded-xl text-[11px] border-(--dim-grey)/70 inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/10">
           {dateNow}
         </div>
       </div>
-      <div className="grid grid-cols-5 gap-5">
-        <div className="col-span-3 border border-(--dim-grey)/50 p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/10 ">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 transition-all duration-400 ease-in-out">
+        <div className="col-span-1 lg:col-span-3 border border-(--dim-grey)/50 p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/10 ">
           <div className="flex flex-col">
             <div className="flex gap-2 mb-4">
               <Whistle className="w-4 h-4" />
-              <span className="text-[11px] font-bold text-(--harvest-gold)">
+              <span className="text-[11px] font-bold text-(--sunflower-gold)">
                 TODAY&apos;S WORKOUT
               </span>
             </div>
@@ -84,22 +84,26 @@ export default async function UsersPage() {
                 <span>{workoutType}</span>
               </div>
             </div>
-            <div className="flex justify-between">
+            <div className="flex flex-col md:flex-row gap-3 justify-between">
               <div className="text-[11px] text-carbon-black/70 dark:text-off-white/70">
-                <span>Workout plan</span>
+                <span className="underline underline-offset-3">
+                  Workout plan
+                </span>
                 {" · "}
                 <strong>{currentWorkoutPlan}</strong>
                 {" of "}
                 <strong>{currentWorkoutTarget}</strong>
               </div>
-              <div className="bg-(--sunflower-gold) backdrop-blur-xs border border-(--dim-grey)/70 rounded-2xl px-2 py-1 flex justify-center items-center text-[12px] text-carbon-black font-semibold gap-2 cursor-pointer">
+              <div className="bg-(--harvest-gold) backdrop-blur-xs border border-(--sunflower-gold)/70 rounded-2xl px-2 py-1 flex justify-center items-center text-[12px] text-carbon-black font-semibold gap-2 cursor-pointer inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/10">
                 <span>Start workout</span>
                 <MoveRight className="w-3 animate-bounce-x " />
               </div>
             </div>
           </div>
         </div>
-        <div className="col-span-2 border border-(--dim-grey)/50 p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/10 "></div>
+        <div className="col-span-1 lg:col-span-2 border border-(--dim-grey)/50 p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/10 ">
+          this is a sample content
+        </div>
       </div>
     </main>
   );

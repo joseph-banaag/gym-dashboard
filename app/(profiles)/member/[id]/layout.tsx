@@ -3,7 +3,7 @@ import Sidenav from "@/components/members/sidenav";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "%s | Oppa Fitness Gym",
+  title: "Oppa Fitness Gym",
   description: "Gym dashboard showing the overview of everything about the gym",
 };
 
