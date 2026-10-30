@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
-import { LayoutProps } from "next/dist/lib/metadata/metadata-resolution-primitives";
+import { ReactNode } from "react";
 
 const adwaitaSans = localFont({
   src: [
@@ -50,7 +50,9 @@ export const metadata: Metadata = {
   description: "Gym dashboard showing the overview of everything about the gym",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en" className={`${adwaitaSans.variable} antialiased`}>
       <body className="m-0 min-h-dvh">{children}</body>
