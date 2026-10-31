@@ -1,4 +1,5 @@
 import { cardContent } from "@/lib/dashboard/cards";
+import { textColor } from "@/lib/text-helper";
 
 export default function Cards() {
   return (
@@ -12,14 +13,12 @@ export default function Cards() {
             className="p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/10 flex flex-col gap-2"
           >
             <span className="flex  justify-between items-center">
-              <span className="text-[12px] font-light">{c.name}</span>
-              <CardIcon className="w-4 h-4 text-(--dark-goldenrod)" />
+              <span className={textColor}>{c.name}</span>
+              <CardIcon className="w-4 h-4 text-(--harvest-gold)/90" />
             </span>
             <span className="text-2xl font-bold">{c.value}</span>
             <span className="flex justify-between gap-1 items-center ">
-              <span className="text-[12px] font-extralight">
-                {c.performance}
-              </span>
+              <span className={textColor}>{c.performance}</span>
               <TrajectoryIcon className="w-4 h-4 text-green-500" />
             </span>
           </div>

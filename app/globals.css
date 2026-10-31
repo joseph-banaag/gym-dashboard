@@ -19,6 +19,12 @@
     --bar-mid: #fcbf49;
     --bar-above-mid: #f77f00;
     --bar-full: #ff0054;
+    --visit-one: #EF4444;
+    --visit-two: #F97316;
+    --visit-three: #FBBF24;
+    --visit-four: #EAB308;
+    --visit-five: #84CC16;
+    --visit-six: #22C55E;
     --carbon-black-overlay: color-mix(in oklab, var(--carbon-black) 10%, transparent);
     --dim-grey-overlay: color-mix(in oklab, var(--dim-grey) 40%, transparent);
 }
@@ -107,3 +113,4 @@ input:autofill {
         }
     }
 }
+

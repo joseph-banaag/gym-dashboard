@@ -2,6 +2,7 @@ import { ArrowTopRightOnSquareIcon } from "@heroicons/react/16/solid";
 import { membersToCheck } from "@/lib/dashboard/member-check";
 import Link from "next/link";
 import { getInitials } from "@/lib/dashboard/get-initials";
+import { textColor } from "@/lib/text-helper";
 
 export default function MembersStatus() {
   return (
@@ -40,7 +41,7 @@ export default function MembersStatus() {
                   </span>
                   <span className="flex flex-col">
                     <span className="text-sm">{member.name}</span>
-                    <span className="text-[11px] font-light">
+                    <span className={textColor}>
                       {member.plan} - {member.visit} visits this month.
                     </span>
                   </span>

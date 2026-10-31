@@ -2,6 +2,7 @@ import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { programSchedule } from "@/lib/dashboard/programs-today";
 import SeatStatus from "@/components/ui/dashboard/seat-status";
+import { textColor } from "@/lib/text-helper";
 
 export default function ExerciseToday() {
   return (
@@ -10,9 +11,7 @@ export default function ExerciseToday() {
         <div>
           <h3 className="text-md">Today at a glance</h3>
           {/* todo: update this with the next schedule from the database */}
-          <span className="text-[11px] font-normal">
-            Next Session: Next week
-          </span>
+          <span className={textColor}>Next Session: Next week</span>
         </div>
         <Link href="/schedule" className="flex gap-1 p-1">
           <span className="text-[11px] font-light">More schedule</span>
@@ -25,17 +24,15 @@ export default function ExerciseToday() {
             <div key={p.exercise}>
               <hr className="border border-t-0 border-(--dim-grey)/30 mb-1 rounded-full" />
               <div className="grid grid-cols-7 gap-2 mb-2">
-                <div className="col-span-1 text-[11px] font-light">
-                  {p.time}
-                </div>
+                <div className={`${textColor} col-span-1 `}>{p.time}</div>
                 <div className="col-span-4">
                   <div className="flex flex-col gap-1">
                     <span className="text-sm font-medium">{p.exercise}</span>
-                    <span className="text-[12px] font-light">{p.coach}</span>
+                    <span className={textColor}>{p.coach}</span>
                   </div>
                 </div>
                 <span className="col-span-2 text-[11px] font-light">
-                  <span className="flex flex-col gap-1 items-end w-full">
+                  <span className="flex flex-col gap-2 items-end w-full">
                     <span>
                       {p.attendees}/{p.totalSeats}{" "}
                       <span className="font-bold">booked</span>
