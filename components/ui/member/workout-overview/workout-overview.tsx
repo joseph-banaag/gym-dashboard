@@ -9,7 +9,7 @@ const cwTarget: number = 4;
 
 export default async function WorkoutOverview() {
   return (
-    <div className="grid mg:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-5 mb-7">
+    <div className="grid mg:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3">
       {/* card 1*/}
       <div className="col-span-1 p-3 rounded-xl bg-carbon-overlay shadow-xl/15 border border-(--dim-grey)/20">
         <div className={`${textColor} flex justify-between items-center mb-2`}>
@@ -36,7 +36,7 @@ export default async function WorkoutOverview() {
       {/* card 2 */}
       <div className="col-span-1 p-3 rounded-xl bg-carbon-overlay shadow-xl/15 border border-(--dim-grey)/20">
         <div className={`${textColor} flex justify-between items-center mb-2`}>
-          <strong>Current streak</strong>
+          <strong>Current monthly streak</strong>
           <div className="p-1 rounded-sm bg-(--dim-grey)/20">
             <Flame className="w-3 h-3" />
           </div>

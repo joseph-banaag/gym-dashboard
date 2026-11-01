@@ -18,7 +18,7 @@ export default async function WorkoutToday() {
   const id = member?._id;
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 mb-7">
+    <div className="grid grid-cols-1 lg:grid-cols-5 gap-3">
       <div className="relative col-span-1 lg:col-span-3 border border-(--dim-grey)/50 p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/10 overflow-hidden">
         {/* RING */}
         <span className="absolute w-54 h-54 rounded-full bottom-0 right-0 translate-y-31 translate-x-15 bg-(--deep-crimson)/70  inset-shadow-sm/20 inset-shadow-slate-500 -z-20">
@@ -26,9 +26,10 @@ export default async function WorkoutToday() {
             <span className="absolute w-94 h-94 border rounded-full bottom-0 right-0 translate-y-10 translate-x-10 border-(--dim-grey)/30 -z-20" />
           </span>
         </span>
-        <div className="flex flex-col gap-10 z-100">
+        {/* main */}
+        <div className="flex flex-col gap-5 z-100">
           <div className="flex flex-col">
-            <div className="flex gap-2 mb-4">
+            <div className="flex gap-2 mb-2">
               <Whistle className="w-4 h-4" />
               <strong className="text-[11px] text-(--dark-goldenrod) dark:text-(--sunflower-gold)">
                 TODAY&apos;S WORKOUT
@@ -60,7 +61,7 @@ export default async function WorkoutToday() {
               <strong>{currentWorkoutTarget}</strong>
             </div>
             <Link
-              href="/"
+              href={`/member/${id}/workouts`}
               className="bg-(--harvest-gold) backdrop-blur-xs border border-(--sunflower-gold)/70 rounded-2xl px-2 py-1 flex justify-center items-center text-[12px] text-[#5C4033] font-semibold gap-2 cursor-pointer inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/10 md:w-50 w-full"
             >
               <strong className="text-nowrap">Start workout</strong>
@@ -70,7 +71,8 @@ export default async function WorkoutToday() {
         </div>
       </div>
 
-      <div className="col-span-1 lg:col-span-2 border border-(--dim-grey)/50 p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/10 flex flex-col gap-15 ">
+      {/* next session overview */}
+      <div className="col-span-1 lg:col-span-2 border border-(--dim-grey)/50 p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/10 flex flex-col justify-between">
         <div>
           <div className={`flex justify-between items-center ${textColor}`}>
             <strong>NEXT SESSION</strong>
@@ -83,7 +85,7 @@ export default async function WorkoutToday() {
               {nextSession}
             </span>
             <Link
-              href="/"
+              href={`/member/${id}/progress`}
               className={`${textColor} underline underline-offset-2`}
             >
               See your last leg day session
@@ -99,7 +101,10 @@ export default async function WorkoutToday() {
               {" · "}
               <span>{nextSessionTime}</span>
             </div>
-            <Link href="/" className="flex underline underline-offset-2">
+            <Link
+              href={`/member/${id}/workouts`}
+              className="flex underline underline-offset-2"
+            >
               <span>View details</span>
               <ChevronRight className="w-4 h-4" />
             </Link>
@@ -109,5 +114,3 @@ export default async function WorkoutToday() {
     </div>
   );
 }
-
-//TODO: CREATE DIFFERENT COMPONENTS THAT WILL GET THE INFORMATION FROM ONE COMPONENT AND THEN CREATE A NEW COMPONENT TO HAVE A RESULT OF COMBINING MULTIPLE COMPONENTS LIKE IN THE "WORKOUT-OVERVIEW" FILE.

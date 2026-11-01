@@ -53,13 +53,10 @@ export default function LandingPage({ ownerIsHere }: LandingPageProps) {
                 : "w-full rounded-none px-3 sm:px-8 lg:px-20 2xl:px-40 border-transparent",
             )}
           >
-            <Link
-              href="/"
-              className="text-[11px] xs:text-[14px] font-bold flex gap-1 text-shadow-xs border border-(--dim-grey)/30 p-1 xs:px-2 px:py-1 backdrop-blur-xs bg-off-white/80 rounded-lg"
-            >
+            <div className="text-[11px] xs:text-[14px] font-bold flex gap-1 text-shadow-xs border border-(--dim-grey)/30 p-1 xs:px-2 px:py-1 backdrop-blur-xs bg-off-white/80 rounded-lg">
               <span className="text-(--deep-crimson)/80">Oppa</span>
               <span className="text-carbon-black/80">Fitness Gym</span>
-            </Link>
+            </div>
             <div className="flex gap-2 xs:gap-3 text-[10px]  xs:text-[12px]">
               <Link href="/login/member">Member</Link>
 

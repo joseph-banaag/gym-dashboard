@@ -18,10 +18,11 @@ const dateNow = formatDate();
 export default async function UsersPage() {
   const member = await getMember();
   const user = member?.username;
+  const id = member?._id.toString();
 
   return (
-    <main className="w-full h-full flex flex-col">
-      <div className="py-2 flex justify-between items-center mb-4 text-carbon-black/80 dark:text-off-white/80">
+    <main className="w-full h-full flex flex-col gap-5">
+      <div className="py-2 flex justify-between items-center text-carbon-black/80 dark:text-off-white/80">
         <div className="flex gap-2">
           <MapPin className="w-4 h-4 text-()" />
           <span className="text-[11px] flex gap-1">
@@ -33,13 +34,13 @@ export default async function UsersPage() {
           <Notification />
         </div>
       </div>
-      <div className="flex flex-col gap-1 mb-8 px-6">
+      <div className="flex flex-col gap-1 mb-5">
         <h3 className={`${textColor}`}>MEMBER&apos;S DASHBOARD</h3>
         <h1 className="text-3xl">
           {getTimeDay()}, {user}!
         </h1>
       </div>
-      <div className="flex flex-col md:flex-row -translate-x-6 md:translate-x-0 gap-2 justify-start md:justify-between items-start md:items-center px-6 mb-3">
+      <div className="flex flex-col md:flex-row -translate-x-6 md:translate-x-0 gap-2 justify-start md:justify-between items-start md:items-center px-6">
         <span className={`${textColor}`}>
           A quick look at your training and what&apos;s next...
         </span>
@@ -55,7 +56,7 @@ export default async function UsersPage() {
       <WorkoutOverview />
 
       {/*  week overview */}
-      <WeekOverview />
+      <WeekOverview id={id} />
     </main>
   );
 }
