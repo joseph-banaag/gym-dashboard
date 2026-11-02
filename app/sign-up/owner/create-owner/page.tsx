@@ -155,7 +155,7 @@ export default function CreateOwner() {
                 {errorMessages.map((msg) => (
                   <p
                     key={msg}
-                    className="text-[11px] font-light rounded-lg dark:bg-carbon-black/80 bg-off-white/30 px-2 py-1 backdrop-blur-xs border border-(--dim-grey)/30 inset-shadow-carbon-overlay"
+                    className="text-[11px] xs:text-[14px] font-light rounded-lg dark:bg-carbon-black/80 bg-off-white/30 px-2 py-1 backdrop-blur-xs border border-(--dim-grey)/30 inset-shadow-carbon-overlay"
                   >
                     {msg}
                   </p>

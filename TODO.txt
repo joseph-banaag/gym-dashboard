@@ -1,7 +1,5 @@
 TODO:
-    - add dal (data access layer) to all routes
-    - use dal when working with database
-    - secure the url and redirect non logged in users using nextjs proxy
+    - for the start workout. create a separate page that will display the current workout and the process and then a link going back to the main dashboard
 
 
 

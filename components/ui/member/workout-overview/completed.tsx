@@ -12,7 +12,7 @@ export default function Completed({ visit, tVisit }: VisitStatusProps) {
           : "hidden"
       }
     >
-      <strong className="text-[11px]">Congratulations!</strong>
+      <strong className="text-[11px] xs:text-[14px]">Congratulations!</strong>
       <PartyPopper className="w-4 h-4 mb-2" />
     </div>
   );

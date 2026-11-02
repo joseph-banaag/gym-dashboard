@@ -58,7 +58,7 @@ export default function Rates() {
                     <span className="text-[18px] h-3">00</span>
                   </span>
                 </span>
-                <span className="text-[11px] font-light text-carbon-black/70 dark:text-foreground/70">
+                <span className="text-[11px] xs:text-[14px] font-light text-carbon-black/70 dark:text-foreground/70">
                   {plan.term}
                 </span>
               </div>

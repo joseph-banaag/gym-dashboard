@@ -1,11 +1,16 @@
 import { getMember } from "@/lib/dals/member";
 import { Metadata } from "next";
 
-const username: string = "Doks";
+export async function generateMetadata(): Promise<Metadata> {
+  const member = await getMember();
+  const name = member?.username ?? "OFG";
 
-export const metadata: Metadata = {
-  title: `${username} | Profile Settings`,
-};
+  const username = name.charAt(0).toUpperCase() + name.slice(1);
+
+  return {
+    title: `${username} | Profile settings`,
+  };
+}
 
 export default async function Page() {
   const member = await getMember();

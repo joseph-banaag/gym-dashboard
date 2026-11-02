@@ -48,10 +48,10 @@ export default async function Sidenav() {
             <Link
               key={nav.name}
               href={nav.route}
-              className="border p-2 sm:p-3 flex justify-start items-center gap-2 border-dim-grey-overlay rounded-lg w-full hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 text-[13px] font-light hover:font-medium text-foreground"
+              className="border p-2 sm:p-3 flex justify-start items-center gap-2 border-dim-grey-overlay rounded-lg w-full hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 font-light hover:font-medium text-foreground"
             >
               <LinkIcon className="w-4 h-4" />
-              <span className="text-[11px]">{nav.name}</span>
+              <span className="text-[13px]">{nav.name}</span>
             </Link>
           );
         })}
@@ -62,7 +62,7 @@ export default async function Sidenav() {
           className="border p-2 sm:p-3 flex items-center gap-2 border-dim-grey-overlay rounded-lg w-full hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 text-[13px] font-light hover:font-medium text-foreground"
         >
           <ArrowLeftStartOnRectangleIcon className="w-4 h-4" />
-          <span className="text-[11px]">Log out</span>
+          <span className="text-[13px]">Log out</span>
         </button>
       </form>
     </nav>

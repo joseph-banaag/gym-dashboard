@@ -14,7 +14,9 @@ export default function ExerciseToday() {
           <span className={textColor}>Next Session: Next week</span>
         </div>
         <Link href="/schedule" className="flex gap-1 p-1">
-          <span className="text-[11px] font-light">More schedule</span>
+          <span className="text-[11px] xs:text-[14px] font-light">
+            More schedule
+          </span>
           <ArrowTopRightOnSquareIcon className="w-4 h-4" />
         </Link>
       </div>
@@ -31,7 +33,7 @@ export default function ExerciseToday() {
                     <span className={textColor}>{p.coach}</span>
                   </div>
                 </div>
-                <span className="col-span-2 text-[11px] font-light">
+                <span className="col-span-2 text-[11px] xs:text-[14px] font-light">
                   <span className="flex flex-col gap-2 items-end w-full">
                     <span>
                       {p.attendees}/{p.totalSeats}{" "}

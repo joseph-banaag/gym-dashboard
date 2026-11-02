@@ -93,7 +93,7 @@ export default function GraphsSection() {
               onClick={toggle}
               className="border flex justify-between items-center gap-2 py-1 px-2 rounded-lg cursor-pointer bg-(--harvest-gold) border-(--sunflower-gold)/70 text-[#5C4033]"
             >
-              <strong className="text-[11px]">{value}</strong>
+              <strong className="text-[11px] xs:text-[14px]">{value}</strong>
               <ChevronDoubleDownIcon
                 className={clsx(
                   open ? "animate-bounce" : "animate-none",
@@ -109,7 +109,7 @@ export default function GraphsSection() {
                     ref={menuRef}
                     role="listbox"
                     style={{ top: pos.top, left: pos.left }}
-                    className="fixed z-300 text-[11px] px-1 py-2 gap-2 flex flex-col items-center bg-(--harvest-gold)/60 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-dim-grey-overlay"
+                    className="fixed z-300 text-[11px] xs:text-[14px] px-1 py-2 gap-2 flex flex-col items-center bg-(--harvest-gold)/60 backdrop-blur-sm inset-shadow-slate-500 shadow-xl/30 inset-shadow-sm/20 rounded-lg border border-r-0 border-l-0 border-dim-grey-overlay"
                   >
                     {RANGE_OPTIONS.map((o) => (
                       <button
@@ -122,7 +122,7 @@ export default function GraphsSection() {
                           setRange(o.value as ChartRange);
                           setValue(o.label);
                         }}
-                        className="w-22 py-1 text-[11px] cursor-pointer border-white/40 dark:border-dim-grey/30 rounded-md hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 hover:font-medium text-[#5C4033]"
+                        className="w-22 py-1 text-[11px] xs:text-[14px] cursor-pointer border-white/40 dark:border-dim-grey/30 rounded-md hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 hover:font-medium text-[#5C4033]"
                       >
                         <span>{o.label}</span>
                       </button>

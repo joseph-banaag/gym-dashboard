@@ -15,7 +15,7 @@ export default function WeekOverview({ id }: IdProps) {
         <div className="flex justify-between mb-4">
           <div className="flex flex-col ">
             <strong className={`${jetbrainsMono.className} text-sm`}>
-              Your week
+              Your current week
             </strong>
             <p className={textColor}>Keep your routine moving</p>
           </div>

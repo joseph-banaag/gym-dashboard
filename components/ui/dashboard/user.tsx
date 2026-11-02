@@ -77,7 +77,7 @@ export default function UserLoggedIn({ portalRef }: UserLoggedInProps) {
                         className="border px-3 py-2 flex items-center gap-2 border-dim-grey-overlay rounded-lg w-full hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 text-[13px] font-light hover:font-medium text-foreground"
                       >
                         <LinkIcon className="w-4 h-4" />
-                        <span className="text-[11px] text-nowrap">
+                        <span className="text-[11px] xs:text-[14px] text-nowrap">
                           {link.name}
                         </span>
                       </Link>
@@ -89,7 +89,7 @@ export default function UserLoggedIn({ portalRef }: UserLoggedInProps) {
                       className="flex items-center gap-2 border px-3 py-2 border-dim-grey-overlay rounded-lg w-full hover:shadow-xl/30 transition delay-75 duration-200 ease-in-out inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/20 backdrop-blur-xs hover:border-white/30 font-light hover:font-medium text-foreground"
                     >
                       <ArrowLeftStartOnRectangleIcon className="w-4 h-4" />
-                      <span className="text-[11px]">Logout</span>
+                      <span className="text-[11px] xs:text-[14px]">Logout</span>
                     </button>
                   </form>
                 </div>

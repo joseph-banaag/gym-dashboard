@@ -1,11 +1,13 @@
-import { Calendar, Flame, NotepadText } from "lucide-react";
+import { Calendar } from "lucide-react";
 import VisitStatus from "@/components/ui/member/workout-overview/visits-status";
 import Completed from "@/components/ui/member/workout-overview/completed";
 import VisitCounter from "@/components/ui/member/workout-overview/visit-counter";
 import { jetbrainsMono, textColor } from "@/lib/text-helper";
+import StreakCounter from "@/components/ui/member/workout-overview/streak-counter";
+import ProgressIndicator from "@/components/ui/member/workout-overview/progress-indicator";
 
-const cwVisit: number = 3; //current week visit
-const cwTarget: number = 4;
+const cwVisit: number = 4; //current week visit.
+const cwTarget: number = 4; // if no set session it will return 0
 
 export default async function WorkoutOverview() {
   return (
@@ -34,41 +36,10 @@ export default async function WorkoutOverview() {
       </div>
 
       {/* card 2 */}
-      <div className="col-span-1 p-3 rounded-xl bg-carbon-overlay shadow-xl/15 border border-(--dim-grey)/20 flex flex-col justify-between">
-        <div>
-          <div
-            className={`${textColor} flex justify-between items-center mb-2`}
-          >
-            <strong>Current monthly streak</strong>
-            <div className="p-1 rounded-sm bg-(--dim-grey)/20">
-              <Flame className="w-3 h-3" />
-            </div>
-          </div>
-          <div className="flex flex-col">
-            <strong className={jetbrainsMono.className}>6 days</strong>
-          </div>
-        </div>
-        <span className={textColor}>Your best streak is 12 days.</span>
-      </div>
+      <StreakCounter />
 
       {/* card 3 */}
-      <div className="col-span-1 p-3 rounded-xl bg-carbon-overlay shadow-xl/15 border border-(--dim-grey)/20">
-        <div className={`${textColor} flex justify-between items-center mb-2`}>
-          <strong>Plan progress</strong>
-          <div className="p-1 rounded-sm bg-(--dim-grey)/20">
-            <NotepadText className="w-3 h-3" />
-          </div>
-        </div>
-        <div className="flex flex-col gap-3">
-          <div className={`${jetbrainsMono.className}`}>
-            <strong>Week 4</strong>
-            <strong className={textColor}> of 8</strong>
-          </div>
-          <div className="relative flex flex-col">
-            <span className={textColor}>You are halfway through your plan</span>
-          </div>
-        </div>
-      </div>
+      <ProgressIndicator />
     </div>
   );
 }

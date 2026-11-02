@@ -1,7 +1,7 @@
 import { JetBrains_Mono } from "next/font/google";
 
 export const textColor =
-  "text-carbon-black/70 dark:text-off-white/70 text-[11px]";
+  "text-carbon-black/70 dark:text-off-white/70 text-[11px] xs:text-[14px]";
 
 export const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],

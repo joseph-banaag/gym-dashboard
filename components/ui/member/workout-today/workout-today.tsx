@@ -31,13 +31,13 @@ export default async function WorkoutToday() {
           <div className="flex flex-col">
             <div className="flex gap-2 mb-2">
               <Whistle className="w-4 h-4" />
-              <strong className="text-[11px] text-(--dark-goldenrod) dark:text-(--sunflower-gold)">
+              <strong className="text-[11px] xs:text-[14px] text-(--dark-goldenrod) dark:text-(--sunflower-gold)">
                 TODAY&apos;S WORKOUT
               </strong>
             </div>
             <div className={`${jetbrainsMono.className} flex flex-col gap-1`}>
               <h1 className="text-3xl font-bold">{workoutToday}</h1>
-              <div className="text-[11px] font-light text-(--dark-goldenrod) dark:text-(--sunflower-gold) ">
+              <div className="text-[11px] xs:text-[14px] font-light text-(--dark-goldenrod) dark:text-(--sunflower-gold) ">
                 <span>{workoutLength}</span>
                 {" · "}
                 <span>{workoutQty}</span>
@@ -61,7 +61,7 @@ export default async function WorkoutToday() {
               <strong>{currentWorkoutTarget}</strong>
             </div>
             <Link
-              href={`/member/${id}/workouts`}
+              href={`/member/${id}/start-workout`}
               className="bg-(--harvest-gold) backdrop-blur-xs border border-(--sunflower-gold)/70 rounded-2xl px-2 py-1 flex justify-center items-center text-[12px] text-[#5C4033] font-semibold gap-2 cursor-pointer inset-shadow-sm/20 inset-shadow-slate-500 shadow-xl/10 md:w-50 w-full"
             >
               <strong className="text-nowrap">Start workout</strong>

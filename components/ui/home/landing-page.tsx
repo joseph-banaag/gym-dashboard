@@ -147,15 +147,15 @@ export default function LandingPage({ ownerIsHere }: LandingPageProps) {
             <span className="text-[14px] font-semibold text-foreground dark:text-off-white mb-3">
               Operating hours:
             </span>
-            <span className="text-[11px] text-carbon-black/60 dark:text-off-white/70">
+            <span className="text-[11px] xs:text-[14px] text-carbon-black/60 dark:text-off-white/70">
               Monday - Saturday, 9:00 AM to 9:00 PM
             </span>
-            <span className="text-[11px] text-carbon-black/60 dark:text-off-white/70">
+            <span className="text-[11px] xs:text-[14px] text-carbon-black/60 dark:text-off-white/70">
               Sunday, 1:00 PM to 9:00 PM
             </span>
           </div>
           <div className="flex flex-col justify-center items-center text-nowrap gap-2">
-            <p className="text-[11px] text-carbon-black/80 dark:text-off-white/80">
+            <p className="text-[11px] xs:text-[14px] text-carbon-black/80 dark:text-off-white/80">
               Follow us on Facebook and send us a message.
             </p>
             <div className="flex gap-2 text-nowrap">
@@ -164,7 +164,7 @@ export default function LandingPage({ ownerIsHere }: LandingPageProps) {
                   key={btn.name}
                   target="_blank"
                   href={btn.path}
-                  className="text-[11px] "
+                  className="text-[11px] xs:text-[14px] "
                 >
                   <Image src={btn.src} alt={btn.alt} width={25} height={25} />
                 </Link>

@@ -10,72 +10,86 @@ export default function DaysOfTheWeek() {
       <div className="w-full col-span-1 mx-auto flex justify-center items-center border border-(--dim-grey)/50 p-2 rounded-md inset-shadow-sm/20 flex-col bg-">
         <strong className={textColor}>SUN</strong>
         <hr className="border border-(--sunflower-gold) w-full mt-1 mb-2 " />
-        <span className="flex justify-center items-center w-6 h-6 rounded-full border border-(--dim-grey)/50 bg-carbon-overlay text-[11px] mb-2">
+        <span className="flex justify-center items-center w-6 h-6 rounded-full border border-(--dim-grey)/50 bg-carbon-overlay text-[11px] xs:text-[14px] mb-2">
           01
         </span>
-        <span className="text-[11px] text-foreground/80">Leg day</span>
+        <span className="text-[11px] xs:text-[14px] text-foreground/80">
+          Leg day
+        </span>
       </div>
 
       {/* without schedule */}
       <div className="w-full col-span-1 mx-auto flex justify-center items-center border border-(--dim-grey)/50 p-2 rounded-md inset-shadow-sm/20 flex-col">
         <strong className={textColor}>MON</strong>
         <hr className="border border-(--dim-grey) w-full mt-1 mb-2 " />
-        <span className="flex justify-center items-center w-6 h-6 rounded-full border border-(--dim-grey)/50 bg-carbon-overlay text-[11px] mb-2">
+        <span className="flex justify-center items-center w-6 h-6 rounded-full border border-(--dim-grey)/50 bg-carbon-overlay text-[11px] xs:text-[14px] mb-2">
           26
         </span>
-        <span className="text-[11px] text-foreground/80">Rest day</span>
+        <span className="text-[11px] xs:text-[14px] text-foreground/80">
+          Rest day
+        </span>
       </div>
 
       {/* with schedule */}
       <div className="w-full col-span-1 mx-auto flex justify-center items-center border border-(--dim-grey)/50 p-2 rounded-md inset-shadow-sm/20 flex-col">
         <strong className={textColor}>WED</strong>
         <hr className="border border-red-500 w-full mt-1 mb-2 " />
-        <span className="flex justify-center items-center w-6 h-6 rounded-full border border-(--dim-grey)/50 bg-carbon-overlay text-[11px] mb-2">
+        <span className="flex justify-center items-center w-6 h-6 rounded-full border border-(--dim-grey)/50 bg-carbon-overlay text-[11px] xs:text-[14px] mb-2">
           27
         </span>
-        <span className="text-[11px] text-foreground/80">Missed</span>
+        <span className="text-[11px] xs:text-[14px] text-foreground/80">
+          Missed
+        </span>
       </div>
 
       {/* done session */}
       <div className="w-full col-span-1 mx-auto flex justify-center items-center border border-(--dim-grey)/50 p-2 rounded-md inset-shadow-sm/20 flex-col">
         <strong className={textColor}>TUE</strong>
         <hr className="border border-green-500 w-full mt-1 mb-2 " />
-        <span className="flex justify-center items-center w-6 h-6 rounded-full border border-(--dim-grey)/50 bg-carbon-overlay text-[11px] mb-2">
+        <span className="flex justify-center items-center w-6 h-6 rounded-full border border-(--dim-grey)/50 bg-carbon-overlay text-[11px] xs:text-[14px] mb-2">
           <Check className="w-4 h-4" />
         </span>
-        <span className="text-[11px] text-foreground/80">Done</span>
+        <span className="text-[11px] xs:text-[14px] text-foreground/80">
+          Done
+        </span>
       </div>
 
       {/* with schedule */}
       <div className="w-full col-span-1 mx-auto flex justify-center items-center border-2 border-(--orange) p-2 rounded-md inset-shadow-sm/20 flex-col font-bold shadow-xl/20">
-        <strong className="text-carbon-black dark:text-off-white text-[11px] font-bold">
+        <strong className="text-carbon-black dark:text-off-white text-[11px] xs:text-[14px] font-bold">
           THU
         </strong>
         <hr className="border border-(--sunflower-gold) w-full mt-1 mb-2 " />
-        <span className="flex justify-center items-center w-6 h-6 rounded-full border border-(--orange)/70 bg-carbon-overlay text-[11px] mb-2">
+        <span className="flex justify-center items-center w-6 h-6 rounded-full border border-(--orange)/70 bg-carbon-overlay text-[11px] xs:text-[14px] mb-2">
           29
         </span>
-        <span className="text-[11px] text-foreground/80">Today</span>
+        <span className="text-[11px] xs:text-[14px] text-foreground/80">
+          Today
+        </span>
       </div>
 
       {/* with schedule */}
       <div className="w-full col-span-1 mx-auto flex justify-center items-center border border-(--dim-grey)/50 p-2 rounded-md inset-shadow-sm/20 flex-col">
         <strong className={textColor}>FRI</strong>
         <hr className="border border-(--sunflower-gold) w-full mt-1 mb-2 " />
-        <span className="flex justify-center items-center w-6 h-6 rounded-full border border-(--dim-grey)/50 bg-carbon-overlay text-[11px] mb-2">
+        <span className="flex justify-center items-center w-6 h-6 rounded-full border border-(--dim-grey)/50 bg-carbon-overlay text-[11px] xs:text-[14px] mb-2">
           30
         </span>
-        <span className="text-[11px] text-foreground/80">Next session</span>
+        <span className="text-[11px] xs:text-[14px] text-foreground/80">
+          Next session
+        </span>
       </div>
 
       {/* without schedule */}
       <div className="w-full col-span-1 mx-auto flex justify-center items-center border border-(--dim-grey)/50 p-2 rounded-md inset-shadow-sm/20 flex-col">
         <strong className={textColor}>SAT</strong>
         <hr className="border border-(--dim-grey) w-full mt-1 mb-2 " />
-        <span className="flex justify-center items-center w-6 h-6 rounded-full border border-(--dim-grey)/50 bg-carbon-overlay text-[11px] mb-2">
+        <span className="flex justify-center items-center w-6 h-6 rounded-full border border-(--dim-grey)/50 bg-carbon-overlay text-[11px] xs:text-[14px] mb-2">
           31
         </span>
-        <span className="text-[11px] text-foreground/80">Rest day</span>
+        <span className="text-[11px] xs:text-[14px] text-foreground/80">
+          Rest day
+        </span>
       </div>
     </div>
   );

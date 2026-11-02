@@ -11,7 +11,7 @@ export default function MembersStatus() {
         <div className="w-full flex justify-between mb-3 gap-3">
           <div className="flex flex-col">
             <div className="text-md">Worth a check-in</div>
-            <div className="text-[11px] font-light">
+            <div className="text-[11px] xs:text-[14px] font-light">
               A small nudge can help members get back into their routine.
             </div>
           </div>
@@ -20,7 +20,7 @@ export default function MembersStatus() {
             href="/directory"
             className="flex justify-end items-start gap-1"
           >
-            <span className="text-[11px] font-light">
+            <span className="text-[11px] xs:text-[14px] font-light">
               <span className="hidden md:block">Member directory</span>
               <span className="block md:hidden">Contact</span>
             </span>

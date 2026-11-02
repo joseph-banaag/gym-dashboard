@@ -28,7 +28,7 @@ export default function NavRoutes() {
             )}
           >
             <LinkIcon className="w-4 h-4" />
-            <span className="text-[11px]">{link.name}</span>
+            <span className="text-[11px] xs:text-[14px]">{link.name}</span>
           </Link>
         );
       })}
