@@ -16,7 +16,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <Sidenav />
       </div>
       <section className="flex-1 py-5 px-10 lg:ml-40 xl:ml-45">
-        <div className="sticky top-5 left-0 p-2 rounded-lg backdrop-blur-xs flex justify-between items-center text-carbon-black/80 dark:text-off-white/80 mb-5 inset-shadow-xs inset-shadow-carbon-black/30 shadow-lg/20">
+        <div className="sticky top-5 left-0 z-999999 p-2 rounded-lg backdrop-blur-xs flex justify-between items-center text-carbon-black/80 dark:text-off-white/80 mb-5 inset-shadow-xs inset-shadow-carbon-black/30 shadow-lg/20">
           <div className="flex gap-2">
             <MapPin className="w-4 h-4 text-()" />
             <span className="text-[11px] xs:text-[14px] flex gap-1">

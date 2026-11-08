@@ -1,3 +1,11 @@
+CURRENT:
+TODO:
+
+
+
+
+
+NOTE:
 TODO:
     - for the start workout. create a separate page that will display the current workout and the process and then a link going back to the main dashboard
 

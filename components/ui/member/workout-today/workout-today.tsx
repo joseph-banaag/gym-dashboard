@@ -2,6 +2,7 @@ import { Calendar, ChevronRight, MoveRight, Whistle } from "lucide-react";
 import Link from "next/link";
 import { getMember } from "@/lib/dals/member";
 import { jetbrainsMono, textColor } from "@/lib/text-helper";
+import Ring from "@/components/ui/member/ring";
 
 const workoutToday: string = "Upper body strength";
 const workoutLength: string = "45 minutes";
@@ -21,11 +22,7 @@ export default async function WorkoutToday() {
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-3">
       <div className="relative col-span-1 lg:col-span-3 border border-(--dim-grey)/50 p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/10 overflow-hidden">
         {/* RING */}
-        <span className="absolute w-54 h-54 rounded-full bottom-0 right-0 translate-y-31 translate-x-15 bg-(--deep-crimson)/70  inset-shadow-sm/20 inset-shadow-slate-500 -z-20">
-          <span className="absolute w-74 h-74 border rounded-full bottom-0 right-0 translate-y-10 translate-x-10 bg-(--deep-crimson)/30 border-(--dim-grey)/30 -z-20">
-            <span className="absolute w-94 h-94 border rounded-full bottom-0 right-0 translate-y-10 translate-x-10 border-(--dim-grey)/30 -z-20" />
-          </span>
-        </span>
+        <Ring />
         {/* main */}
         <div className="flex flex-col gap-5 z-100">
           <div className="flex flex-col">

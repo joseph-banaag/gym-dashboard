@@ -3,8 +3,11 @@ import { getSession } from "@/lib/sessions/member-session";
 import { Metadata } from "next";
 import { jetbrainsMono, textColor } from "@/lib/text-helper";
 import { MoveRight } from "lucide-react";
-import ProgramProgress from "@/components/ui/member/workout-overview/program-progress";
+import ProgramProgress from "@/components/ui/member/workout-plans/program-progress";
 import { getMember } from "@/lib/dals/member";
+import WorkoutPlansCompleted from "@/components/ui/member/workout-plans/workout-plans-completed";
+import Ring from "@/components/ui/member/ring";
+import SessionCounter from "@/components/ui/member/workout-plans/session-counter";
 
 export async function generateMetadata(): Promise<Metadata> {
   const member = await getMember();
@@ -43,10 +46,11 @@ export default async function Page() {
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-3">
         {/* element 0 */}
-        <div className="col-span-1 lg:col-span-3 border border-(--dim-grey)/50 p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/10 overflow-hidden flex justify-between flex-col gap-2">
+        <div className="relative col-span-1 lg:col-span-3 border border-(--dim-grey)/50 p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/10 overflow-hidden flex justify-between flex-col gap-2">
+          <Ring />
           <div className="flex justify-between">
             <div>
-              <span className={`${textColor} gap-1 flex items-center`}>
+              <span className="text-[11px] xs:text-[14px] text-(--harvest-gold) gap-1 flex items-center">
                 <span className="border-4 rounded-full border-green-500" />
                 ACTIVE PROGRAM
               </span>
@@ -63,16 +67,22 @@ export default async function Page() {
             <h1 className={`${jetbrainsMono.className} text-3xl font-bold`}>
               {programName}
             </h1>
-            <span className={`${textColor}`}>
+            <span className="text-[11px] xs:text-[14px] text-(--sunflower-gold)">
               A balanced program focused on progressive strength and consistency
             </span>
           </div>
-          <ProgramProgress />
+          <div className="relative flex flex-col gap-2">
+            <ProgramProgress program={cwProgram} target={cwTarget} />
+            <div className="absolute right-0 top-0">
+              <WorkoutPlansCompleted program={cwProgram} target={cwTarget} />
+            </div>
+          </div>
+          <SessionCounter />
         </div>
 
         {/* element 1 */}
         <div className="col-span-1 lg:col-span-2 border border-(--dim-grey)/50 p-3 inset-shadow-sm/20 rounded-xl inset-shadow-slate-500 shadow-xl/10 flex flex-col justify-between">
-          asdfasdf
+          this is the element on the left
         </div>
       </div>
     </main>
