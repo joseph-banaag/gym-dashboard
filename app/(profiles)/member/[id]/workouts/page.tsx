@@ -22,6 +22,8 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const cwProgram = 1;
 const cwTarget = 8;
+const currentSession = 3;
+const targetSession = 32;
 const programName = "Strength and conditioning";
 
 export default async function Page() {
@@ -72,12 +74,18 @@ export default async function Page() {
             </span>
           </div>
           <div className="relative flex flex-col gap-2">
-            <ProgramProgress program={cwProgram} target={cwTarget} />
+            <ProgramProgress
+              currentSession={currentSession}
+              targetSession={targetSession}
+            />
             <div className="absolute right-0 top-0">
               <WorkoutPlansCompleted program={cwProgram} target={cwTarget} />
             </div>
           </div>
-          <SessionCounter />
+          <SessionCounter
+            currentSession={currentSession}
+            targetSession={targetSession}
+          />
         </div>
 
         {/* element 1 */}

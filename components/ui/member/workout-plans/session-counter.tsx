@@ -1,11 +1,20 @@
 import { jetbrainsMono, textColor } from "@/lib/text-helper";
 
-export default function SessionCounter() {
+interface ProgramProps {
+  currentSession: number;
+  targetSession: number;
+}
+
+export default function SessionCounter({
+  currentSession,
+  targetSession,
+}: ProgramProps) {
   return (
     <div className="flex justify-between">
       <div className="flex flex-col sm:flex-row gap-1">
         <span className={textColor}>
-          12 of 24 workouts complete <span>·</span>
+          {currentSession} of <strong>{targetSession}</strong> workouts complete{" "}
+          <span>·</span>
         </span>
 
         <span className={textColor}>Goal: Build strength</span>

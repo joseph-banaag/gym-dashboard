@@ -1,5 +1,10 @@
-import { ProgramProps } from "@/components/ui/member/workout-plans/program-progress";
 import { BicepsFlexed } from "lucide-react";
+
+export interface ProgramProps {
+  program: number;
+  target: number;
+}
+
 export default function WorkoutPlansCompleted({
   program,
   target,
